@@ -224,7 +224,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <div class="nav-pills">
  <a class="nav-pill" href="#habitaciones">Habitaciones</a>
  <a class="nav-pill" href="#ubicacion">Ubicación</a>
- <a class="nav-pill" href="#contacto">Reservar</a>
+ <a class="nav-pill" href="reservas.html">Reservar</a>
  </div>
 </nav>
 
@@ -239,10 +239,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <h1 class="hero-title">San Jerónimo<br/>Suites</h1>
  <p class="hero-subtitle">Alojamiento en la mejor ubicación de San Jerónimo. A la altura de una estancia exigente.</p>
  <div class="hero-cta">
- <a class="btn-wa" href="#contacto">
- <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
- Reservar por WhatsApp
- </a>
+ <a class="btn-wa" href="reservas.html">Reservar ahora</a>
  <a class="btn-outline-white" href="#habitaciones">Ver habitaciones</a>
  </div>
  </div>
@@ -518,49 +515,6 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section fade-up" id="contacto">
- <div class="container">
- <p class="eyebrow">Contacto</p>
- <h2 class="contact-title">¿Listo para<br/>reservar?</h2>
- <p class="contact-sub">Completa el formulario y te enviaremos directamente a WhatsApp con tu información lista.</p>
- <div class="contact-layout">
- <div class="contact-info">
- <div class="contact-info-item"><label>WhatsApp</label><p>81 3552 7990</p></div>
- <div class="contact-info-item"><label>Ubicación</label><p>Col. San Jerónimo<br/>Monterrey, N.L.</p></div>
- <div class="contact-info-item"><label>Check-in / Check-out</label><p>3:00 pm / 11:00 am</p></div>
- <div class="contact-info-item"><label>Atención</label><p>24/7 disponible</p></div>
- </div>
- <div class="contact-form">
- <div class="form-row">
- <div class="fg"><label>Nombre completo</label><input type="text" id="f_nombre" placeholder="Tu nombre"/></div>
- <div class="fg"><label>Correo electrónico</label><input type="email" id="f_email" placeholder="correo@ejemplo.com"/></div>
- </div>
- <div class="form-row">
- <div class="fg"><label>Teléfono</label><input type="tel" id="f_tel" placeholder="81 0000 0000"/></div>
- <div class="fg"><label>Tipo de habitación</label>
- <select id="f_tipo"><option value="">Seleccionar...</option><option>Matrimonial</option><option>King Size</option><option>Sin preferencia</option></select>
- </div>
- </div>
- <div class="form-row">
- <div class="fg"><label>Fecha de llegada</label><input type="date" id="f_llegada"/></div>
- <div class="fg"><label>Fecha de salida</label><input type="date" id="f_salida"/></div>
- </div>
- <div class="form-row">
- <div class="fg"><label>Número de huéspedes</label>
- <select id="f_huespedes"><option value="1">1 persona</option><option value="2">2 personas</option></select>
- </div>
- <div class="fg"><label>Mensaje adicional (opcional)</label><input type="text" id="f_msg" placeholder="Alguna solicitud especial..."/></div>
- </div>
- <button class="btn-whatsapp" onclick="sendWA()">
- <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
- Enviar por WhatsApp
- </button>
- <p class="wa-note">Al hacer clic se abrirá WhatsApp con tu solicitud ya redactada.</p>
- </div>
- </div>
- </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -577,7 +531,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <li><a href="#ubicacion">Ubicación</a></li>
  <li><a href="#resenas">Reseñas</a></li>
  <li><a href="#preguntas">FAQ</a></li>
- <li><a href="#contacto">Contacto</a></li>
+ <li><a href="reservas.html">Reservar</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -624,31 +578,7 @@ function toggleFaq(btn){
  if(!isOpen){a.classList.add('open'); icon.textContent='−';}
 }
 
-// WhatsApp form
-function sendWA(){
- const n = document.getElementById('f_nombre').value;
- const e = document.getElementById('f_email').value;
- const t = document.getElementById('f_tel').value;
- const tipo = document.getElementById('f_tipo').value;
- const ll = document.getElementById('f_llegada').value;
- const sal = document.getElementById('f_salida').value;
- const hu = document.getElementById('f_huespedes').value;
- const msg = document.getElementById('f_msg').value;
- if(!n||!ll||!sal){alert('Por favor completa al menos nombre, fecha de llegada y salida.'); return;}
- const txt = `Hola San Jerónimo Suites, me gustaría hacer una reservación:
 
- *Nombre:* ${n}
- *Email:* ${e||'No especificado'}
- *Teléfono:* ${t||'No especificado'}
- *Habitación:* ${tipo||'Sin preferencia'}
- *Llegada:* ${ll}
- *Salida:* ${sal}
- *Huéspedes:* ${hu}
- *Mensaje:* ${msg||'Ninguno'}
-
-Quedo en espera de su respuesta. ¡Gracias!`;
- window.open('https://wa.me/528135527990?text='+encodeURIComponent(txt),'_blank');
-}
 
 // Scroll animations
 const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.08});
