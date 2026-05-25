@@ -205,6 +205,26 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 .footer-col ul li a:hover{color:white;}
 .footer-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.25);}
 
+/* BOOKING MODAL */
+.booking-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.booking-overlay.open{display:flex;}
+.booking-modal{background:white;border-radius:20px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.4);}
+.booking-modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.booking-modal-title{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--black);}
+.booking-modal-sub{font-size:13px;color:var(--gray);margin-top:2px;}
+.booking-modal-close{width:36px;height:36px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .2s;flex-shrink:0;}
+.booking-modal-close:hover{background:var(--black);color:white;}
+.booking-modal-body{flex:1;overflow:hidden;min-height:520px;position:relative;}
+.booking-modal-body iframe{width:100%;height:100%;border:none;display:block;}
+.booking-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:white;}
+.booking-loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--black);border-radius:50%;animation:spin .8s linear infinite;}
+.booking-loading p{font-size:14px;color:var(--gray);}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:768px){
+  .booking-modal{max-height:95vh;border-radius:16px;}
+  .booking-modal-body{min-height:420px;}
+}
+
 /* ANIM */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
@@ -259,7 +279,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <h1 class="hero-title">San Jerónimo<br/>Suites</h1>
  <p class="hero-subtitle">Alojamiento en la mejor ubicación de San Jerónimo. A la altura de una estancia exigente.</p>
  <div class="hero-cta">
- <a class="btn-wa" href="reservas.html">Reservar ahora</a>
+ <a class="btn-wa" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
  <a class="btn-outline-white" href="#habitaciones">Ver habitaciones</a>
  </div>
  </div>
@@ -325,7 +345,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <span class="room-tag"> Café incluido</span>
  <span class="room-tag"> Home office</span>
  </div>
- <a href="reservas.html" target="_blank" style="margin-top:24px;width:100%;padding:16px 20px;background:var(--black);color:white;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:space-between;transition:all .2s;letter-spacing:-.2px;text-decoration:none;" onmouseover="this.style.background='#333';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--black)';this.style.transform='none'">
+ <a href="#" onclick="openBooking(); return false;" style="margin-top:24px;width:100%;padding:16px 20px;background:var(--black);color:white;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:space-between;transition:all .2s;letter-spacing:-.2px;text-decoration:none;" onmouseover="this.style.background='#333';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--black)';this.style.transform='none'">
    <span>Verificar disponibilidad</span>
    <span style="display:flex;align-items:center;gap:6px;font-size:13px;opacity:.7;font-weight:400;">Matrimonial <span style="font-size:18px;opacity:1;">→</span></span>
  </a>
@@ -345,7 +365,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <span class="room-tag"> Luz natural</span>
  <span class="room-tag"> Chapa digital</span>
  </div>
- <a href="reservas.html" target="_blank" style="margin-top:24px;width:100%;padding:16px 20px;background:var(--black);color:white;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:space-between;transition:all .2s;letter-spacing:-.2px;text-decoration:none;" onmouseover="this.style.background='#333';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--black)';this.style.transform='none'">
+ <a href="#" onclick="openBooking(); return false;" style="margin-top:24px;width:100%;padding:16px 20px;background:var(--black);color:white;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:space-between;transition:all .2s;letter-spacing:-.2px;text-decoration:none;" onmouseover="this.style.background='#333';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--black)';this.style.transform='none'">
    <span>Verificar disponibilidad</span>
    <span style="display:flex;align-items:center;gap:6px;font-size:13px;opacity:.7;font-weight:400;">King Size <span style="font-size:18px;opacity:1;">→</span></span>
  </a>
@@ -536,6 +556,32 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 </section>
 
 
+<!-- BOOKING MODAL -->
+<div class="booking-overlay" id="bookingOverlay">
+  <div class="booking-modal">
+    <div class="booking-modal-header">
+      <div>
+        <div class="booking-modal-title">Reservar suite</div>
+        <div class="booking-modal-sub">Selecciona tus fechas y completa tu reservación de forma segura</div>
+      </div>
+      <button class="booking-modal-close" onclick="closeBooking()">×</button>
+    </div>
+    <div class="booking-modal-body">
+      <div class="booking-loading" id="bookingLoading">
+        <div class="booking-loading-spinner"></div>
+        <p>Cargando disponibilidad...</p>
+      </div>
+      <iframe
+        id="bookingFrame"
+        src=""
+        onload="document.getElementById('bookingLoading').style.display='none'"
+        allowpaymentrequest
+        allow="payment">
+      </iframe>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
  <div class="container">
@@ -573,9 +619,42 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 </footer>
 
 <script>
+// ── BOOKING ENGINE ──────────────────────────────────────────
+const CHANNEL_CODE = 'TU_CHANNEL_CODE'; // ← Reemplaza con el channel code que te dé Christian
+const BOOKING_BASE = `https://direct-book.com/properties/${CHANNEL_CODE}`;
+
+function openBooking() {
+  const overlay = document.getElementById('bookingOverlay');
+  const frame = document.getElementById('bookingFrame');
+  const loading = document.getElementById('bookingLoading');
+  loading.style.display = 'flex';
+  frame.src = BOOKING_BASE + '?locale=es&currency=MXN';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBooking() {
+  const overlay = document.getElementById('bookingOverlay');
+  const frame = document.getElementById('bookingFrame');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { frame.src = ''; }, 300);
+}
+
+document.getElementById('bookingOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeBooking();
+});
+// ────────────────────────────────────────────────────────────
+
 // Nav scroll
 window.addEventListener('scroll',()=>{
  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('bookingOverlay').classList.contains('open')) {
+    closeBooking();
+  }
 });
 
 // Reservar habitación específica
