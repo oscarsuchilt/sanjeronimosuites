@@ -117,6 +117,26 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   .lb-prev{left:8px;}
   .lb-next{right:8px;}
 }
+/* BOOKING MODAL */
+.booking-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.booking-overlay.open{display:flex;}
+.booking-modal{background:white;border-radius:20px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.4);}
+.booking-modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.booking-modal-title{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--black);}
+.booking-modal-sub{font-size:13px;color:var(--gray);margin-top:2px;}
+.booking-modal-close{width:36px;height:36px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .2s;flex-shrink:0;}
+.booking-modal-close:hover{background:var(--black);color:white;}
+.booking-modal-body{flex:1;overflow:hidden;min-height:500px;position:relative;}
+.booking-modal-body iframe{width:100%;height:100%;border:none;display:block;}
+.booking-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:white;}
+.booking-loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--black);border-radius:50%;animation:spin .8s linear infinite;}
+.booking-loading p{font-size:14px;color:var(--gray);}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:768px){
+  .booking-modal{max-height:95vh;border-radius:16px;}
+  .booking-modal-body{min-height:420px;}
+}
+
 @media(max-width:768px){.carousel{aspect-ratio:16/9;}}@media(max-width:480px){
   .suite-name{font-size:20px;}
   .suite-body{padding:14px 16px 18px;}
@@ -141,7 +161,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 <div class="page-hero">
   <p class="page-eyebrow">Reservaciones</p>
   <h1 class="page-title">Elige tu suite</h1>
-  <p class="page-sub">26 suites privadas en la colonia San Jerónimo. Selecciona la que prefieres y contáctanos por WhatsApp.</p>
+  <p class="page-sub">26 suites privadas en la colonia San Jerónimo. Selecciona la que prefieres y reserva en línea de forma segura.</p>
 </div>
 
 <div class="filters">
@@ -178,7 +198,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+101*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -205,7 +225,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+102*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -232,7 +252,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+103*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -259,7 +279,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+104*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -286,7 +306,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+105*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -313,7 +333,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+106*+(Matrimonial).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -340,7 +360,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+201*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -367,7 +387,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+202*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -394,7 +414,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+203*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -421,7 +441,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+204*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -448,7 +468,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+205*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -475,7 +495,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+206*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -502,7 +522,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+207*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -529,7 +549,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+208*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -556,7 +576,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+209*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -583,7 +603,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+210*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -610,7 +630,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+301*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -637,7 +657,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+302*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -664,7 +684,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+303*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -691,7 +711,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+304*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -718,7 +738,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+305*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -745,7 +765,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+306*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -772,7 +792,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+307*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -799,7 +819,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+308*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -826,7 +846,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+309*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -853,7 +873,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
     </div>
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <a class="btn-reservar" href="https://wa.me/528135527990?text=Hola%2C+me+interesa+reservar+la+*Suite+310*+(King Size).+%C2%BFPodr%C3%ADan+indicarme+disponibilidad+y+precio%3F" target="_blank">Reservar ahora</a>
+      <a class="btn-reservar" href="#" onclick="openBooking(); return false;">Reservar ahora</a>
     </div>
   </div>
 </div>
@@ -904,6 +924,32 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   </div>
 </div>
 
+<!-- BOOKING MODAL -->
+<div class="booking-overlay" id="bookingOverlay">
+  <div class="booking-modal">
+    <div class="booking-modal-header">
+      <div>
+        <div class="booking-modal-title">Reservar suite</div>
+        <div class="booking-modal-sub">Selecciona tus fechas y completa tu reservación de forma segura</div>
+      </div>
+      <button class="booking-modal-close" onclick="closeBooking()">×</button>
+    </div>
+    <div class="booking-modal-body">
+      <div class="booking-loading" id="bookingLoading">
+        <div class="booking-loading-spinner"></div>
+        <p>Cargando disponibilidad...</p>
+      </div>
+      <iframe
+        id="bookingFrame"
+        src=""
+        onload="document.getElementById('bookingLoading').style.display='none'"
+        allowpaymentrequest
+        allow="payment">
+      </iframe>
+    </div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">×</button>
@@ -914,6 +960,40 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 </div>
 
 <script>
+// ── BOOKING ENGINE ──────────────────────────────────────────
+const CHANNEL_CODE = 'TU_CHANNEL_CODE'; // ← Reemplaza con el channel code que te dé Christian
+const BOOKING_BASE = `https://direct-book.com/properties/${CHANNEL_CODE}`;
+
+function openBooking() {
+  const overlay = document.getElementById('bookingOverlay');
+  const frame = document.getElementById('bookingFrame');
+  const loading = document.getElementById('bookingLoading');
+  loading.style.display = 'flex';
+  frame.src = BOOKING_BASE + '?locale=es&currency=MXN';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBooking() {
+  const overlay = document.getElementById('bookingOverlay');
+  const frame = document.getElementById('bookingFrame');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset iframe para liberar memoria
+  setTimeout(() => { frame.src = ''; }, 300);
+}
+
+document.getElementById('bookingOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeBooking();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('bookingOverlay').classList.contains('open')) {
+    closeBooking();
+  }
+});
+// ────────────────────────────────────────────────────────────
+
 const carState = {};
 let lbUrls = [], lbIdx = 0;
 
