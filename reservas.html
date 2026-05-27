@@ -137,7 +137,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   .booking-modal-body{min-height:420px;}
 }
 
-@media(max-width:768px){.carousel{aspect-ratio:16/9;}}@media(max-width:480px){
+@media(max-width:768px){.carousel{aspect-ratio:4/3;}}
+@media(max-width:480px){
   .suite-name{font-size:20px;}
   .suite-body{padding:14px 16px 18px;}
   .filters{gap:6px;}
@@ -175,8 +176,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .fab-wa svg{width:28px;height:28px;fill:white;}
 .fab-wa-disabled{background:#bbb!important;box-shadow:0 4px 12px rgba(0,0,0,.15)!important;cursor:not-allowed!important;}
 @media(max-width:768px){
-  .btn-group{width:100%;}
-  .btn-reservar,.btn-wa-card,.btn-call-card{flex:1;text-align:center;justify-content:center;}
+  .btn-group{width:100%;display:grid;grid-template-columns:56px 1fr 1fr;gap:7px;}
+  .btn-wa-card{justify-content:center;}
+  .btn-call-card{justify-content:center;}
+  .btn-reservar{text-align:center;justify-content:center;}
+  .suites-grid{padding-bottom:100px;}
+  .carr-btn,.expand-btn{opacity:1 !important;}
 }
 </style>
 </head>
