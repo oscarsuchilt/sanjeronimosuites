@@ -298,6 +298,18 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  .form-row{grid-template-columns:1fr;}
  .reviews-header{flex-direction:column;align-items:flex-start;gap:16px;}
 }
+
+/* INST LIGHTBOX */
+.inst-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:1000;align-items:center;justify-content:center;flex-direction:column;}
+.inst-lightbox.open{display:flex;}
+.inst-lb-img{max-width:95vw;max-height:85vh;object-fit:contain;border-radius:4px;user-select:none;}
+.inst-lb-close{position:absolute;top:16px;right:20px;background:none;border:none;color:white;font-size:32px;cursor:pointer;line-height:1;z-index:10;}
+.inst-lb-prev,.inst-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:white;font-size:28px;cursor:pointer;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.inst-lb-prev{left:16px;}
+.inst-lb-next{right:16px;}
+.inst-lb-prev:hover,.inst-lb-next:hover{background:rgba(255,255,255,.3);}
+.inst-lb-counter{position:absolute;bottom:20px;color:rgba(255,255,255,.7);font-size:13px;font-family:var(--font-sans);}
+.inst-slide img{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -495,17 +507,17 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
     <p class="inst-label">Exteriores del edificio</p>
     <div class="inst-carousel wide" id="icar-ext">
      <div class="inst-slides" id="isl-ext">
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg" alt="Exterior 1"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg" alt="Exterior 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg" alt="Exterior 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg" alt="Exterior 4"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg" alt="Exterior 5"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg" alt="Exterior 6"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg" alt="Exterior 7"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg" alt="Exterior 8"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg" alt="Exterior 9"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg" alt="Exterior 10"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg" alt="Exterior 11"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg" onclick="openInstLightbox('icar-ext',0)" style="cursor:pointer;" alt="Exterior 1"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg" onclick="openInstLightbox('icar-ext',1)" style="cursor:pointer;" alt="Exterior 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg" onclick="openInstLightbox('icar-ext',2)" style="cursor:pointer;" alt="Exterior 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg" onclick="openInstLightbox('icar-ext',3)" style="cursor:pointer;" alt="Exterior 4"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg" onclick="openInstLightbox('icar-ext',4)" style="cursor:pointer;" alt="Exterior 5"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg" onclick="openInstLightbox('icar-ext',5)" style="cursor:pointer;" alt="Exterior 6"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg" onclick="openInstLightbox('icar-ext',6)" style="cursor:pointer;" alt="Exterior 7"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg" onclick="openInstLightbox('icar-ext',7)" style="cursor:pointer;" alt="Exterior 8"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg" onclick="openInstLightbox('icar-ext',8)" style="cursor:pointer;" alt="Exterior 9"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg" onclick="openInstLightbox('icar-ext',9)" style="cursor:pointer;" alt="Exterior 10"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg" onclick="openInstLightbox('icar-ext',10)" style="cursor:pointer;" alt="Exterior 11"/></div>
      </div>
      <button class="inst-carr-btn prev" onclick="moveInst('icar-ext',-1)">&#8249;</button>
      <button class="inst-carr-btn next" onclick="moveInst('icar-ext',1)">&#8250;</button>
@@ -521,29 +533,29 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
     <p class="inst-label">Planta baja, pasillos y elevador</p>
     <div class="inst-carousel wide" id="icar-pb">
      <div class="inst-slides" id="isl-pb">
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-1.jpeg" alt="Elevador"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-2.jpeg" alt="Elevador 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-3.jpeg" alt="Elevador 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-4.jpeg" alt="Elevador 4"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-5.jpeg" alt="Elevador 5"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-6.jpeg" alt="Elevador 6"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-1.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-2.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-3.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-4.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-5.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-6.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-7.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-8.jpeg" alt="Pasillo piso 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-1.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-2.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-3.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-4.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-5.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-6.jpeg" alt="Pasillo piso 3"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-1.jpeg" alt="Escaleras"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-2.jpeg" alt="Escaleras 2"/></div>
-      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-3.jpeg" alt="Escaleras 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-1.jpeg" onclick="openInstLightbox('icar-pb',0)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',11)" style="cursor:pointer;" alt="Elevador"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-2.jpeg" onclick="openInstLightbox('icar-pb',1)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',12)" style="cursor:pointer;" alt="Elevador 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-3.jpeg" onclick="openInstLightbox('icar-pb',2)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',13)" style="cursor:pointer;" alt="Elevador 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-4.jpeg" onclick="openInstLightbox('icar-pb',3)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',14)" style="cursor:pointer;" alt="Elevador 4"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-5.jpeg" onclick="openInstLightbox('icar-pb',4)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',15)" style="cursor:pointer;" alt="Elevador 5"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-6.jpeg" onclick="openInstLightbox('icar-pb',5)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',16)" style="cursor:pointer;" alt="Elevador 6"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-1.jpeg" onclick="openInstLightbox('icar-pb',6)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',17)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-2.jpeg" onclick="openInstLightbox('icar-pb',7)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',18)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-3.jpeg" onclick="openInstLightbox('icar-pb',8)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',19)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-4.jpeg" onclick="openInstLightbox('icar-pb',9)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',20)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-5.jpeg" onclick="openInstLightbox('icar-pb',10)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',21)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-6.jpeg" onclick="openInstLightbox('icar-pb',11)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',22)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-7.jpeg" onclick="openInstLightbox('icar-pb',12)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',23)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-8.jpeg" onclick="openInstLightbox('icar-pb',13)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',24)" style="cursor:pointer;" alt="Pasillo piso 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-1.jpeg" onclick="openInstLightbox('icar-pb',14)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',25)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-2.jpeg" onclick="openInstLightbox('icar-pb',15)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',26)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-3.jpeg" onclick="openInstLightbox('icar-pb',16)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',27)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-4.jpeg" onclick="openInstLightbox('icar-pb',17)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',28)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-5.jpeg" onclick="openInstLightbox('icar-pb',18)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',29)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-6.jpeg" onclick="openInstLightbox('icar-pb',19)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',30)" style="cursor:pointer;" alt="Pasillo piso 3"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-1.jpeg" onclick="openInstLightbox('icar-pb',20)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',31)" style="cursor:pointer;" alt="Escaleras"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-2.jpeg" onclick="openInstLightbox('icar-pb',21)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',32)" style="cursor:pointer;" alt="Escaleras 2"/></div>
+      <div class="inst-slide"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-3.jpeg" onclick="openInstLightbox('icar-pb',22)" style="cursor:pointer;" onclick="openInstLightbox('icar-ext',33)" style="cursor:pointer;" alt="Escaleras 3"/></div>
      </div>
      <button class="inst-carr-btn prev" onclick="moveInst('icar-pb',-1)">&#8249;</button>
      <button class="inst-carr-btn next" onclick="moveInst('icar-pb',1)">&#8250;</button>
@@ -703,6 +715,15 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 <a class="fab-wa" id="fabWa" href="#" onclick="return handleFabWa(event)" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- INST LIGHTBOX -->
+<div class="inst-lightbox" id="instLightbox">
+  <button class="inst-lb-close" onclick="closeInstLightbox()">&#10005;</button>
+  <img class="inst-lb-img" id="instLbImg" src="" alt=""/>
+  <button class="inst-lb-prev" onclick="navInstLightbox(-1)">&#8249;</button>
+  <button class="inst-lb-next" onclick="navInstLightbox(1)">&#8250;</button>
+  <div class="inst-lb-counter" id="instLbCounter"></div>
+</div>
 
 <!-- BOOKING MODAL -->
 <div class="booking-overlay" id="bookingOverlay">
@@ -905,6 +926,47 @@ function handleFabWa(e) {
 
 document.getElementById('hoursPopup').addEventListener('click', function(e) {
   if (e.target === this) this.classList.remove('open');
+});
+// ─────────────────────────────────────────────────────────────────────────────
+
+
+// ── INST LIGHTBOX ─────────────────────────────────────────────────────────────
+const instLbData = {
+  'icar-ext': Array.from({length:11},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-${i+1}.jpeg`),
+  'icar-pb': [
+    ...Array.from({length:6},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-${i+1}.jpeg`),
+    ...Array.from({length:8},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-${i+1}.jpeg`),
+    ...Array.from({length:6},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-${i+1}.jpeg`),
+    ...Array.from({length:3},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-${i+1}.jpeg`),
+  ]
+};
+let instLbCurrent = {id:'', idx:0};
+function openInstLightbox(id, idx) {
+  instLbCurrent = {id, idx};
+  const imgs = instLbData[id];
+  document.getElementById('instLbImg').src = imgs[idx];
+  document.getElementById('instLbCounter').textContent = (idx+1) + ' / ' + imgs.length;
+  document.getElementById('instLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInstLightbox() {
+  document.getElementById('instLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navInstLightbox(dir) {
+  const imgs = instLbData[instLbCurrent.id];
+  instLbCurrent.idx = (instLbCurrent.idx + dir + imgs.length) % imgs.length;
+  document.getElementById('instLbImg').src = imgs[instLbCurrent.idx];
+  document.getElementById('instLbCounter').textContent = (instLbCurrent.idx+1) + ' / ' + imgs.length;
+}
+document.getElementById('instLightbox').addEventListener('click', function(e){
+  if(e.target === this) closeInstLightbox();
+});
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('instLightbox').classList.contains('open')) return;
+  if(e.key==='ArrowRight') navInstLightbox(1);
+  if(e.key==='ArrowLeft') navInstLightbox(-1);
+  if(e.key==='Escape') closeInstLightbox();
 });
 // ─────────────────────────────────────────────────────────────────────────────
 
