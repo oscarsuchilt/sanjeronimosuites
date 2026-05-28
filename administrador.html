@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin · San Jerónimo Suites</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0d0d0d;--white:#fff;--cream:#f5f5f5;--gray:#6b6b6b;
+  --border:#e0e0e0;--accent:#0d0d0d;--danger:#e53e3e;--success:#38a169;
+  --font-serif:"Playfair Display",serif;--font-sans:"DM Sans",sans-serif;
+  --sidebar:260px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* ─── LOGIN ─── */
+#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--black);}
+.login-box{background:white;border-radius:20px;padding:48px 40px;width:100%;max-width:400px;box-shadow:0 32px 80px rgba(0,0,0,.4);}
+.login-logo{display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+.login-logo-box{width:40px;height:40px;background:var(--black);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:14px;font-weight:700;color:white;}
+.login-logo span{font-size:18px;font-weight:500;}
+.login-title{font-family:var(--font-serif);font-size:26px;font-weight:400;margin-bottom:6px;}
+.login-sub{font-size:13px;color:var(--gray);margin-bottom:28px;}
+.field-group{margin-bottom:16px;}
+.field-group label{display:block;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.field-group input{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:var(--font-sans);outline:none;transition:border-color .2s;}
+.field-group input:focus{border-color:var(--black);}
+.btn-login{width:100%;padding:13px;background:var(--black);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-sans);margin-top:8px;transition:background .2s;}
+.btn-login:hover{background:#333;}
+.login-err{color:var(--danger);font-size:13px;margin-top:10px;display:none;}
+
+/* ─── LAYOUT ─── */
+#app{display:none;min-height:100vh;}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar);background:var(--black);display:flex;flex-direction:column;z-index:100;overflow-y:auto;}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-logo-box{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:12px;font-weight:700;color:white;margin-right:8px;}
+.sb-brand{font-size:14px;font-weight:500;color:white;}
+.sb-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;padding-left:42px;}
+.sb-section{padding:16px 12px 8px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.6);transition:all .2s;margin-bottom:2px;}
+.sb-item:hover{background:rgba(255,255,255,.07);color:white;}
+.sb-item.active{background:rgba(255,255,255,.12);color:white;}
+.sb-icon{width:18px;height:18px;opacity:.7;flex-shrink:0;}
+.sb-logout{margin-top:auto;padding:16px 12px;}
+.btn-logout{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.4);background:none;border:none;font-family:var(--font-sans);width:100%;transition:all .2s;}
+.btn-logout:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);}
+
+.main{margin-left:var(--sidebar);min-height:100vh;}
+.topbar{background:white;border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.topbar-title{font-family:var(--font-serif);font-size:20px;font-weight:400;}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.topbar-badge{font-size:12px;color:var(--gray);background:var(--cream);padding:4px 10px;border-radius:20px;}
+.content{padding:32px;}
+
+/* ─── SUPABASE CONFIG BANNER ─── */
+.config-banner{background:#fffbeb;border:1px solid #f6d860;border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:flex-start;gap:12px;}
+.config-banner.hidden{display:none;}
+.config-banner-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.config-banner h4{font-size:14px;font-weight:600;margin-bottom:4px;}
+.config-banner p{font-size:13px;color:var(--gray);line-height:1.5;}
+.config-banner code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:12px;font-family:monospace;}
+.btn-config{margin-top:10px;padding:8px 16px;background:var(--black);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);}
+
+/* ─── STATS ─── */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+.stat-card{background:white;border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
+.stat-num{font-family:var(--font-serif);font-size:32px;font-weight:400;line-height:1;margin-bottom:4px;}
+.stat-label{font-size:12px;color:var(--gray);}
+
+/* ─── SUITE LIST ─── */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.section-title{font-family:var(--font-serif);font-size:22px;font-weight:400;}
+.btn-primary{padding:9px 18px;background:var(--black);color:white;border:none;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:background .2s;display:flex;align-items:center;gap:6px;}
+.btn-primary:hover{background:#333;}
+.filters-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.filter-chip{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:white;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.filter-chip:hover,.filter-chip.active{background:var(--black);color:white;border-color:var(--black);}
+.suites-table{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.table-row{display:grid;grid-template-columns:60px 1fr 90px 90px 60px 130px;align-items:center;padding:0 20px;border-bottom:1px solid var(--border);min-height:64px;gap:12px;}
+.table-row:last-child{border-bottom:none;}
+.table-header{background:var(--cream);font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);min-height:40px;}
+.suite-thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:var(--cream);}
+.suite-thumb-placeholder{width:44px;height:44px;border-radius:8px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:16px;}
+.suite-name-cell{font-size:14px;font-weight:500;}
+.suite-name-cell small{display:block;font-size:12px;color:var(--gray);font-weight:400;margin-top:1px;}
+.badge{padding:3px 9px;border-radius:12px;font-size:11px;font-weight:600;}
+.badge-king{background:#0d0d0d;color:white;}
+.badge-mat{background:#f0f0f0;color:#333;}
+.badge-piso{background:var(--cream);border:1px solid var(--border);color:var(--gray);}
+.row-actions{display:flex;gap:6px;}
+.btn-icon{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;}
+.btn-icon:hover{background:var(--cream);}
+.btn-icon.danger:hover{background:#fff0f0;border-color:#feb2b2;}
+.photos-count{font-size:12px;color:var(--gray);}
+
+/* ─── MODAL ─── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:flex-start;justify-content:center;padding:32px 20px;overflow-y:auto;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:white;border-radius:20px;width:100%;max-width:720px;box-shadow:0 32px 80px rgba(0,0,0,.3);margin:auto;}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border-bottom:1px solid var(--border);}
+.modal-title{font-family:var(--font-serif);font-size:20px;font-weight:400;}
+.modal-close{width:32px;height:32px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .2s;}
+.modal-close:hover{background:var(--black);color:white;}
+.modal-body{padding:28px;}
+.modal-footer{padding:16px 28px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:10px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.form-grid.full{grid-template-columns:1fr;}
+.form-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.form-field input,.form-field select,.form-field textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-size:14px;font-family:var(--font-sans);outline:none;transition:border-color .2s;background:white;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--black);}
+.form-field textarea{resize:vertical;min-height:80px;}
+.btn-secondary{padding:9px 18px;background:var(--cream);color:var(--black);border:1px solid var(--border);border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.btn-secondary:hover{background:#e8e8e8;}
+
+/* ─── PHOTOS EDITOR ─── */
+.photos-section{margin-top:8px;}
+.photos-section-title{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.photos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
+.photo-item{position:relative;aspect-ratio:1;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--cream);}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-item .photo-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .2s;display:flex;align-items:center;justify-content:center;gap:4px;}
+.photo-item:hover .photo-overlay{background:rgba(0,0,0,.55);}
+.photo-action{opacity:0;transition:opacity .2s;background:rgba(255,255,255,.9);border:none;border-radius:6px;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.photo-item:hover .photo-action{opacity:1;}
+.photo-action:hover{background:white;}
+.photo-action.del:hover{background:#fff0f0;}
+.photo-badge{position:absolute;top:5px;left:5px;background:rgba(0,0,0,.7);color:white;font-size:9px;padding:2px 6px;border-radius:8px;font-weight:600;}
+.photos-drop{border:2px dashed var(--border);border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--cream);}
+.photos-drop:hover,.photos-drop.drag-over{border-color:var(--black);background:#f0f0ee;}
+.photos-drop p{font-size:13px;color:var(--gray);margin-top:6px;}
+.photos-drop strong{color:var(--black);}
+.upload-progress{margin-top:8px;display:none;}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:6px;}
+.progress-fill{height:100%;background:var(--black);border-radius:2px;transition:width .3s;}
+
+/* ─── TAGS ─── */
+.tags-input-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px;border:1px solid var(--border);border-radius:9px;min-height:44px;cursor:text;transition:border-color .2s;}
+.tags-input-wrap:focus-within{border-color:var(--black);}
+.tag-chip{background:var(--black);color:white;padding:3px 8px;border-radius:12px;font-size:12px;display:flex;align-items:center;gap:4px;}
+.tag-chip button{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:14px;padding:0;line-height:1;display:flex;align-items:center;}
+.tag-chip button:hover{color:white;}
+.tags-input{border:none;outline:none;font-size:13px;font-family:var(--font-sans);flex:1;min-width:80px;}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--black);color:white;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:500;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.success{background:var(--success);}
+.toast.error{background:var(--danger);}
+
+/* ─── LOADING ─── */
+.spinner{width:20px;height:20px;border:2px solid rgba(0,0,0,.1);border-top-color:var(--black);border-radius:50%;animation:spin .6s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-overlay{position:absolute;inset:0;background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;border-radius:20px;}
+
+/* ─── CONFIG MODAL ─── */
+.config-fields{display:flex;flex-direction:column;gap:14px;}
+
+/* ─── EMPTY ─── */
+.empty-state{text-align:center;padding:48px 24px;color:var(--gray);}
+.empty-state p{font-size:14px;margin-top:8px;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  :root{--sidebar:0px;}
+  .sidebar{display:none;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .table-row{grid-template-columns:1fr auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-box">SJ</div>
+      <span>San Jerónimo Suites</span>
+    </div>
+    <h2 class="login-title">Panel de administración</h2>
+    <p class="login-sub">Acceso restringido. Ingresa tu contraseña.</p>
+    <div class="field-group">
+      <label>Contraseña</label>
+      <input type="password" id="pwdInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()">
+    </div>
+    <button class="btn-login" onclick="login()">Entrar</button>
+    <p class="login-err" id="loginErr">Contraseña incorrecta</p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div style="display:flex;align-items:center;">
+        <div class="sb-logo-box">SJ</div>
+        <span class="sb-brand">San Jerónimo</span>
+      </div>
+      <p class="sb-sub">Admin Panel</p>
+    </div>
+    <div class="sb-section">Gestión</div>
+    <div class="sb-item active" onclick="showSection('suites',this)">
+      <span style="font-size:16px;">🏠</span> Suites
+    </div>
+    <div class="sb-item" onclick="showSection('config',this)">
+      <span style="font-size:16px;">⚙️</span> Configuración
+    </div>
+    <div class="sb-logout">
+      <button class="btn-logout" onclick="logout()">
+        <span>↩</span> Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbarTitle">Suites</div>
+      <div class="topbar-right">
+        <span class="topbar-badge" id="topbarBadge">Cargando...</span>
+      </div>
+    </div>
+    <div class="content">
+
+      <!-- CONFIG BANNER -->
+      <div class="config-banner" id="configBanner">
+        <div class="config-banner-icon">⚠️</div>
+        <div>
+          <h4>Configura tu Supabase para empezar</h4>
+          <p>Este panel necesita tu <code>Project URL</code> y <code>anon key</code> de Supabase para leer y guardar datos. También necesitas crear la tabla <code>suites</code> y el bucket <code>fotos</code>.</p>
+          <button class="btn-config" onclick="openConfigModal()">Configurar ahora →</button>
+        </div>
+      </div>
+
+      <!-- SECTION: SUITES -->
+      <div id="sec-suites">
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card"><div class="stat-num" id="statTotal">–</div><div class="stat-label">Total suites</div></div>
+          <div class="stat-card"><div class="stat-num" id="statKing">–</div><div class="stat-label">King Size</div></div>
+          <div class="stat-card"><div class="stat-num" id="statMat">–</div><div class="stat-label">Matrimoniales</div></div>
+          <div class="stat-card"><div class="stat-num" id="statPhotos">–</div><div class="stat-label">Fotos totales</div></div>
+        </div>
+        <div class="section-header">
+          <h2 class="section-title">Todas las suites</h2>
+          <button class="btn-primary" onclick="openSuiteModal(null)">+ Nueva suite</button>
+        </div>
+        <div class="filters-row">
+          <button class="filter-chip active" onclick="filterTable('all',this)">Todas</button>
+          <button class="filter-chip" onclick="filterTable('piso1',this)">Piso 1</button>
+          <button class="filter-chip" onclick="filterTable('piso2',this)">Piso 2</button>
+          <button class="filter-chip" onclick="filterTable('piso3',this)">Piso 3</button>
+          <button class="filter-chip" onclick="filterTable('king',this)">King Size</button>
+          <button class="filter-chip" onclick="filterTable('matrimonial',this)">Matrimonial</button>
+        </div>
+        <div class="suites-table">
+          <div class="table-row table-header">
+            <div>Foto</div><div>Suite</div><div>Tipo</div><div>Piso</div><div>Fotos</div><div>Acciones</div>
+          </div>
+          <div id="tableBody">
+            <div class="empty-state"><div class="spinner"></div><p>Cargando suites...</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: CONFIG -->
+      <div id="sec-config" style="display:none;">
+        <h2 class="section-title" style="margin-bottom:24px;">Configuración de Supabase</h2>
+        <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:28px;max-width:560px;">
+          <div class="config-fields">
+            <div class="form-field">
+              <label>Project URL</label>
+              <input type="text" id="cfgUrl" placeholder="https://xxxx.supabase.co">
+            </div>
+            <div class="form-field">
+              <label>Anon Key</label>
+              <input type="text" id="cfgKey" placeholder="eyJh...">
+            </div>
+            <div class="form-field">
+              <label>Contraseña del admin</label>
+              <input type="password" id="cfgPwd" placeholder="Nueva contraseña">
+            </div>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px;">
+            <button class="btn-primary" onclick="saveConfig()">Guardar configuración</button>
+          </div>
+          <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);">
+            <h4 style="font-size:14px;font-weight:600;margin-bottom:12px;">SQL para crear la tabla en Supabase</h4>
+            <pre style="background:#f5f5f5;border-radius:8px;padding:14px;font-size:11px;overflow-x:auto;line-height:1.6;color:#333;">CREATE TABLE suites (
+  id TEXT PRIMARY KEY,
+  nombre TEXT NOT NULL,
+  tipo TEXT NOT NULL,
+  piso INTEGER NOT NULL,
+  descripcion TEXT,
+  tags TEXT[],
+  precio_noche INTEGER,
+  precio_semana INTEGER,
+  precio_mes INTEGER,
+  airbnb_url TEXT,
+  fotos TEXT[],
+  activa BOOLEAN DEFAULT true,
+  orden INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Storage bucket: crear "fotos" como público
+-- En Supabase → Storage → New bucket → "fotos" → Public</pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SUITE EDITOR -->
+<div class="modal-overlay" id="suiteModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Nueva suite</div>
+      <button class="modal-close" onclick="closeModal('suiteModal')">×</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Info básica -->
+      <div class="form-grid">
+        <div class="form-field">
+          <label>ID de suite</label>
+          <input type="text" id="fId" placeholder="101">
+        </div>
+        <div class="form-field">
+          <label>Nombre</label>
+          <input type="text" id="fNombre" placeholder="Suite 101">
+        </div>
+        <div class="form-field">
+          <label>Tipo</label>
+          <select id="fTipo">
+            <option value="matrimonial">Matrimonial</option>
+            <option value="king">King Size</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Piso</label>
+          <select id="fPiso">
+            <option value="1">Piso 1</option>
+            <option value="2">Piso 2</option>
+            <option value="3">Piso 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="form-field">
+          <label>Descripción</label>
+          <textarea id="fDesc" placeholder="Suite privada en piso 1..."></textarea>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Precio / noche (MXN)</label>
+          <input type="number" id="fPrecioN" placeholder="850">
+        </div>
+        <div class="form-field">
+          <label>Precio / semana (MXN)</label>
+          <input type="number" id="fPrecioS" placeholder="4500">
+        </div>
+        <div class="form-field">
+          <label>Precio / mes (MXN)</label>
+          <input type="number" id="fPrecioM" placeholder="12000">
+        </div>
+        <div class="form-field">
+          <label>Link Airbnb</label>
+          <input type="text" id="fAirbnb" placeholder="https://airbnb.mx/rooms/...">
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="form-field">
+          <label>Tags / amenidades</label>
+          <div class="tags-input-wrap" id="tagsWrap" onclick="document.getElementById('tagInput').focus()">
+            <input type="text" class="tags-input" id="tagInput" placeholder="Escribe y presiona Enter...">
+          </div>
+        </div>
+      </div>
+
+      <!-- FOTOS -->
+      <div class="photos-section">
+        <div class="photos-section-title">
+          <span>Fotos <span id="photoCount" style="color:var(--gray);font-weight:400;">(0)</span></span>
+          <span style="font-size:11px;color:var(--gray);font-weight:400;">Arrastra para reordenar</span>
+        </div>
+        <div class="photos-grid" id="photosGrid"></div>
+        <div class="photos-drop" id="photosDrop" onclick="document.getElementById('photoFileInput').click()"
+             ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleFileDrop(event)">
+          <div style="font-size:28px;">📷</div>
+          <p><strong>Subir fotos</strong> · arrastra o haz clic</p>
+          <p>JPG, PNG, WebP · máx. 5MB c/u</p>
+        </div>
+        <input type="file" id="photoFileInput" accept="image/*" multiple style="display:none" onchange="handleFileSelect(event)">
+        <div class="upload-progress" id="uploadProgress">
+          <p style="font-size:12px;color:var(--gray);" id="uploadStatus">Subiendo...</p>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('suiteModal')">Cancelar</button>
+      <button class="btn-primary" onclick="saveSuite()" id="btnSave">
+        <span id="btnSaveText">Guardar cambios</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: CONFIG -->
+<div class="modal-overlay" id="configModal">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header">
+      <div class="modal-title">Conectar Supabase</div>
+      <button class="modal-close" onclick="closeModal('configModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">Ingresa los datos de tu proyecto de Supabase. Los encontrarás en <strong>Settings → API</strong>.</p>
+      <div class="config-fields">
+        <div class="form-field">
+          <label>Project URL</label>
+          <input type="text" id="quickUrl" placeholder="https://xxxx.supabase.co">
+        </div>
+        <div class="form-field">
+          <label>Anon Key (public)</label>
+          <input type="text" id="quickKey" placeholder="eyJh...">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('configModal')">Cancelar</button>
+      <button class="btn-primary" onclick="quickSaveConfig()">Conectar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════
+// CONFIG & STATE
+// ══════════════════════════════════════════
+const ADMIN_PWD = localStorage.getItem('sj_pwd') || 'admin2024';
+let SUPABASE_URL = localStorage.getItem('sj_url') || '';
+let SUPABASE_KEY = localStorage.getItem('sj_key') || '';
+
+let suites = [];
+let editingId = null;
+let currentTags = [];
+let currentPhotos = []; // array de URLs
+let filterActive = 'all';
+
+// ── Datos iniciales (hardcoded del HTML actual para seed) ──
+const SEED_DATA = [
+  {id:'101',nombre:'Suite 101',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción'],airbnb_url:'https://www.airbnb.mx/rooms/1516959718028619169',fotos:Array.from({length:31},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-${i+1}.jpeg`),activa:true,orden:1},
+  {id:'102',nombre:'Suite 102',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1516962374049866555',fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-${i+1}.jpeg`),activa:true,orden:2},
+  {id:'105',nombre:'Suite 105',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1516967560226327727',fotos:Array.from({length:33},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-${i+1}.jpeg`),activa:true,orden:3},
+  {id:'106',nombre:'Suite 106',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1516969034730757916',fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-${i+1}.jpeg`),activa:true,orden:4},
+  {id:'201',nombre:'Suite 201',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1516956038704698234',fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-${i+1}.jpeg`),activa:true,orden:5},
+  {id:'202',nombre:'Suite 202',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office'],airbnb_url:'https://www.airbnb.mx/rooms/1516957745515565025',fotos:Array.from({length:19},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-${i+1}.jpeg`),activa:true,orden:6},
+  {id:'203',nombre:'Suite 203',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office'],airbnb_url:'https://www.airbnb.mx/rooms/1516958888901656219',fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-${i+1}.jpeg`),activa:true,orden:7},
+  {id:'305',nombre:'Suite 305',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1514041309378007152',fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-${i+1}.jpeg`),activa:true,orden:8},
+  {id:'306',nombre:'Suite 306',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital.',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital'],airbnb_url:'https://www.airbnb.mx/rooms/1514043567230789145',fotos:Array.from({length:32},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-${i+2}.jpeg`),activa:true,orden:9},
+];
+
+// ══════════════════════════════════════════
+// SUPABASE HELPERS
+// ══════════════════════════════════════════
+function sbHeaders(){return{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};}
+
+async function sbGet(table,query=''){
+  const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}&order=orden.asc,id.asc`,{headers:sbHeaders()});
+  if(!r.ok)throw new Error('Error al leer datos');
+  return r.json();
+}
+async function sbUpsert(table,data){
+  const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}`,{method:'POST',headers:{...sbHeaders(),'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(data)});
+  if(!r.ok){const e=await r.text();throw new Error(e);}
+  return r;
+}
+async function sbDelete(table,id){
+  const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`,{method:'DELETE',headers:sbHeaders()});
+  if(!r.ok)throw new Error('Error al eliminar');
+}
+async function sbUploadFile(bucket,path,file){
+  const r=await fetch(`${SUPABASE_URL}/storage/v1/object/${bucket}/${path}`,{
+    method:'POST',
+    headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':file.type,'Cache-Control':'3600','x-upsert':'true'},
+    body:file
+  });
+  if(!r.ok)throw new Error('Error al subir imagen');
+  return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`;
+}
+async function sbDeleteFile(bucket,path){
+  await fetch(`${SUPABASE_URL}/storage/v1/object/${bucket}/${path}`,{method:'DELETE',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}});
+}
+
+// ══════════════════════════════════════════
+// LOGIN
+// ══════════════════════════════════════════
+function login(){
+  const pwd=document.getElementById('pwdInput').value;
+  const stored=localStorage.getItem('sj_pwd')||'admin2024';
+  if(pwd===stored){
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('app').style.display='block';
+    init();
+  } else {
+    document.getElementById('loginErr').style.display='block';
+  }
+}
+function logout(){
+  document.getElementById('app').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('pwdInput').value='';
+}
+
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+async function init(){
+  checkConfig();
+  await loadSuites();
+}
+
+function checkConfig(){
+  const banner=document.getElementById('configBanner');
+  if(!SUPABASE_URL||!SUPABASE_KEY){
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
+}
+
+async function loadSuites(){
+  if(!SUPABASE_URL||!SUPABASE_KEY){
+    suites=SEED_DATA;
+    renderTable();
+    updateStats();
+    return;
+  }
+  try{
+    suites=await sbGet('suites');
+    if(suites.length===0){
+      // seed automático
+      await sbUpsert('suites',SEED_DATA);
+      suites=SEED_DATA;
+    }
+    renderTable();
+    updateStats();
+  }catch(e){
+    toast('Error conectando a Supabase. Verifica la config.','error');
+    suites=SEED_DATA;
+    renderTable();
+    updateStats();
+  }
+}
+
+// ══════════════════════════════════════════
+// RENDER TABLE
+// ══════════════════════════════════════════
+function renderTable(){
+  const body=document.getElementById('tableBody');
+  let filtered=suites;
+  if(filterActive==='piso1') filtered=suites.filter(s=>s.piso===1||s.piso==='1');
+  if(filterActive==='piso2') filtered=suites.filter(s=>s.piso===2||s.piso==='2');
+  if(filterActive==='piso3') filtered=suites.filter(s=>s.piso===3||s.piso==='3');
+  if(filterActive==='king') filtered=suites.filter(s=>s.tipo==='king');
+  if(filterActive==='matrimonial') filtered=suites.filter(s=>s.tipo==='matrimonial');
+
+  if(!filtered.length){
+    body.innerHTML='<div class="empty-state"><p>No hay suites que mostrar</p></div>';
+    return;
+  }
+  body.innerHTML=filtered.map(s=>`
+    <div class="table-row" id="row-${s.id}">
+      <div>${s.fotos&&s.fotos.length?`<img class="suite-thumb" src="${s.fotos[0]}" onerror="this.style.display='none'">`:'<div class="suite-thumb-placeholder">🏠</div>'}</div>
+      <div class="suite-name-cell">${s.nombre}<small>${(s.precio_mes?'$'+s.precio_mes.toLocaleString()+'/mes':'Sin precio')}</small></div>
+      <div><span class="badge ${s.tipo==='king'?'badge-king':'badge-mat'}">${s.tipo==='king'?'King Size':'Matrimonial'}</span></div>
+      <div><span class="badge badge-piso">Piso ${s.piso}</span></div>
+      <div class="photos-count">${s.fotos?s.fotos.length:0} fotos</div>
+      <div class="row-actions">
+        <button class="btn-icon" onclick="openSuiteModal('${s.id}')" title="Editar">✏️</button>
+        <button class="btn-icon" onclick="moveUp('${s.id}')" title="Subir">↑</button>
+        <button class="btn-icon" onclick="moveDown('${s.id}')" title="Bajar">↓</button>
+        <button class="btn-icon danger" onclick="deleteSuite('${s.id}')" title="Eliminar">🗑</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateStats(){
+  document.getElementById('statTotal').textContent=suites.length;
+  document.getElementById('statKing').textContent=suites.filter(s=>s.tipo==='king').length;
+  document.getElementById('statMat').textContent=suites.filter(s=>s.tipo==='matrimonial').length;
+  document.getElementById('statPhotos').textContent=suites.reduce((a,s)=>a+(s.fotos?s.fotos.length:0),0);
+  document.getElementById('topbarBadge').textContent=suites.length+' suites';
+}
+
+function filterTable(f,btn){
+  filterActive=f;
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+
+// ══════════════════════════════════════════
+// MOVE UP / DOWN
+// ══════════════════════════════════════════
+async function moveUp(id){
+  const idx=suites.findIndex(s=>s.id===id);
+  if(idx<=0)return;
+  [suites[idx-1],suites[idx]]=[suites[idx],suites[idx-1]];
+  reOrder();
+  renderTable();
+  if(SUPABASE_URL) await saveOrder();
+}
+async function moveDown(id){
+  const idx=suites.findIndex(s=>s.id===id);
+  if(idx>=suites.length-1)return;
+  [suites[idx],suites[idx+1]]=[suites[idx+1],suites[idx]];
+  reOrder();
+  renderTable();
+  if(SUPABASE_URL) await saveOrder();
+}
+function reOrder(){suites.forEach((s,i)=>s.orden=i+1);}
+async function saveOrder(){
+  for(const s of suites){
+    await sbUpsert('suites',{id:s.id,orden:s.orden});
+  }
+  toast('Orden guardado','success');
+}
+
+// ══════════════════════════════════════════
+// SUITE MODAL
+// ══════════════════════════════════════════
+function openSuiteModal(id){
+  editingId=id;
+  currentTags=[];
+  currentPhotos=[];
+  document.getElementById('modalTitle').textContent=id?'Editar suite':'Nueva suite';
+  document.getElementById('btnSaveText').textContent=id?'Guardar cambios':'Crear suite';
+
+  if(id){
+    const s=suites.find(x=>x.id===id);
+    document.getElementById('fId').value=s.id;
+    document.getElementById('fId').disabled=true;
+    document.getElementById('fNombre').value=s.nombre||'';
+    document.getElementById('fTipo').value=s.tipo||'matrimonial';
+    document.getElementById('fPiso').value=s.piso||1;
+    document.getElementById('fDesc').value=s.descripcion||'';
+    document.getElementById('fPrecioN').value=s.precio_noche||'';
+    document.getElementById('fPrecioS').value=s.precio_semana||'';
+    document.getElementById('fPrecioM').value=s.precio_mes||'';
+    document.getElementById('fAirbnb').value=s.airbnb_url||'';
+    currentTags=[...(s.tags||[])];
+    currentPhotos=[...(s.fotos||[])];
+  } else {
+    document.getElementById('fId').value='';
+    document.getElementById('fId').disabled=false;
+    document.getElementById('fNombre').value='';
+    document.getElementById('fTipo').value='matrimonial';
+    document.getElementById('fPiso').value=1;
+    document.getElementById('fDesc').value='';
+    document.getElementById('fPrecioN').value='';
+    document.getElementById('fPrecioS').value='';
+    document.getElementById('fPrecioM').value='';
+    document.getElementById('fAirbnb').value='';
+  }
+  renderTags();
+  renderPhotos();
+  document.getElementById('suiteModal').classList.add('open');
+}
+
+async function saveSuite(){
+  const id=(document.getElementById('fId').value||'').trim();
+  if(!id){toast('Ingresa el ID de la suite','error');return;}
+  const data={
+    id,
+    nombre:document.getElementById('fNombre').value,
+    tipo:document.getElementById('fTipo').value,
+    piso:parseInt(document.getElementById('fPiso').value),
+    descripcion:document.getElementById('fDesc').value,
+    tags:currentTags,
+    precio_noche:parseInt(document.getElementById('fPrecioN').value)||null,
+    precio_semana:parseInt(document.getElementById('fPrecioS').value)||null,
+    precio_mes:parseInt(document.getElementById('fPrecioM').value)||null,
+    airbnb_url:document.getElementById('fAirbnb').value,
+    fotos:currentPhotos,
+    activa:true,
+    orden:editingId?suites.find(s=>s.id===editingId)?.orden||99:suites.length+1
+  };
+
+  if(SUPABASE_URL&&SUPABASE_KEY){
+    try{
+      document.getElementById('btnSaveText').textContent='Guardando...';
+      await sbUpsert('suites',data);
+    }catch(e){
+      toast('Error al guardar: '+e.message,'error');
+      document.getElementById('btnSaveText').textContent='Guardar cambios';
+      return;
+    }
+  }
+
+  // update local
+  const idx=suites.findIndex(s=>s.id===id);
+  if(idx>=0) suites[idx]=data; else suites.push(data);
+  renderTable();
+  updateStats();
+  closeModal('suiteModal');
+  toast('Suite guardada correctamente','success');
+}
+
+async function deleteSuite(id){
+  if(!confirm(`¿Eliminar Suite ${id}? Esta acción no se puede deshacer.`))return;
+  if(SUPABASE_URL&&SUPABASE_KEY){
+    try{await sbDelete('suites',id);}catch(e){toast('Error al eliminar','error');return;}
+  }
+  suites=suites.filter(s=>s.id!==id);
+  renderTable();
+  updateStats();
+  toast('Suite eliminada','success');
+}
+
+// ══════════════════════════════════════════
+// TAGS
+// ══════════════════════════════════════════
+function renderTags(){
+  const wrap=document.getElementById('tagsWrap');
+  const input=document.getElementById('tagInput');
+  wrap.querySelectorAll('.tag-chip').forEach(c=>c.remove());
+  currentTags.forEach(tag=>{
+    const chip=document.createElement('div');
+    chip.className='tag-chip';
+    chip.innerHTML=`${tag}<button onclick="removeTag('${tag}')">×</button>`;
+    wrap.insertBefore(chip,input);
+  });
+}
+function removeTag(tag){
+  currentTags=currentTags.filter(t=>t!==tag);
+  renderTags();
+}
+document.getElementById('tagInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===','){
+    e.preventDefault();
+    const val=e.target.value.trim().replace(/,$/,'');
+    if(val&&!currentTags.includes(val)){currentTags.push(val);renderTags();}
+    e.target.value='';
+  }
+  if(e.key==='Backspace'&&!e.target.value.length&&currentTags.length){
+    currentTags.pop();renderTags();
+  }
+});
+
+// ══════════════════════════════════════════
+// PHOTOS
+// ══════════════════════════════════════════
+function renderPhotos(){
+  const grid=document.getElementById('photosGrid');
+  document.getElementById('photoCount').textContent=`(${currentPhotos.length})`;
+  grid.innerHTML=currentPhotos.map((url,i)=>`
+    <div class="photo-item" draggable="true" data-idx="${i}" ondragstart="dragStart(event,${i})" ondragover="dragOver(event)" ondrop="dropPhoto(event,${i})">
+      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23eee%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 font-size=%2220%22>📷</text></svg>'">
+      ${i===0?'<div class="photo-badge">PORTADA</div>':''}
+      <div class="photo-overlay">
+        <button class="photo-action" onclick="movePhotoLeft(${i})" title="Mover izquierda">←</button>
+        <button class="photo-action" onclick="movePhotoRight(${i})" title="Mover derecha">→</button>
+        <button class="photo-action del" onclick="removePhoto(${i})" title="Eliminar">×</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function removePhoto(i){currentPhotos.splice(i,1);renderPhotos();}
+function movePhotoLeft(i){if(i>0){[currentPhotos[i-1],currentPhotos[i]]=[currentPhotos[i],currentPhotos[i-1]];renderPhotos();}}
+function movePhotoRight(i){if(i<currentPhotos.length-1){[currentPhotos[i],currentPhotos[i+1]]=[currentPhotos[i+1],currentPhotos[i]];renderPhotos();}}
+
+// drag & drop reorder
+let dragIdx=null;
+function dragStart(e,i){dragIdx=i;e.dataTransfer.effectAllowed='move';}
+function dragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';}
+function dropPhoto(e,targetIdx){
+  e.preventDefault();
+  if(dragIdx===null||dragIdx===targetIdx)return;
+  const moved=currentPhotos.splice(dragIdx,1)[0];
+  currentPhotos.splice(targetIdx,0,moved);
+  renderPhotos();
+  dragIdx=null;
+}
+
+// file upload
+function handleDragOver(e){e.preventDefault();document.getElementById('photosDrop').classList.add('drag-over');}
+function handleDragLeave(e){document.getElementById('photosDrop').classList.remove('drag-over');}
+async function handleFileDrop(e){e.preventDefault();document.getElementById('photosDrop').classList.remove('drag-over');await uploadFiles(e.dataTransfer.files);}
+async function handleFileSelect(e){await uploadFiles(e.target.files);}
+
+async function uploadFiles(files){
+  const arr=Array.from(files);
+  if(!arr.length)return;
+  if(!SUPABASE_URL||!SUPABASE_KEY){
+    // preview local sin subir
+    for(const file of arr){
+      const url=URL.createObjectURL(file);
+      currentPhotos.push(url);
+    }
+    renderPhotos();
+    toast('Vista previa local (sin Supabase configurado)');
+    return;
+  }
+  const prog=document.getElementById('uploadProgress');
+  const fill=document.getElementById('progressFill');
+  const status=document.getElementById('uploadStatus');
+  prog.style.display='block';
+  const suiteId=document.getElementById('fId').value||'temp';
+  for(let i=0;i<arr.length;i++){
+    const file=arr[i];
+    status.textContent=`Subiendo ${i+1}/${arr.length}: ${file.name}`;
+    fill.style.width=`${((i)/arr.length)*100}%`;
+    try{
+      const path=`suites/${suiteId}/${Date.now()}-${file.name.replace(/\s/g,'_')}`;
+      const url=await sbUploadFile('fotos',path,file);
+      currentPhotos.push(url);
+      renderPhotos();
+    }catch(e){toast('Error subiendo '+file.name,'error');}
+  }
+  fill.style.width='100%';
+  status.textContent='¡Listo!';
+  setTimeout(()=>{prog.style.display='none';fill.style.width='0%';},1500);
+}
+
+// ══════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════
+function openConfigModal(){document.getElementById('configModal').classList.add('open');}
+function quickSaveConfig(){
+  const url=document.getElementById('quickUrl').value.trim().replace(/\/$/,'');
+  const key=document.getElementById('quickKey').value.trim();
+  if(!url||!key){toast('Ingresa URL y Key','error');return;}
+  SUPABASE_URL=url;SUPABASE_KEY=key;
+  localStorage.setItem('sj_url',url);localStorage.setItem('sj_key',key);
+  closeModal('configModal');
+  document.getElementById('configBanner').classList.add('hidden');
+  document.getElementById('cfgUrl').value=url;
+  document.getElementById('cfgKey').value=key;
+  toast('Supabase conectado','success');
+  loadSuites();
+}
+function saveConfig(){
+  const url=document.getElementById('cfgUrl').value.trim().replace(/\/$/,'');
+  const key=document.getElementById('cfgKey').value.trim();
+  const pwd=document.getElementById('cfgPwd').value;
+  if(url&&key){
+    SUPABASE_URL=url;SUPABASE_KEY=key;
+    localStorage.setItem('sj_url',url);localStorage.setItem('sj_key',key);
+  }
+  if(pwd){localStorage.setItem('sj_pwd',pwd);}
+  document.getElementById('configBanner').classList.add('hidden');
+  toast('Configuración guardada','success');
+  loadSuites();
+}
+
+// ══════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════
+function showSection(sec,el){
+  ['suites','config'].forEach(s=>{
+    document.getElementById('sec-'+s).style.display=s===sec?'block':'none';
+  });
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('topbarTitle').textContent=sec==='suites'?'Suites':'Configuración';
+  if(sec==='config'){
+    document.getElementById('cfgUrl').value=SUPABASE_URL;
+    document.getElementById('cfgKey').value=SUPABASE_KEY;
+  }
+}
+
+// ══════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function toast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show '+(type||'');
+  setTimeout(()=>t.className='toast',3000);
+}
+</script>
+</body>
+</html>
