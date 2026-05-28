@@ -325,6 +325,8 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 
 <script>
 const DEFAULT_PWD = 'pepegarza2722';
+const SB_URL = 'https://yblxilcrmzcnbdpowwpi.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibHhpbGNybXpjbmJkcG93d3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0ODcyMTksImV4cCI6MjA5NTA2MzIxOX0.fZSmjaK67gU8X0scl9_VDDGk1Nc5DIv3qn8qaSqw7w8';
 let suites = [];
 let editId = null;
 let curTags = [];
@@ -578,13 +580,42 @@ function onDragLeave(){document.getElementById('dropZone').classList.remove('dra
 async function onDrop(e){e.preventDefault();document.getElementById('dropZone').classList.remove('drag');await uploadFiles(e.dataTransfer.files);}
 async function onFileSelect(e){await uploadFiles(e.target.files);}
 async function uploadFiles(files){
-  // Preview local — las URLs de objeto solo duran la sesión
-  // Para fotos permanentes necesitarían un hosting de imágenes
-  for(const f of Array.from(files)){
-    curFotos.push(URL.createObjectURL(f));
+  const arr = Array.from(files);
+  if(!arr.length) return;
+  const suiteId = document.getElementById('fId').value || 'temp';
+  const prog = document.getElementById('progWrap');
+  const fill = document.getElementById('progFill');
+  const msg = document.getElementById('progMsg');
+  prog.style.display = 'block';
+
+  for(let i = 0; i < arr.length; i++){
+    const file = arr[i];
+    msg.textContent = `Subiendo ${i+1}/${arr.length}: ${file.name}`;
+    fill.style.width = `${Math.round((i/arr.length)*100)}%`;
+    try {
+      const path = `suites/${suiteId}/${Date.now()}-${file.name.replace(/\s/g,'_')}`;
+      const r = await fetch(`${SB_URL}/storage/v1/object/fotos/${path}`, {
+        method: 'POST',
+        headers: {
+          'apikey': SB_KEY,
+          'Authorization': 'Bearer ' + SB_KEY,
+          'Content-Type': file.type,
+          'x-upsert': 'true'
+        },
+        body: file
+      });
+      if(!r.ok) throw new Error(await r.text());
+      const url = `${SB_URL}/storage/v1/object/public/fotos/${path}`;
+      curFotos.push(url);
+      renderFotos();
+    } catch(e) {
+      console.error(e);
+      toast('Error subiendo ' + file.name + ': ' + e.message, 'err');
+    }
   }
-  renderFotos();
-  toast(`${files.length} foto(s) agregada(s)`,'ok');
+  fill.style.width = '100%';
+  msg.textContent = '¡Listo!';
+  setTimeout(()=>{ prog.style.display='none'; fill.style.width='0%'; }, 1500);
 }
 
 
