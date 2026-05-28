@@ -251,7 +251,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 .footer-col ul li{font-size:14px;color:rgba(255,255,255,.5);}
 .footer-col ul li a{color:inherit;text-decoration:none;transition:color .2s;}
 .footer-col ul li a:hover{color:white;}
-.footer-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.25);}
+.footer-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:8px;}
 
 /* BOOKING MODAL */
 .booking-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
@@ -298,6 +298,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
 @media(max-width:900px){
  .about-grid,.rooms-grid,.location-grid,.contact-layout,.faq-grid,.amenities-layout{grid-template-columns:1fr;}
  .footer-grid{grid-template-columns:1fr;}
+ .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px;}
  .reviews-grid{grid-template-columns:repeat(2,1fr);}
  .score-cats{grid-template-columns:repeat(2,1fr);}
  nav{padding:0 20px;}
@@ -748,7 +749,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  <div class="footer-bottom">
  <span>© 2026 San Jerónimo Suites · Monterrey, N.L.</span>
  <span>Superanfitrión Airbnb · 4.9</span>
- <a href="administrador.html" target="_blank" style="font-size:11px;color:rgba(255,255,255,.15);text-decoration:none;letter-spacing:.5px;transition:color .3s;" onmouseover="this.style.color='rgba(255,255,255,.45)'" onmouseout="this.style.color='rgba(255,255,255,.15)'">Administrador</a>
+ <a href="administrador.html" target="_blank" style="font-size:12px;color:rgba(255,255,255,.5);text-decoration:none;padding:5px 12px;border:1px solid rgba(255,255,255,.2);border-radius:20px;transition:all .2s;" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.borderColor='rgba(255,255,255,.2)'">⚙ Administrador</a>
  </div>
  </div>
 </footer>
