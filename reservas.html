@@ -47,8 +47,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .slide{min-width:100%;height:100%;flex-shrink:0;}
 .slide img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;cursor:pointer;}
 /* area carousel override */
-.area-carousel .carousel{aspect-ratio:21/8;}
-.area-carousel .slide img{aspect-ratio:unset;}
+
 .carr-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.93);border:none;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;z-index:10;opacity:0;box-shadow:0 2px 8px rgba(0,0,0,.2);line-height:1;padding:0;}
 .carousel:hover .carr-btn{opacity:1;}
 .carr-btn:hover{background:white;transform:translateY(-50%) scale(1.1);}
@@ -82,10 +81,11 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .areas-wrap{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
 .areas-title{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;margin-bottom:8px;}
 .areas-sub{color:var(--gray);font-size:15px;margin-bottom:40px;}
-.area-block{margin-bottom:44px;}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.area-block{margin-bottom:0;}
 .area-block h3{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
 .area-carousel{border-radius:14px;overflow:hidden;}
-
+.area-carousel .carousel{aspect-ratio:4/3;}
 /* NOTA */
 .nota{max-width:1200px;margin:0 auto 60px;padding:0 40px;}
 .nota-box{background:var(--cream);border-radius:12px;padding:16px 22px;font-size:13px;color:var(--gray);line-height:1.6;}
@@ -114,6 +114,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   .suite-footer{flex-direction:column;align-items:stretch;}
   .btn-reservar{text-align:center;}
   .carr-btn,.expand-btn{opacity:1 !important;}
+  .areas-grid{grid-template-columns:1fr;gap:20px;}
   .area-carousel .carousel{aspect-ratio:16/9;}
   .lb-btn{width:40px;height:40px;font-size:26px;}
   .lb-prev{left:8px;}
@@ -1052,6 +1053,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   <p class="page-eyebrow">Áreas comunes</p>
   <h2 class="areas-title">Instalaciones</h2>
   <p class="areas-sub">Exteriores, pasillos y elevador.</p>
+  <div class="areas-grid">
   <div class="area-block">
     <h3>Exteriores del edificio</h3>
     <div class="area-carousel"><div class="carousel" id="car-ext" data-total="11" data-idx="0" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg"]'>
@@ -1073,6 +1075,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
   <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
   <button class="expand-btn" onclick="openLightbox('car-am',parseInt(document.getElementById('car-am').dataset.idx))">⤢</button>
 </div></div>
+  </div>
   </div>
 </div>
 
