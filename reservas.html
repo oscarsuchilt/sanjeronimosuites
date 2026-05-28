@@ -110,8 +110,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 }
 @media(max-width:768px){
   nav{padding:0 20px;}
-  .page-hero,.filters,.suites-grid,.areas-wrap,.nota{padding-left:20px;padding-right:20px;}
-  .suites-grid{grid-template-columns:1fr;gap:20px;padding-bottom:60px;}
+  .page-hero,.filters,.areas-wrap,.nota{padding-left:20px;padding-right:20px;}
+  .suites-grid{grid-template-columns:1fr;gap:16px;padding:0 0 60px;width:100%;}
+  .suite-card{border-radius:0;border-left:none;border-right:none;border-top:none;}
+  .carousel{border-radius:0;aspect-ratio:4/3;}
+  .slide{aspect-ratio:4/3;}
+  .suite-body{padding:16px 20px 20px;}
   .suite-footer{flex-direction:column;align-items:stretch;}
   .btn-reservar{text-align:center;}
   .carr-btn,.expand-btn{opacity:1 !important;}
