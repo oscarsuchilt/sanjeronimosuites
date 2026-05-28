@@ -13,7 +13,6 @@
   --font-serif:"Playfair Display",serif;--font-sans:"DM Sans",sans-serif;
   --sidebar:240px;
 }
-html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-font-smoothing:antialiased;}
 
 /* LOGIN */
@@ -21,30 +20,28 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .login-box{background:white;border-radius:20px;padding:48px 40px;width:100%;max-width:380px;box-shadow:0 32px 80px rgba(0,0,0,.5);}
 .login-logo{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
 .login-logo-box{width:38px;height:38px;background:var(--black);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:13px;font-weight:700;color:white;}
-.login-title{font-family:var(--font-serif);font-size:24px;font-weight:400;margin-bottom:4px;}
+.login-title{font-family:var(--font-serif);font-size:24px;margin-bottom:4px;}
 .login-sub{font-size:13px;color:var(--gray);margin-bottom:24px;}
+.field{margin-bottom:14px;}
 .field label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
 .field input,.field select,.field textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-size:14px;font-family:var(--font-sans);outline:none;transition:border-color .2s;background:white;color:var(--black);}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--black);}
 .field textarea{resize:vertical;min-height:72px;line-height:1.5;}
-.field{margin-bottom:14px;}
-.btn-black{width:100%;padding:12px;background:var(--black);color:white;border:none;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:background .2s;}
+.btn-black{width:100%;padding:12px;background:var(--black);color:white;border:none;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-sans);}
 .btn-black:hover{background:#333;}
 .login-err{color:var(--danger);font-size:13px;margin-top:8px;display:none;}
 
-/* APP LAYOUT */
+/* APP */
 #app{display:none;}
 .sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar);background:var(--black);z-index:100;display:flex;flex-direction:column;overflow-y:auto;}
 .sb-logo{padding:22px 18px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
 .sb-logo-box{width:32px;height:32px;background:rgba(255,255,255,.1);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:11px;font-weight:700;color:white;margin-right:8px;vertical-align:middle;}
 .sb-brand{font-size:13px;font-weight:500;color:white;vertical-align:middle;}
 .sb-sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:4px;padding-left:40px;}
-.sb-sep{height:1px;background:rgba(255,255,255,.06);margin:8px 12px;}
 .sb-label{padding:12px 14px 4px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);}
 .sb-item{display:flex;align-items:center;gap:8px;padding:8px 12px;margin:1px 6px;border-radius:7px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.55);transition:all .15s;}
 .sb-item:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.85);}
 .sb-item.active{background:rgba(255,255,255,.12);color:white;}
-.sb-item .ic{font-size:15px;width:18px;text-align:center;}
 .sb-bottom{margin-top:auto;padding:14px 8px;}
 .btn-logout{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:7px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.35);background:none;border:none;font-family:var(--font-sans);width:100%;transition:all .15s;}
 .btn-logout:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
@@ -67,21 +64,21 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .chips{display:flex;gap:6px;flex-wrap:wrap;}
 .chip{padding:5px 13px;border:1px solid var(--border);border-radius:20px;background:white;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .15s;}
 .chip:hover,.chip.on{background:var(--black);color:white;border-color:var(--black);}
-.btn-sm{padding:8px 16px;background:var(--black);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;gap:5px;transition:background .2s;}
+.btn-sm{padding:8px 16px;background:var(--black);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:5px;transition:background .2s;}
 .btn-sm:hover{background:#333;}
 .btn-sec{background:white;color:var(--black);border:1px solid var(--border);}
 .btn-sec:hover{background:var(--cream);}
 
 /* TABLE */
 .table-wrap{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
-.t-head{display:grid;grid-template-columns:52px 1fr 100px 70px 60px 120px;align-items:center;padding:0 18px;height:38px;gap:10px;background:var(--cream);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border);}
-.t-row{display:grid;grid-template-columns:52px 1fr 100px 70px 60px 120px;align-items:center;padding:0 18px;min-height:62px;gap:10px;border-bottom:1px solid var(--border);transition:background .1s;}
+.t-head{display:grid;grid-template-columns:52px 1fr 100px 60px 60px 120px;align-items:center;padding:0 18px;height:38px;gap:10px;background:var(--cream);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border);}
+.t-row{display:grid;grid-template-columns:52px 1fr 100px 60px 60px 120px;align-items:center;padding:0 18px;min-height:64px;gap:10px;border-bottom:1px solid var(--border);transition:background .1s;}
 .t-row:last-child{border-bottom:none;}
 .t-row:hover{background:#fafafa;}
-.thumb{width:40px;height:40px;border-radius:7px;object-fit:cover;background:var(--cream);display:block;}
-.thumb-ph{width:40px;height:40px;border-radius:7px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:14px;}
+.thumb{width:42px;height:42px;border-radius:7px;object-fit:cover;background:var(--cream);display:block;}
+.thumb-ph{width:42px;height:42px;border-radius:7px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:16px;}
 .cell-name{font-size:13px;font-weight:500;line-height:1.3;}
-.cell-name span{display:block;font-size:11px;color:var(--gray);font-weight:400;margin-top:1px;}
+.cell-name span{display:block;font-size:11px;color:var(--gray);font-weight:400;margin-top:2px;}
 .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}
 .b-king{background:var(--black);color:white;}
 .b-mat{background:#f0f0f0;color:#444;}
@@ -96,7 +93,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 /* MODAL */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:600;align-items:flex-start;justify-content:center;padding:28px 16px;overflow-y:auto;backdrop-filter:blur(3px);}
 .overlay.on{display:flex;}
-.modal{background:white;border-radius:18px;width:100%;max-width:680px;margin:auto;box-shadow:0 24px 64px rgba(0,0,0,.25);}
+.modal{background:white;border-radius:18px;width:100%;max-width:700px;margin:auto;box-shadow:0 24px 64px rgba(0,0,0,.25);}
 .m-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);}
 .m-title{font-family:var(--font-serif);font-size:19px;font-weight:400;}
 .m-close{width:30px;height:30px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .15s;}
@@ -104,14 +101,25 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .m-body{padding:24px;}
 .m-foot{padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.grid1{display:grid;grid-template-columns:1fr;gap:14px;}
+
+/* BOOKING LINKS */
+.links-section{margin-bottom:14px;}
+.links-section label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
+.link-item{display:grid;grid-template-columns:140px 1fr 32px;gap:8px;margin-bottom:8px;align-items:center;}
+.link-item input{padding:8px 11px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:var(--font-sans);outline:none;transition:border-color .2s;}
+.link-item input:focus{border-color:var(--black);}
+.link-item .del-link{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:all .15s;}
+.link-item .del-link:hover{background:#fff0f0;border-color:#fca5a5;}
+.btn-add-link{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border:1px dashed var(--border);border-radius:8px;background:var(--cream);font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);color:var(--gray);transition:all .15s;}
+.btn-add-link:hover{border-color:var(--black);color:var(--black);}
+.platform-hint{font-size:10px;color:var(--gray);margin-top:4px;}
 
 /* FOTOS */
 .fotos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px;}
 .foto-item{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);cursor:grab;}
 .foto-item img{width:100%;height:100%;object-fit:cover;}
-.foto-item .portada-badge{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.75);color:white;font-size:8px;font-weight:700;padding:2px 5px;border-radius:6px;letter-spacing:.3px;}
-.foto-item .foto-actions{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
+.portada-badge{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.75);color:white;font-size:8px;font-weight:700;padding:2px 5px;border-radius:6px;}
+.foto-actions{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
 .foto-item:hover .foto-actions{background:rgba(0,0,0,.5);}
 .foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;}
 .foto-item:hover .foto-act{opacity:1;}
@@ -132,22 +140,15 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .tag-pill button:hover{color:white;}
 .tag-input{border:none;outline:none;font-size:12px;font-family:var(--font-sans);flex:1;min-width:80px;background:transparent;}
 
+/* DIVIDER */
+.m-divider{height:1px;background:var(--border);margin:18px 0;}
+.m-section-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
+
 /* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--black);color:white;padding:10px 18px;border-radius:9px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:all .25s;pointer-events:none;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.ok{background:var(--success);}
 .toast.err{background:var(--danger);}
-
-/* CONFIG PANEL */
-.config-box{background:white;border:1px solid var(--border);border-radius:14px;padding:24px;max-width:540px;}
-.config-box h3{font-size:15px;font-weight:600;margin-bottom:16px;}
-.sql-block{background:#f5f5f5;border-radius:8px;padding:12px 14px;font-size:11px;font-family:monospace;line-height:1.7;color:#333;overflow-x:auto;margin-top:14px;}
-
-/* WARNING BANNER */
-.warn-banner{background:#fffbeb;border:1px solid #f6d860;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;display:flex;gap:10px;align-items:flex-start;}
-.warn-banner.hidden{display:none;}
-.warn-banner h4{font-size:13px;font-weight:600;margin-bottom:3px;}
-.warn-banner p{color:var(--gray);line-height:1.5;}
 
 @media(max-width:860px){
   :root{--sidebar:0px;}
@@ -158,7 +159,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 </head>
 <body>
 
-<!-- ════════════ LOGIN ════════════ -->
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
     <div class="login-logo">
@@ -169,14 +170,14 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
     <p class="login-sub">Acceso restringido</p>
     <div class="field">
       <label>Contraseña</label>
-      <input type="password" id="pwdIn" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="pwdIn" placeholder="••••••••">
     </div>
     <button class="btn-black" onclick="doLogin()">Entrar al panel</button>
     <p class="login-err" id="loginErr">⚠ Contraseña incorrecta</p>
   </div>
 </div>
 
-<!-- ════════════ APP ════════════ -->
+<!-- APP -->
 <div id="app">
   <aside class="sidebar">
     <div class="sb-logo">
@@ -184,10 +185,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
       <div class="sb-sub">Panel Administrativo</div>
     </div>
     <div class="sb-label">Gestión</div>
-    <div class="sb-item active" onclick="nav('suites',this)"><span class="ic">🏠</span> Suites</div>
-    <div class="sb-sep"></div>
-    <div class="sb-label">Sistema</div>
-    <div class="sb-item" onclick="nav('config',this)"><span class="ic">⚙️</span> Configuración</div>
+    <div class="sb-item active" id="nav-suites" onclick="nav('suites',this)"><span>🏠</span> Suites</div>
     <div class="sb-bottom">
       <button class="btn-logout" onclick="doLogout()"><span>↩</span> Cerrar sesión</button>
     </div>
@@ -195,89 +193,39 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 
   <div class="main">
     <div class="topbar">
-      <div class="topbar-title" id="topTitle">Suites</div>
+      <div class="topbar-title">Suites</div>
       <span class="topbar-tag" id="topTag">–</span>
     </div>
     <div class="page">
-
-      <!-- BANNER SUPABASE -->
-      <div class="warn-banner" id="warnBanner">
-        <div>⚠️</div>
-        <div>
-          <h4>Conecta tu Supabase para guardar cambios permanentemente</h4>
-          <p>Sin conexión los cambios se guardan solo en esta sesión. Ve a <strong>Configuración</strong> para conectar.</p>
-        </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n" id="s-total">–</div><div class="stat-l">Total suites</div></div>
+        <div class="stat"><div class="stat-n" id="s-king">–</div><div class="stat-l">King Size</div></div>
+        <div class="stat"><div class="stat-n" id="s-mat">–</div><div class="stat-l">Matrimoniales</div></div>
+        <div class="stat"><div class="stat-n" id="s-fotos">–</div><div class="stat-l">Fotos totales</div></div>
       </div>
-
-      <!-- SECCIÓN SUITES -->
-      <div id="sec-suites">
-        <div class="stats-row">
-          <div class="stat"><div class="stat-n" id="s-total">–</div><div class="stat-l">Total suites</div></div>
-          <div class="stat"><div class="stat-n" id="s-king">–</div><div class="stat-l">King Size</div></div>
-          <div class="stat"><div class="stat-n" id="s-mat">–</div><div class="stat-l">Matrimoniales</div></div>
-          <div class="stat"><div class="stat-n" id="s-fotos">–</div><div class="stat-l">Fotos totales</div></div>
-        </div>
-        <div class="toolbar">
-          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-            <h2 class="section-h">Todas las suites</h2>
-            <div class="chips">
-              <button class="chip on" onclick="setFilter('all',this)">Todas</button>
-              <button class="chip" onclick="setFilter('1',this)">Piso 1</button>
-              <button class="chip" onclick="setFilter('2',this)">Piso 2</button>
-              <button class="chip" onclick="setFilter('3',this)">Piso 3</button>
-              <button class="chip" onclick="setFilter('king',this)">King</button>
-              <button class="chip" onclick="setFilter('matrimonial',this)">Matrimonial</button>
-            </div>
+      <div class="toolbar">
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+          <h2 class="section-h">Todas las suites</h2>
+          <div class="chips">
+            <button class="chip on" onclick="setFilter('all',this)">Todas</button>
+            <button class="chip" onclick="setFilter('1',this)">Piso 1</button>
+            <button class="chip" onclick="setFilter('2',this)">Piso 2</button>
+            <button class="chip" onclick="setFilter('3',this)">Piso 3</button>
+            <button class="chip" onclick="setFilter('king',this)">King</button>
+            <button class="chip" onclick="setFilter('matrimonial',this)">Matrimonial</button>
           </div>
-          <button class="btn-sm" onclick="openModal(null)">+ Nueva suite</button>
         </div>
-        <div class="table-wrap">
-          <div class="t-head"><div>Foto</div><div>Suite</div><div>Tipo</div><div>Piso</div><div>Fotos</div><div>Acciones</div></div>
-          <div id="tbody"></div>
-        </div>
+        <button class="btn-sm" onclick="openModal(null)">+ Nueva suite</button>
       </div>
-
-      <!-- SECCIÓN CONFIG -->
-      <div id="sec-config" style="display:none;">
-        <h2 class="section-h" style="margin-bottom:20px;">Configuración</h2>
-        <div class="config-box" style="margin-bottom:20px;">
-          <h3>🔌 Supabase</h3>
-          <div class="field"><label>Project URL</label><input type="text" id="cfgUrl" placeholder="https://xxxx.supabase.co"></div>
-          <div class="field"><label>Anon Key</label><input type="text" id="cfgKey" placeholder="eyJh..."></div>
-          <button class="btn-sm" onclick="saveConfig()" style="margin-top:4px;">Guardar y conectar</button>
-        </div>
-        <div class="config-box" style="margin-bottom:20px;">
-          <h3>🔒 Contraseña del panel</h3>
-          <div class="field"><label>Nueva contraseña</label><input type="password" id="cfgPwd" placeholder="Nueva contraseña"></div>
-          <button class="btn-sm" onclick="savePwd()">Cambiar contraseña</button>
-        </div>
-        <div class="config-box">
-          <h3>📋 SQL para crear tabla en Supabase</h3>
-          <p style="font-size:13px;color:var(--gray);margin-bottom:4px;">Pega esto en <strong>SQL Editor</strong> de tu proyecto Supabase:</p>
-          <pre class="sql-block">CREATE TABLE suites (
-  id TEXT PRIMARY KEY,
-  nombre TEXT,
-  tipo TEXT,
-  piso INTEGER,
-  descripcion TEXT,
-  tags TEXT[],
-  whatsapp TEXT,
-  airbnb_url TEXT,
-  fotos TEXT[],
-  orden INTEGER DEFAULT 0,
-  activa BOOLEAN DEFAULT true,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Crear bucket "fotos" en Storage → New bucket → "fotos" → Public</pre>
-        </div>
+      <div class="table-wrap">
+        <div class="t-head"><div>Foto</div><div>Suite</div><div>Tipo</div><div>Piso</div><div>Fotos</div><div>Acciones</div></div>
+        <div id="tbody"></div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ════════════ MODAL EDITOR ════════════ -->
+<!-- MODAL EDITOR -->
 <div class="overlay" id="overlay">
   <div class="modal">
     <div class="m-head">
@@ -286,19 +234,18 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
     </div>
     <div class="m-body">
 
-      <!-- FILA 1 -->
+      <!-- INFO BÁSICA -->
+      <div class="m-section-label">Información básica</div>
       <div class="grid2" style="margin-bottom:14px;">
         <div class="field">
-          <label>Número de suite (ID)</label>
+          <label>Número de suite</label>
           <input type="text" id="fId" placeholder="101">
         </div>
         <div class="field">
-          <label>Título de la publicación</label>
+          <label>Título</label>
           <input type="text" id="fNombre" placeholder="Suite 101">
         </div>
       </div>
-
-      <!-- FILA 2 -->
       <div class="grid2" style="margin-bottom:14px;">
         <div class="field">
           <label>Tipo de cama</label>
@@ -316,53 +263,49 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
           </select>
         </div>
       </div>
-
-      <!-- DESCRIPCIÓN -->
       <div class="field" style="margin-bottom:14px;">
-        <label>Descripción (texto que aparece en la card)</label>
+        <label>Descripción</label>
         <textarea id="fDesc" rows="3"></textarea>
       </div>
-
-      <!-- TAGS -->
-      <div class="field" style="margin-bottom:14px;">
-        <label>Tags / amenidades (Enter para agregar)</label>
+      <div class="field" style="margin-bottom:0;">
+        <label>Tags / amenidades <span style="font-weight:400;text-transform:none;letter-spacing:0;">(Enter para agregar)</span></label>
         <div class="tags-wrap" id="tagsWrap" onclick="document.getElementById('tagIn').focus()">
           <input type="text" class="tag-input" id="tagIn" placeholder="Ej: Smart TV...">
         </div>
       </div>
 
-      <!-- FILA CONTACTO -->
-      <div class="grid2" style="margin-bottom:14px;">
-        <div class="field">
-          <label>Número de WhatsApp</label>
-          <input type="text" id="fWa" placeholder="528135527990">
-        </div>
-        <div class="field">
-          <label>Link de reserva (Airbnb u otro)</label>
-          <input type="text" id="fAirbnb" placeholder="https://airbnb.mx/rooms/...">
-        </div>
+      <div class="m-divider"></div>
+
+      <!-- CONTACTO & RESERVA -->
+      <div class="m-section-label">Contacto y reserva</div>
+      <div class="field" style="margin-bottom:14px;">
+        <label>Número de WhatsApp</label>
+        <input type="text" id="fWa" placeholder="528135527990" style="max-width:260px;">
       </div>
 
+      <div class="links-section">
+        <label>Links de reserva <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— si hay más de uno aparece un popup al reservar</span></label>
+        <div id="linksContainer"></div>
+        <button class="btn-add-link" onclick="addLink()">+ Agregar plataforma</button>
+        <p class="platform-hint">Ejemplos de nombre: Airbnb, Booking, Expedia, Direct, VRBO…</p>
+      </div>
+
+      <div class="m-divider"></div>
+
       <!-- FOTOS -->
-      <div style="margin-top:4px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-          <label style="font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);">
-            Fotos <span id="fotoCount" style="font-weight:400;">(0)</span>
-          </label>
-          <span style="font-size:10px;color:var(--gray);">Arrastra para reordenar · ← → para mover · × para eliminar</span>
-        </div>
-        <div class="fotos-grid" id="fotosGrid"></div>
-        <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileIn').click()"
-             ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
-          <div style="font-size:24px;">📷</div>
-          <p><strong>Subir fotos</strong> — arrastra o haz clic aquí</p>
-          <p>JPG, PNG, WebP · máx 5MB c/u</p>
-        </div>
-        <input type="file" id="fileIn" accept="image/*" multiple style="display:none" onchange="onFileSelect(event)">
-        <div class="prog" id="progWrap">
-          <p id="progMsg">Subiendo...</p>
-          <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
-        </div>
+      <div class="m-section-label">Fotos <span id="fotoCount" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">(0)</span></div>
+      <div style="font-size:10px;color:var(--gray);margin-bottom:8px;">Arrastra para reordenar · ← → para mover · × para eliminar · La 1ª foto es la portada</div>
+      <div class="fotos-grid" id="fotosGrid"></div>
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileIn').click()"
+           ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
+        <div style="font-size:24px;">📷</div>
+        <p><strong>Subir fotos</strong> — arrastra o haz clic</p>
+        <p>JPG, PNG, WebP</p>
+      </div>
+      <input type="file" id="fileIn" accept="image/*" multiple style="display:none" onchange="onFileSelect(event)">
+      <div class="prog" id="progWrap">
+        <p id="progMsg">Subiendo...</p>
+        <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
       </div>
 
     </div>
@@ -376,59 +319,45 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 <div class="toast" id="toast"></div>
 
 <script>
-// ════════ CONFIG ════════
 const DEFAULT_PWD = 'pepegarza2722';
-let SB_URL = localStorage.getItem('sj_url') || '';
-let SB_KEY = localStorage.getItem('sj_key') || '';
 let suites = [];
 let editId = null;
 let curTags = [];
 let curFotos = [];
+let curLinks = []; // [{nombre:'Airbnb', url:'https://...'}]
 let filterVal = 'all';
 let dragIdx = null;
 
-// ════════ SEED DATA — 26 suites ════════
 const SEED = [
-  {id:'101',nombre:'Suite 101',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516959718028619169',fotos:Array.from({length:31},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-${i+1}.jpeg`),orden:1},
-  {id:'102',nombre:'Suite 102',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516957745515565025',fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-${i+1}.jpeg`),orden:2},
-  {id:'103',nombre:'Suite 103',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516964044456776332',fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-${i+1}.jpeg`),orden:3},
-  {id:'104',nombre:'Suite 104',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516965553320233755',fotos:Array.from({length:38},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-${i+1}.jpeg`),orden:4},
-  {id:'105',nombre:'Suite 105',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516967560226327727',fotos:Array.from({length:33},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-${i+1}.jpeg`),orden:5},
-  {id:'106',nombre:'Suite 106',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516969034730757916',fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-${i+1}.jpeg`),orden:6},
-  {id:'201',nombre:'Suite 201',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516956038704698234',fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-${i+1}.jpeg`),orden:7},
-  {id:'202',nombre:'Suite 202',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516957745515565025',fotos:Array.from({length:19},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-${i+1}.jpeg`),orden:8},
-  {id:'203',nombre:'Suite 203',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514050932069160111',fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-${i+1}.jpeg`),orden:9},
-  {id:'204',nombre:'Suite 204',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514054007042958159',fotos:Array.from({length:39},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-${i+1}.jpeg`),orden:10},
-  {id:'205',nombre:'Suite 205',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514057147328029521',fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-${i+1}.jpeg`),orden:11},
-  {id:'206',nombre:'Suite 206',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514061887907363968',fotos:Array.from({length:42},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-${i+1}.jpeg`),orden:12},
-  {id:'207',nombre:'Suite 207',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514060174239567382',fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-${i+1}.jpeg`),orden:13},
-  {id:'208',nombre:'Suite 208',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514064591496230383',fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-${i+1}.jpeg`),orden:14},
-  {id:'209',nombre:'Suite 209',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514067242684304328',fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-${i+1}.jpeg`),orden:15},
-  {id:'210',nombre:'Suite 210',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514069284076493193',fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-${i+1}.jpeg`),orden:16},
-  {id:'301',nombre:'Suite 301',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516949847923186204',fotos:Array.from({length:25},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-${i+1}.jpeg`),orden:17},
-  {id:'302',nombre:'Suite 302',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1516953512877403406',fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-${i+1}.jpeg`),orden:18},
-  {id:'303',nombre:'Suite 303',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514019614700285709',fotos:Array.from({length:45},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-${i+1}.jpeg`),orden:19},
-  {id:'304',nombre:'Suite 304',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514048031584694739',fotos:Array.from({length:26},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-${i+1}.jpeg`),orden:20},
-  {id:'305',nombre:'Suite 305',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1514041309378007152',fotos:Array.from({length:35},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-${i+1}.jpeg`),orden:21},
-  {id:'306',nombre:'Suite 306',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1473355644071608347',fotos:[...Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-${i+2}.jpeg`),'https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-38.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-42.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-43.jpeg'],orden:22},
-  {id:'307',nombre:'Suite 307',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1513302042328755768',fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-${i+1}.jpeg`),orden:23},
-  {id:'308',nombre:'Suite 308',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1513278151814640140',fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-${i+1}.jpeg`),orden:24},
-  {id:'309',nombre:'Suite 309',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1513304638239847600',fotos:Array.from({length:44},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-${i+1}.jpeg`),orden:25},
-  {id:'310',nombre:'Suite 310',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',airbnb_url:'https://www.airbnb.mx/rooms/1513968596376047421',fotos:Array.from({length:43},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-${i+1}.jpeg`),orden:26},
+  {id:'101',nombre:'Suite 101',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516959718028619169'}],fotos:Array.from({length:31},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-${i+1}.jpeg`),orden:1},
+  {id:'102',nombre:'Suite 102',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-${i+1}.jpeg`),orden:2},
+  {id:'103',nombre:'Suite 103',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516964044456776332'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-${i+1}.jpeg`),orden:3},
+  {id:'104',nombre:'Suite 104',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516965553320233755'}],fotos:Array.from({length:38},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-${i+1}.jpeg`),orden:4},
+  {id:'105',nombre:'Suite 105',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516967560226327727'}],fotos:Array.from({length:33},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-${i+1}.jpeg`),orden:5},
+  {id:'106',nombre:'Suite 106',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516969034730757916'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-${i+1}.jpeg`),orden:6},
+  {id:'201',nombre:'Suite 201',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516956038704698234'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-${i+1}.jpeg`),orden:7},
+  {id:'202',nombre:'Suite 202',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:19},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-${i+1}.jpeg`),orden:8},
+  {id:'203',nombre:'Suite 203',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514050932069160111'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-${i+1}.jpeg`),orden:9},
+  {id:'204',nombre:'Suite 204',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514054007042958159'}],fotos:Array.from({length:39},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-${i+1}.jpeg`),orden:10},
+  {id:'205',nombre:'Suite 205',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514057147328029521'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-${i+1}.jpeg`),orden:11},
+  {id:'206',nombre:'Suite 206',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514061887907363968'}],fotos:Array.from({length:42},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-${i+1}.jpeg`),orden:12},
+  {id:'207',nombre:'Suite 207',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514060174239567382'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-${i+1}.jpeg`),orden:13},
+  {id:'208',nombre:'Suite 208',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514064591496230383'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-${i+1}.jpeg`),orden:14},
+  {id:'209',nombre:'Suite 209',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514067242684304328'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-${i+1}.jpeg`),orden:15},
+  {id:'210',nombre:'Suite 210',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514069284076493193'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-${i+1}.jpeg`),orden:16},
+  {id:'301',nombre:'Suite 301',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516949847923186204'}],fotos:Array.from({length:25},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-${i+1}.jpeg`),orden:17},
+  {id:'302',nombre:'Suite 302',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516953512877403406'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-${i+1}.jpeg`),orden:18},
+  {id:'303',nombre:'Suite 303',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514019614700285709'}],fotos:Array.from({length:45},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-${i+1}.jpeg`),orden:19},
+  {id:'304',nombre:'Suite 304',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514048031584694739'}],fotos:Array.from({length:26},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-${i+1}.jpeg`),orden:20},
+  {id:'305',nombre:'Suite 305',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514041309378007152'}],fotos:Array.from({length:35},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-${i+1}.jpeg`),orden:21},
+  {id:'306',nombre:'Suite 306',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1473355644071608347'}],fotos:[...Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-${i+2}.jpeg`),'https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-38.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-42.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-43.jpeg'],orden:22},
+  {id:'307',nombre:'Suite 307',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513302042328755768'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-${i+1}.jpeg`),orden:23},
+  {id:'308',nombre:'Suite 308',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513278151814640140'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-${i+1}.jpeg`),orden:24},
+  {id:'309',nombre:'Suite 309',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513304638239847600'}],fotos:Array.from({length:44},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-${i+1}.jpeg`),orden:25},
+  {id:'310',nombre:'Suite 310',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513968596376047421'}],fotos:Array.from({length:43},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-${i+1}.jpeg`),orden:26},
 ];
 
-// ════════ SUPABASE ════════
-const sbH = ()=>({'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY});
-async function sbGet(t){const r=await fetch(`${SB_URL}/rest/v1/${t}?order=orden.asc,id.asc`,{headers:sbH()});if(!r.ok)throw new Error('sb read');return r.json();}
-async function sbUpsert(t,d){const r=await fetch(`${SB_URL}/rest/v1/${t}`,{method:'POST',headers:{...sbH(),'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(d)});if(!r.ok)throw new Error('sb write');}
-async function sbDel(t,id){const r=await fetch(`${SB_URL}/rest/v1/${t}?id=eq.${id}`,{method:'DELETE',headers:sbH()});if(!r.ok)throw new Error('sb del');}
-async function sbUpload(bucket,path,file){
-  const r=await fetch(`${SB_URL}/storage/v1/object/${bucket}/${path}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},body:file});
-  if(!r.ok)throw new Error('upload fail');
-  return`${SB_URL}/storage/v1/object/public/${bucket}/${path}`;
-}
-
-// ════════ LOGIN ════════
+// LOGIN
 function doLogin(){
   const pwd=localStorage.getItem('sj_pwd')||DEFAULT_PWD;
   if(document.getElementById('pwdIn').value===pwd){
@@ -446,39 +375,23 @@ function doLogout(){
 }
 document.getElementById('pwdIn').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
-// ════════ INIT ════════
-async function init(){
-  checkBanner();
-  if(SB_URL && SB_KEY){
-    try{
-      suites=await sbGet('suites');
-      if(!suites.length){await sbUpsert('suites',SEED);suites=SEED;}
-    }catch{suites=SEED;}
-  } else {
-    suites=SEED;
-  }
-  renderTable();
-  updateStats();
+// INIT
+function init(){
+  const saved=localStorage.getItem('sj_suites');
+  suites=saved?JSON.parse(saved):SEED;
+  renderTable();updateStats();
 }
 
-function checkBanner(){
-  document.getElementById('warnBanner').className=
-    (SB_URL&&SB_KEY)?'warn-banner hidden':'warn-banner';
+function saveLocal(){
+  localStorage.setItem('sj_suites',JSON.stringify(suites));
 }
 
-// ════════ NAV ════════
 function nav(sec,el){
-  ['suites','config'].forEach(s=>document.getElementById('sec-'+s).style.display=s===sec?'block':'none');
   document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('topTitle').textContent=sec==='suites'?'Suites':'Configuración';
-  if(sec==='config'){
-    document.getElementById('cfgUrl').value=SB_URL;
-    document.getElementById('cfgKey').value=SB_KEY;
-  }
 }
 
-// ════════ STATS ════════
+// STATS
 function updateStats(){
   document.getElementById('s-total').textContent=suites.length;
   document.getElementById('s-king').textContent=suites.filter(s=>s.tipo==='king').length;
@@ -487,7 +400,7 @@ function updateStats(){
   document.getElementById('topTag').textContent=suites.length+' suites';
 }
 
-// ════════ FILTER & TABLE ════════
+// FILTER
 function setFilter(v,btn){
   filterVal=v;
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
@@ -495,6 +408,7 @@ function setFilter(v,btn){
   renderTable();
 }
 
+// TABLE
 function renderTable(){
   let list=suites;
   if(filterVal==='1') list=suites.filter(s=>String(s.piso)==='1');
@@ -504,61 +418,42 @@ function renderTable(){
   else if(filterVal==='matrimonial') list=suites.filter(s=>s.tipo==='matrimonial');
 
   const tbody=document.getElementById('tbody');
-  if(!list.length){tbody.innerHTML='<div class="empty">Sin suites que mostrar</div>';return;}
-  tbody.innerHTML=list.map(s=>`
-    <div class="t-row">
+  if(!list.length){tbody.innerHTML='<div class="empty">Sin suites</div>';return;}
+  tbody.innerHTML=list.map(s=>{
+    const linkNames=(s.links||[]).map(l=>l.nombre).join(', ')||'Sin links';
+    return`<div class="t-row">
       <div>${s.fotos&&s.fotos[0]?`<img class="thumb" src="${s.fotos[0]}" onerror="this.style.display='none'">`:'<div class="thumb-ph">🏠</div>'}</div>
-      <div>
-        <div class="cell-name">${s.nombre}<span>WA: ${s.whatsapp||'–'} · ${s.airbnb_url?'<a href="'+s.airbnb_url+'" target="_blank" style="color:#6b6b6b;">Airbnb ↗</a>':'Sin link'}</span></div>
-      </div>
-      <div><span class="badge ${s.tipo==='king'?'b-king':'b-mat'}">${s.tipo==='king'?'King Size':'Matrimonial'}</span></div>
+      <div><div class="cell-name">${s.nombre}<span>WA: ${s.whatsapp||'–'} · 🔗 ${linkNames}</span></div></div>
+      <div><span class="badge ${s.tipo==='king'?'b-king':'b-mat'}">${s.tipo==='king'?'King':'Matrimonial'}</span></div>
       <div><span class="badge b-piso">P${s.piso}</span></div>
       <div class="n-fotos">${(s.fotos||[]).length}</div>
       <div class="row-btns">
-        <button class="ic-btn" title="Editar todo" onclick="openModal('${s.id}')">✏️</button>
-        <button class="ic-btn" title="Subir orden" onclick="moveUp('${s.id}')">↑</button>
-        <button class="ic-btn" title="Bajar orden" onclick="moveDown('${s.id}')">↓</button>
-        <button class="ic-btn del" title="Eliminar" onclick="deleteSuite('${s.id}')">🗑</button>
+        <button class="ic-btn" onclick="openModal('${s.id}')">✏️</button>
+        <button class="ic-btn" onclick="moveUp('${s.id}')">↑</button>
+        <button class="ic-btn" onclick="moveDown('${s.id}')">↓</button>
+        <button class="ic-btn del" onclick="deleteSuite('${s.id}')">🗑</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
-// ════════ ORDER ════════
-async function moveUp(id){
-  const i=suites.findIndex(s=>s.id===id);
-  if(i<=0)return;
-  [suites[i-1],suites[i]]=[suites[i],suites[i-1]];
-  reIndex();renderTable();
-  if(SB_URL)for(const s of suites)await sbUpsert('suites',{id:s.id,orden:s.orden});
-  toast('Orden guardado','ok');
-}
-async function moveDown(id){
-  const i=suites.findIndex(s=>s.id===id);
-  if(i>=suites.length-1)return;
-  [suites[i],suites[i+1]]=[suites[i+1],suites[i]];
-  reIndex();renderTable();
-  if(SB_URL)for(const s of suites)await sbUpsert('suites',{id:s.id,orden:s.orden});
-  toast('Orden guardado','ok');
-}
+// ORDER
+function moveUp(id){const i=suites.findIndex(s=>s.id===id);if(i<=0)return;[suites[i-1],suites[i]]=[suites[i],suites[i-1]];reIndex();saveLocal();renderTable();toast('Orden actualizado','ok');}
+function moveDown(id){const i=suites.findIndex(s=>s.id===id);if(i>=suites.length-1)return;[suites[i],suites[i+1]]=[suites[i+1],suites[i]];reIndex();saveLocal();renderTable();toast('Orden actualizado','ok');}
 function reIndex(){suites.forEach((s,i)=>s.orden=i+1);}
 
-// ════════ DELETE ════════
-async function deleteSuite(id){
-  if(!confirm(`¿Eliminar Suite ${id}? No se puede deshacer.`))return;
-  if(SB_URL){try{await sbDel('suites',id);}catch{toast('Error al eliminar','err');return;}}
+// DELETE
+function deleteSuite(id){
+  if(!confirm(`¿Eliminar Suite ${id}?`))return;
   suites=suites.filter(s=>s.id!==id);
-  renderTable();updateStats();
-  toast('Suite eliminada');
+  saveLocal();renderTable();updateStats();toast('Suite eliminada');
 }
 
-// ════════ MODAL ════════
+// MODAL
 function openModal(id){
-  editId=id;
-  curTags=[];curFotos=[];
+  editId=id;curTags=[];curFotos=[];curLinks=[];
   document.getElementById('mTitle').textContent=id?'Editar suite':'Nueva suite';
   document.getElementById('btnSave').textContent=id?'Guardar cambios':'Crear suite';
-
   if(id){
     const s=suites.find(x=>x.id===id);
     document.getElementById('fId').value=s.id;
@@ -568,22 +463,22 @@ function openModal(id){
     document.getElementById('fPiso').value=String(s.piso||1);
     document.getElementById('fDesc').value=s.descripcion||'';
     document.getElementById('fWa').value=s.whatsapp||'';
-    document.getElementById('fAirbnb').value=s.airbnb_url||'';
     curTags=[...(s.tags||[])];
     curFotos=[...(s.fotos||[])];
+    curLinks=[...(s.links||[])];
   } else {
     document.getElementById('fId').value='';
     document.getElementById('fId').disabled=false;
-    ['fNombre','fDesc','fWa','fAirbnb'].forEach(f=>document.getElementById(f).value='');
+    ['fNombre','fDesc','fWa'].forEach(f=>document.getElementById(f).value='');
     document.getElementById('fTipo').value='matrimonial';
     document.getElementById('fPiso').value='1';
   }
-  renderTags();renderFotos();
+  renderTags();renderFotos();renderLinks();
   document.getElementById('overlay').classList.add('on');
 }
 function closeModal(){document.getElementById('overlay').classList.remove('on');}
 
-async function saveSuite(){
+function saveSuite(){
   const id=document.getElementById('fId').value.trim();
   if(!id){toast('Ingresa el número de suite','err');return;}
   const data={
@@ -594,37 +489,29 @@ async function saveSuite(){
     descripcion:document.getElementById('fDesc').value,
     tags:curTags,
     whatsapp:document.getElementById('fWa').value.replace(/\D/g,''),
-    airbnb_url:document.getElementById('fAirbnb').value,
+    links:curLinks,
     fotos:curFotos,
     orden:editId?suites.find(s=>s.id===editId)?.orden||99:suites.length+1,
     activa:true
   };
-  if(SB_URL){
-    try{
-      document.getElementById('btnSave').textContent='Guardando...';
-      await sbUpsert('suites',data);
-    }catch(e){toast('Error Supabase: '+e.message,'err');document.getElementById('btnSave').textContent='Guardar cambios';return;}
-  }
   const idx=suites.findIndex(s=>s.id===id);
   if(idx>=0)suites[idx]=data;else suites.push(data);
-  renderTable();updateStats();
-  closeModal();
-  toast('Suite guardada','ok');
+  saveLocal();renderTable();updateStats();
+  closeModal();toast('Suite guardada','ok');
 }
 
-// ════════ TAGS ════════
+// TAGS
 function renderTags(){
   const wrap=document.getElementById('tagsWrap');
   const inp=document.getElementById('tagIn');
   wrap.querySelectorAll('.tag-pill').forEach(t=>t.remove());
   curTags.forEach(tag=>{
-    const p=document.createElement('div');
-    p.className='tag-pill';
-    p.innerHTML=`${tag}<button type="button" onclick="removeTag('${tag.replace(/'/g,"\\'")}')">×</button>`;
+    const p=document.createElement('div');p.className='tag-pill';
+    p.innerHTML=`${tag}<button type="button" onclick="removeTag(this,'${tag.replace(/'/g,"\\'")}')">×</button>`;
     wrap.insertBefore(p,inp);
   });
 }
-function removeTag(t){curTags=curTags.filter(x=>x!==t);renderTags();}
+function removeTag(btn,t){curTags=curTags.filter(x=>x!==t);renderTags();}
 document.getElementById('tagIn').addEventListener('keydown',e=>{
   if(e.key==='Enter'||e.key===','){
     e.preventDefault();
@@ -635,90 +522,61 @@ document.getElementById('tagIn').addEventListener('keydown',e=>{
   if(e.key==='Backspace'&&!e.target.value&&curTags.length){curTags.pop();renderTags();}
 });
 
-// ════════ FOTOS ════════
+// BOOKING LINKS
+function renderLinks(){
+  const c=document.getElementById('linksContainer');
+  c.innerHTML=curLinks.map((l,i)=>`
+    <div class="link-item">
+      <input type="text" value="${l.nombre||''}" placeholder="Airbnb" onchange="curLinks[${i}].nombre=this.value">
+      <input type="text" value="${l.url||''}" placeholder="https://..." onchange="curLinks[${i}].url=this.value">
+      <button class="del-link" onclick="removeLink(${i})">×</button>
+    </div>
+  `).join('');
+}
+function addLink(){
+  curLinks.push({nombre:'',url:''});
+  renderLinks();
+  // focus primer input del nuevo link
+  const inputs=document.querySelectorAll('.link-item input');
+  if(inputs.length) inputs[inputs.length-2].focus();
+}
+function removeLink(i){curLinks.splice(i,1);renderLinks();}
+
+// FOTOS
 function renderFotos(){
   const grid=document.getElementById('fotosGrid');
   document.getElementById('fotoCount').textContent=`(${curFotos.length})`;
   grid.innerHTML=curFotos.map((url,i)=>`
-    <div class="foto-item" draggable="true" data-i="${i}"
-         ondragstart="dragStart(event,${i})" ondragover="dragOver(event)" ondrop="dropFoto(event,${i})">
-      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23eee%22 width=%22100%22 height=%22100%22/></svg>'">
+    <div class="foto-item" draggable="true" ondragstart="dragStart(event,${i})" ondragover="dragOver(event)" ondrop="dropFoto(event,${i})">
+      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect fill=%22%23eee%22 width=%2240%22 height=%2240%22/></svg>'">
       ${i===0?'<div class="portada-badge">PORTADA</div>':''}
       <div class="foto-actions">
-        <button class="foto-act" onclick="moveFoto(${i},-1)" title="Mover izq">←</button>
-        <button class="foto-act" onclick="moveFoto(${i},1)" title="Mover der">→</button>
-        <button class="foto-act" style="background:rgba(255,80,80,.9)" onclick="delFoto(${i})" title="Eliminar">×</button>
+        <button class="foto-act" onclick="moveFoto(${i},-1)">←</button>
+        <button class="foto-act" onclick="moveFoto(${i},1)">→</button>
+        <button class="foto-act" style="background:rgba(255,80,80,.9)" onclick="delFoto(${i})">×</button>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 function delFoto(i){curFotos.splice(i,1);renderFotos();}
-function moveFoto(i,d){
-  const ni=i+d;
-  if(ni<0||ni>=curFotos.length)return;
-  [curFotos[i],curFotos[ni]]=[curFotos[ni],curFotos[i]];renderFotos();
-}
+function moveFoto(i,d){const ni=i+d;if(ni<0||ni>=curFotos.length)return;[curFotos[i],curFotos[ni]]=[curFotos[ni],curFotos[i]];renderFotos();}
 function dragStart(e,i){dragIdx=i;e.dataTransfer.effectAllowed='move';}
 function dragOver(e){e.preventDefault();}
-function dropFoto(e,ti){
-  e.preventDefault();
-  if(dragIdx===null||dragIdx===ti)return;
-  const moved=curFotos.splice(dragIdx,1)[0];
-  curFotos.splice(ti,0,moved);
-  renderFotos();dragIdx=null;
-}
+function dropFoto(e,ti){e.preventDefault();if(dragIdx===null||dragIdx===ti)return;const m=curFotos.splice(dragIdx,1)[0];curFotos.splice(ti,0,m);renderFotos();dragIdx=null;}
 function onDragOver(e){e.preventDefault();document.getElementById('dropZone').classList.add('drag');}
 function onDragLeave(){document.getElementById('dropZone').classList.remove('drag');}
 async function onDrop(e){e.preventDefault();document.getElementById('dropZone').classList.remove('drag');await uploadFiles(e.dataTransfer.files);}
 async function onFileSelect(e){await uploadFiles(e.target.files);}
-
 async function uploadFiles(files){
-  const arr=Array.from(files);
-  if(!arr.length)return;
-  if(!SB_URL||!SB_KEY){
-    for(const f of arr)curFotos.push(URL.createObjectURL(f));
-    renderFotos();
-    toast('Preview local (sin Supabase)');
-    return;
+  // Preview local — las URLs de objeto solo duran la sesión
+  // Para fotos permanentes necesitarían un hosting de imágenes
+  for(const f of Array.from(files)){
+    curFotos.push(URL.createObjectURL(f));
   }
-  const prog=document.getElementById('progWrap');
-  const fill=document.getElementById('progFill');
-  const msg=document.getElementById('progMsg');
-  prog.style.display='block';
-  const sid=document.getElementById('fId').value||'temp';
-  for(let i=0;i<arr.length;i++){
-    msg.textContent=`Subiendo ${i+1}/${arr.length}...`;
-    fill.style.width=`${Math.round((i/arr.length)*100)}%`;
-    try{
-      const path=`suites/${sid}/${Date.now()}-${arr[i].name.replace(/\s/g,'_')}`;
-      const url=await sbUpload('fotos',path,arr[i]);
-      curFotos.push(url);renderFotos();
-    }catch{toast('Error subiendo '+arr[i].name,'err');}
-  }
-  fill.style.width='100%';
-  msg.textContent='¡Listo!';
-  setTimeout(()=>{prog.style.display='none';fill.style.width='0%';},1500);
+  renderFotos();
+  toast(`${files.length} foto(s) agregada(s)`,'ok');
 }
 
-// ════════ CONFIG ════════
-function saveConfig(){
-  const u=document.getElementById('cfgUrl').value.trim().replace(/\/$/,'');
-  const k=document.getElementById('cfgKey').value.trim();
-  if(!u||!k){toast('Ingresa URL y Key','err');return;}
-  SB_URL=u;SB_KEY=k;
-  localStorage.setItem('sj_url',u);localStorage.setItem('sj_key',k);
-  checkBanner();
-  toast('Supabase conectado','ok');
-  init();
-}
-function savePwd(){
-  const p=document.getElementById('cfgPwd').value;
-  if(p.length<4){toast('Contraseña muy corta','err');return;}
-  localStorage.setItem('sj_pwd',p);
-  toast('Contraseña actualizada','ok');
-}
-
-// ════════ TOAST ════════
+// TOAST
 function toast(msg,type=''){
   const t=document.getElementById('toast');
   t.textContent=msg;t.className='toast show '+(type||'');
