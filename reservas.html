@@ -1171,7 +1171,8 @@ function moveCarousel(e, id, dir) {
 
 function renderCarousel(id, car, total) {
   const idx = carState[id] || 0;
-  car.querySelector('.slides').style.transform = `translateX(${-idx*100}%)`;
+  const slideWidth = car.offsetWidth;
+  car.querySelector('.slides').style.transform = `translateX(${-idx * slideWidth}px)`;
   car.querySelector('.curr').textContent = idx + 1;
   const dots = car.querySelectorAll('.dot');
   const active = Math.min(Math.floor(idx * 5 / total), 4);
@@ -1236,6 +1237,13 @@ document.querySelectorAll('.carousel').forEach(car=>{
     const diff=sx-e.changedTouches[0].clientX;
     if(Math.abs(diff)>40) moveCarousel(null,car.id,diff>0?1:-1);
   },{passive:true});
+});
+
+// Recalculate all carousel positions on resize (handles orientation change)
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.carousel').forEach(car => {
+    if(car.id) renderCarousel(car.id, car, parseInt(car.dataset.total)||1);
+  });
 });
 
 // ── HORARIO DE CONTACTO ─────────────────────────────────────────────────────
