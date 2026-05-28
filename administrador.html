@@ -382,21 +382,40 @@ function doLogout(){
 }
 document.getElementById('pwdIn').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
+// SUPABASE HELPERS
+async function sbGet(){
+  const r=await fetch(`${SB_URL}/rest/v1/suites?order=orden.asc,id.asc`,{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+  if(!r.ok) throw new Error('read failed');
+  return r.json();
+}
+async function sbUpsert(data){
+  const r=await fetch(`${SB_URL}/rest/v1/suites`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(data)});
+  if(!r.ok){const e=await r.text();throw new Error(e);}
+}
+async function sbDelete(id){
+  const r=await fetch(`${SB_URL}/rest/v1/suites?id=eq.${id}`,{method:'DELETE',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+  if(!r.ok) throw new Error('delete failed');
+}
+
 // INIT
-function init(){
-  const saved=localStorage.getItem('sj_suites');
-  suites=saved?JSON.parse(saved):SEED;
+async function init(){
+  try{
+    suites=await sbGet();
+    if(!suites.length){
+      // Primer uso: guardar seed en Supabase
+      await sbUpsert(SEED);
+      suites=SEED;
+    }
+  }catch(e){
+    console.warn('Supabase error, usando localStorage:', e);
+    const saved=localStorage.getItem('sj_suites');
+    suites=saved?JSON.parse(saved):SEED;
+  }
   renderTable();updateStats();
 }
 
 function saveLocal(){
   localStorage.setItem('sj_suites',JSON.stringify(suites));
-  // Marcar que hay cambios sin publicar
-  const btn = document.getElementById('btnPublish');
-  if(btn && !btn.innerHTML.includes('Publicado')) {
-    btn.innerHTML = '● Publicar cambios';
-    btn.style.background = '#38a169';
-  }
 }
 
 function nav(sec,el){
@@ -451,13 +470,24 @@ function renderTable(){
 }
 
 // ORDER
-function moveUp(id){const i=suites.findIndex(s=>s.id===id);if(i<=0)return;[suites[i-1],suites[i]]=[suites[i],suites[i-1]];reIndex();saveLocal();renderTable();toast('Orden actualizado','ok');}
-function moveDown(id){const i=suites.findIndex(s=>s.id===id);if(i>=suites.length-1)return;[suites[i],suites[i+1]]=[suites[i+1],suites[i]];reIndex();saveLocal();renderTable();toast('Orden actualizado','ok');}
+async function moveUp(id){
+  const i=suites.findIndex(s=>s.id===id);if(i<=0)return;
+  [suites[i-1],suites[i]]=[suites[i],suites[i-1]];reIndex();renderTable();
+  try{await sbUpsert(suites.map(s=>({id:s.id,orden:s.orden})));}catch(e){}
+  toast('Orden actualizado','ok');
+}
+async function moveDown(id){
+  const i=suites.findIndex(s=>s.id===id);if(i>=suites.length-1)return;
+  [suites[i],suites[i+1]]=[suites[i+1],suites[i]];reIndex();renderTable();
+  try{await sbUpsert(suites.map(s=>({id:s.id,orden:s.orden})));}catch(e){}
+  toast('Orden actualizado','ok');
+}
 function reIndex(){suites.forEach((s,i)=>s.orden=i+1);}
 
 // DELETE
-function deleteSuite(id){
+async function deleteSuite(id){
   if(!confirm(`¿Eliminar Suite ${id}?`))return;
+  try{await sbDelete(id);}catch(e){toast('Error al eliminar','err');return;}
   suites=suites.filter(s=>s.id!==id);
   saveLocal();renderTable();updateStats();toast('Suite eliminada');
 }
@@ -491,7 +521,7 @@ function openModal(id){
 }
 function closeModal(){document.getElementById('overlay').classList.remove('on');}
 
-function saveSuite(){
+async function saveSuite(){
   const id=document.getElementById('fId').value.trim();
   if(!id){toast('Ingresa el número de suite','err');return;}
   const data={
@@ -509,8 +539,16 @@ function saveSuite(){
   };
   const idx=suites.findIndex(s=>s.id===id);
   if(idx>=0)suites[idx]=data;else suites.push(data);
-  saveLocal();renderTable();updateStats();
-  closeModal();toast('Suite guardada','ok');
+  saveLocal();
+  try{
+    document.getElementById('btnSave').textContent='Guardando...';
+    await sbUpsert(data);
+    renderTable();updateStats();
+    closeModal();toast('Suite guardada','ok');
+  }catch(e){
+    renderTable();updateStats();
+    closeModal();toast('Guardado local (sin conexión a Supabase)');
+  }
 }
 
 // TAGS
@@ -620,16 +658,22 @@ async function uploadFiles(files){
 
 
 // PUBLICAR — marca los datos como publicados y muestra confirmación
-function publishChanges(){
-  saveLocal(); // ya estaba guardado pero lo reforzamos
-  // Marcar timestamp de última publicación
-  localStorage.setItem('sj_published', new Date().toLocaleString('es-MX'));
+async function publishChanges(){
   const btn = document.getElementById('btnPublish');
-  const orig = btn.innerHTML;
-  btn.innerHTML = '✓ ¡Publicado!';
+  btn.innerHTML = 'Publicando...';
   btn.style.background = '#276749';
-  setTimeout(()=>{ btn.innerHTML = orig; btn.style.background = '#38a169'; }, 2500);
-  toast('Cambios publicados — reservas.html ya los muestra', 'ok');
+  try{
+    await sbUpsert(suites);
+    saveLocal();
+    localStorage.setItem('sj_published', new Date().toLocaleString('es-MX'));
+    btn.innerHTML = '✓ ¡Publicado!';
+    setTimeout(()=>{ btn.innerHTML = '✓ Publicar cambios'; btn.style.background = '#38a169'; }, 2500);
+    toast('¡Cambios en vivo! Ya se ven en reservas.html desde cualquier dispositivo', 'ok');
+  }catch(e){
+    btn.innerHTML = '✓ Publicar cambios';
+    btn.style.background = '#38a169';
+    toast('Error al publicar: '+e.message,'err');
+  }
 }
 
 // TOAST
