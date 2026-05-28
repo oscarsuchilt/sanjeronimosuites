@@ -222,7 +222,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 </div>
 
 <div class="filters">
-  <button class="filter-btn active" onclick="filterSuites('all',this)">Todas (26)</button>
+  <button class="filter-btn active" onclick="filterSuites('all',this)" id="filterAll">Todas</button>
   <button class="filter-btn" onclick="filterSuites('piso1',this)">Piso 1</button>
   <button class="filter-btn" onclick="filterSuites('piso2',this)">Piso 2</button>
   <button class="filter-btn" onclick="filterSuites('piso3',this)">Piso 3</button>
@@ -231,813 +231,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 </div>
 
 <div class="suites-grid" id="suitesGrid">
+<!-- Las suites se renderizan dinámicamente desde el admin -->
 
-<div class="suite-card" id="suite-101" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="31" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-31.jpeg"]' id="car-101">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-1.jpeg" loading="eager" onclick="openLightbox('car-101',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-2.jpeg" loading="eager" onclick="openLightbox('car-101',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-3.jpeg" loading="eager" onclick="openLightbox('car-101',2)" alt=""></div>
-  <div class="pg-counter">1 / 31</div>
-  <button class="pg-expand" onclick="openLightbox('car-101',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 101</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20101%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516959718028619169" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-102" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="28" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-28.jpeg"]' id="car-102">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-1.jpeg" loading="eager" onclick="openLightbox('car-102',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-2.jpeg" loading="eager" onclick="openLightbox('car-102',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-3.jpeg" loading="eager" onclick="openLightbox('car-102',2)" alt=""></div>
-  <div class="pg-counter">1 / 28</div>
-  <button class="pg-expand" onclick="openLightbox('car-102',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 102</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20102%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516957745515565025" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-103" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="29" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-29.jpeg"]' id="car-103">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-1.jpeg" loading="eager" onclick="openLightbox('car-103',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-2.jpeg" loading="eager" onclick="openLightbox('car-103',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-3.jpeg" loading="eager" onclick="openLightbox('car-103',2)" alt=""></div>
-  <div class="pg-counter">1 / 29</div>
-  <button class="pg-expand" onclick="openLightbox('car-103',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 103</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20103%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516964044456776332" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-104" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="38" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-38.jpeg"]' id="car-104">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-1.jpeg" loading="eager" onclick="openLightbox('car-104',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-2.jpeg" loading="eager" onclick="openLightbox('car-104',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-3.jpeg" loading="eager" onclick="openLightbox('car-104',2)" alt=""></div>
-  <div class="pg-counter">1 / 38</div>
-  <button class="pg-expand" onclick="openLightbox('car-104',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 104</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20104%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516965553320233755" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-105" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="33" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-33.jpeg"]' id="car-105">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-1.jpeg" loading="eager" onclick="openLightbox('car-105',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-2.jpeg" loading="eager" onclick="openLightbox('car-105',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-3.jpeg" loading="eager" onclick="openLightbox('car-105',2)" alt=""></div>
-  <div class="pg-counter">1 / 33</div>
-  <button class="pg-expand" onclick="openLightbox('car-105',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 105</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20105%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516967560226327727" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-106" data-piso="1" data-tipo="matrimonial">
-  <div class="photo-grid" data-total="22" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-22.jpeg"]' id="car-106">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-1.jpeg" loading="eager" onclick="openLightbox('car-106',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-2.jpeg" loading="eager" onclick="openLightbox('car-106',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-3.jpeg" loading="eager" onclick="openLightbox('car-106',2)" alt=""></div>
-  <div class="pg-counter">1 / 22</div>
-  <button class="pg-expand" onclick="openLightbox('car-106',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">Matrimonial</span>
-      <span class="badge-piso">Piso 1</span>
-    </div>
-    <h2 class="suite-name">Suite 106</h2>
-    <p class="suite-desc">Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama Matrimonial</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20106%20(Matrimonial%2C%20Piso%201)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516969034730757916" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-201" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="23" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-23.jpeg"]' id="car-201">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-1.jpeg" loading="eager" onclick="openLightbox('car-201',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-2.jpeg" loading="eager" onclick="openLightbox('car-201',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-3.jpeg" loading="eager" onclick="openLightbox('car-201',2)" alt=""></div>
-  <div class="pg-counter">1 / 23</div>
-  <button class="pg-expand" onclick="openLightbox('car-201',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 201</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20201%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516956038704698234" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-202" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="19" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-19.jpeg"]' id="car-202">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-1.jpeg" loading="eager" onclick="openLightbox('car-202',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-2.jpeg" loading="eager" onclick="openLightbox('car-202',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-3.jpeg" loading="eager" onclick="openLightbox('car-202',2)" alt=""></div>
-  <div class="pg-counter">1 / 19</div>
-  <button class="pg-expand" onclick="openLightbox('car-202',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 202</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20202%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516957745515565025" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-203" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="27" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-27.jpeg"]' id="car-203">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-1.jpeg" loading="eager" onclick="openLightbox('car-203',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-2.jpeg" loading="eager" onclick="openLightbox('car-203',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-3.jpeg" loading="eager" onclick="openLightbox('car-203',2)" alt=""></div>
-  <div class="pg-counter">1 / 27</div>
-  <button class="pg-expand" onclick="openLightbox('car-203',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 203</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20203%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514050932069160111" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-204" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="39" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-39.jpeg"]' id="car-204">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-1.jpeg" loading="eager" onclick="openLightbox('car-204',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-2.jpeg" loading="eager" onclick="openLightbox('car-204',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-3.jpeg" loading="eager" onclick="openLightbox('car-204',2)" alt=""></div>
-  <div class="pg-counter">1 / 39</div>
-  <button class="pg-expand" onclick="openLightbox('car-204',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 204</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20204%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514054007042958159" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-205" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="27" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-27.jpeg"]' id="car-205">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-1.jpeg" loading="eager" onclick="openLightbox('car-205',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-2.jpeg" loading="eager" onclick="openLightbox('car-205',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-3.jpeg" loading="eager" onclick="openLightbox('car-205',2)" alt=""></div>
-  <div class="pg-counter">1 / 27</div>
-  <button class="pg-expand" onclick="openLightbox('car-205',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 205</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20205%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514057147328029521" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-206" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="42" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-39.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-40.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-41.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-42.jpeg"]' id="car-206">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-1.jpeg" loading="eager" onclick="openLightbox('car-206',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-2.jpeg" loading="eager" onclick="openLightbox('car-206',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-3.jpeg" loading="eager" onclick="openLightbox('car-206',2)" alt=""></div>
-  <div class="pg-counter">1 / 42</div>
-  <button class="pg-expand" onclick="openLightbox('car-206',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 206</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20206%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514061887907363968" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-207" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="22" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-22.jpeg"]' id="car-207">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-1.jpeg" loading="eager" onclick="openLightbox('car-207',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-2.jpeg" loading="eager" onclick="openLightbox('car-207',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-3.jpeg" loading="eager" onclick="openLightbox('car-207',2)" alt=""></div>
-  <div class="pg-counter">1 / 22</div>
-  <button class="pg-expand" onclick="openLightbox('car-207',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 207</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20207%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514060174239567382" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-208" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="27" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-27.jpeg"]' id="car-208">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-1.jpeg" loading="eager" onclick="openLightbox('car-208',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-2.jpeg" loading="eager" onclick="openLightbox('car-208',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-3.jpeg" loading="eager" onclick="openLightbox('car-208',2)" alt=""></div>
-  <div class="pg-counter">1 / 27</div>
-  <button class="pg-expand" onclick="openLightbox('car-208',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 208</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20208%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514064591496230383" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-209" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="22" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-22.jpeg"]' id="car-209">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-1.jpeg" loading="eager" onclick="openLightbox('car-209',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-2.jpeg" loading="eager" onclick="openLightbox('car-209',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-3.jpeg" loading="eager" onclick="openLightbox('car-209',2)" alt=""></div>
-  <div class="pg-counter">1 / 22</div>
-  <button class="pg-expand" onclick="openLightbox('car-209',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 209</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20209%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514067242684304328" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-210" data-piso="2" data-tipo="king">
-  <div class="photo-grid" data-total="28" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-28.jpeg"]' id="car-210">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-1.jpeg" loading="eager" onclick="openLightbox('car-210',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-2.jpeg" loading="eager" onclick="openLightbox('car-210',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-3.jpeg" loading="eager" onclick="openLightbox('car-210',2)" alt=""></div>
-  <div class="pg-counter">1 / 28</div>
-  <button class="pg-expand" onclick="openLightbox('car-210',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 2</span>
-    </div>
-    <h2 class="suite-name">Suite 210</h2>
-    <p class="suite-desc">Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20210%20(King%20Size%2C%20Piso%202)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514069284076493193" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-301" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="25" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-25.jpeg"]' id="car-301">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-1.jpeg" loading="eager" onclick="openLightbox('car-301',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-2.jpeg" loading="eager" onclick="openLightbox('car-301',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-3.jpeg" loading="eager" onclick="openLightbox('car-301',2)" alt=""></div>
-  <div class="pg-counter">1 / 25</div>
-  <button class="pg-expand" onclick="openLightbox('car-301',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 301</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20301%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516949847923186204" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-302" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="28" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-28.jpeg"]' id="car-302">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-1.jpeg" loading="eager" onclick="openLightbox('car-302',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-2.jpeg" loading="eager" onclick="openLightbox('car-302',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-3.jpeg" loading="eager" onclick="openLightbox('car-302',2)" alt=""></div>
-  <div class="pg-counter">1 / 28</div>
-  <button class="pg-expand" onclick="openLightbox('car-302',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 302</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20302%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1516953512877403406" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-303" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="45" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-39.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-40.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-41.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-42.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-43.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-44.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-45.jpeg"]' id="car-303">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-1.jpeg" loading="eager" onclick="openLightbox('car-303',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-2.jpeg" loading="eager" onclick="openLightbox('car-303',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-3.jpeg" loading="eager" onclick="openLightbox('car-303',2)" alt=""></div>
-  <div class="pg-counter">1 / 45</div>
-  <button class="pg-expand" onclick="openLightbox('car-303',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 303</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20303%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514019614700285709" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-304" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="26" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-26.jpeg"]' id="car-304">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-1.jpeg" loading="eager" onclick="openLightbox('car-304',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-2.jpeg" loading="eager" onclick="openLightbox('car-304',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-3.jpeg" loading="eager" onclick="openLightbox('car-304',2)" alt=""></div>
-  <div class="pg-counter">1 / 26</div>
-  <button class="pg-expand" onclick="openLightbox('car-304',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 304</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20304%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514048031584694739" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-305" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="35" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-36.jpeg"]' id="car-305">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-1.jpeg" loading="eager" onclick="openLightbox('car-305',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-2.jpeg" loading="eager" onclick="openLightbox('car-305',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-3.jpeg" loading="eager" onclick="openLightbox('car-305',2)" alt=""></div>
-  <div class="pg-counter">1 / 35</div>
-  <button class="pg-expand" onclick="openLightbox('car-305',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 305</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20305%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1514041309378007152" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-306" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="32" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-42.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-43.jpeg"]' id="car-306">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-2.jpeg" loading="eager" onclick="openLightbox('car-306',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-3.jpeg" loading="eager" onclick="openLightbox('car-306',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-4.jpeg" loading="eager" onclick="openLightbox('car-306',2)" alt=""></div>
-  <div class="pg-counter">1 / 32</div>
-  <button class="pg-expand" onclick="openLightbox('car-306',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 306</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20306%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1473355644071608347" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-307" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="23" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-23.jpeg"]' id="car-307">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-1.jpeg" loading="eager" onclick="openLightbox('car-307',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-2.jpeg" loading="eager" onclick="openLightbox('car-307',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-3.jpeg" loading="eager" onclick="openLightbox('car-307',2)" alt=""></div>
-  <div class="pg-counter">1 / 23</div>
-  <button class="pg-expand" onclick="openLightbox('car-307',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 307</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20307%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1513302042328755768" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-308" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="29" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-29.jpeg"]' id="car-308">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-1.jpeg" loading="eager" onclick="openLightbox('car-308',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-2.jpeg" loading="eager" onclick="openLightbox('car-308',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-3.jpeg" loading="eager" onclick="openLightbox('car-308',2)" alt=""></div>
-  <div class="pg-counter">1 / 29</div>
-  <button class="pg-expand" onclick="openLightbox('car-308',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 308</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20308%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1513278151814640140" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-309" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="44" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-39.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-40.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-41.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-42.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-43.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-44.jpeg"]' id="car-309">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-1.jpeg" loading="eager" onclick="openLightbox('car-309',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-2.jpeg" loading="eager" onclick="openLightbox('car-309',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-3.jpeg" loading="eager" onclick="openLightbox('car-309',2)" alt=""></div>
-  <div class="pg-counter">1 / 44</div>
-  <button class="pg-expand" onclick="openLightbox('car-309',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 309</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20309%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1513304638239847600" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="suite-card" id="suite-310" data-piso="3" data-tipo="king">
-  <div class="photo-grid" data-total="43" data-urls='["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-26.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-27.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-28.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-29.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-30.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-31.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-32.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-33.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-34.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-35.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-36.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-37.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-38.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-39.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-40.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-41.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-42.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-43.jpeg"]' id="car-310">
-  <div class="pg-main"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-1.jpeg" loading="eager" onclick="openLightbox('car-310',0)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-2.jpeg" loading="eager" onclick="openLightbox('car-310',1)" alt=""></div>
-  <div class="pg-side"><img src="https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-3.jpeg" loading="eager" onclick="openLightbox('car-310',2)" alt=""></div>
-  <div class="pg-counter">1 / 43</div>
-  <button class="pg-expand" onclick="openLightbox('car-310',0)">⤢</button>
-</div>
-  <div class="suite-body">
-    <div class="suite-meta">
-      <span class="badge-tipo">King Size</span>
-      <span class="badge-piso">Piso 3</span>
-    </div>
-    <h2 class="suite-name">Suite 310</h2>
-    <p class="suite-desc">Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).</p>
-    <div class="suite-tags">
-      <span>Cama King Size</span><span>Baño privado</span><span>Smart TV</span>
-      <span>Aire acondicionado</span><span>Frigobar</span><span>Home office</span>
-      <span>Chapa digital</span><span>Cafetera en recepción</span><span>Pequeña parrilla (algunas)</span>
-    </div>
-    <div class="suite-footer">
-      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
-      <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','Hola%21%20Me%20interesa%20la%20Suite%20310%20(King%20Size%2C%20Piso%203)%20de%20San%20Jerónimo%20Suites.%20¿Está%20disponible%3F%20Check-in%203:00%20pm%2C%20Check-out%2011:00%20am%2C%20máx.%202%20personas.','528135527990')" title="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <a class="btn-reservar" href="https://www.airbnb.mx/rooms/1513968596376047421" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 
 <div class="areas-wrap">
@@ -1110,6 +305,185 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 </div>
 
 <script>
+// ══════════════════════════════════════════════════════════════
+// DATOS DINÁMICOS DESDE EL ADMIN
+// ══════════════════════════════════════════════════════════════
+
+// Seed fallback (datos originales por si no hay admin)
+const SUITE_SEED = [
+  {id:'101',nombre:'Suite 101',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516959718028619169'}],fotos:Array.from({length:31},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-${i+1}.jpeg`),orden:1},
+  {id:'102',nombre:'Suite 102',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-${i+1}.jpeg`),orden:2},
+  {id:'103',nombre:'Suite 103',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516964044456776332'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-${i+1}.jpeg`),orden:3},
+  {id:'104',nombre:'Suite 104',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516965553320233755'}],fotos:Array.from({length:38},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-${i+1}.jpeg`),orden:4},
+  {id:'105',nombre:'Suite 105',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516967560226327727'}],fotos:Array.from({length:33},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-${i+1}.jpeg`),orden:5},
+  {id:'106',nombre:'Suite 106',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516969034730757916'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-${i+1}.jpeg`),orden:6},
+  {id:'201',nombre:'Suite 201',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516956038704698234'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-${i+1}.jpeg`),orden:7},
+  {id:'202',nombre:'Suite 202',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:19},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-${i+1}.jpeg`),orden:8},
+  {id:'203',nombre:'Suite 203',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514050932069160111'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-${i+1}.jpeg`),orden:9},
+  {id:'204',nombre:'Suite 204',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514054007042958159'}],fotos:Array.from({length:39},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-${i+1}.jpeg`),orden:10},
+  {id:'205',nombre:'Suite 205',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514057147328029521'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-${i+1}.jpeg`),orden:11},
+  {id:'206',nombre:'Suite 206',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514061887907363968'}],fotos:Array.from({length:42},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-${i+1}.jpeg`),orden:12},
+  {id:'207',nombre:'Suite 207',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514060174239567382'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-${i+1}.jpeg`),orden:13},
+  {id:'208',nombre:'Suite 208',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514064591496230383'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-${i+1}.jpeg`),orden:14},
+  {id:'209',nombre:'Suite 209',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514067242684304328'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-${i+1}.jpeg`),orden:15},
+  {id:'210',nombre:'Suite 210',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514069284076493193'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-${i+1}.jpeg`),orden:16},
+  {id:'301',nombre:'Suite 301',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516949847923186204'}],fotos:Array.from({length:25},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-${i+1}.jpeg`),orden:17},
+  {id:'302',nombre:'Suite 302',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516953512877403406'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-${i+1}.jpeg`),orden:18},
+  {id:'303',nombre:'Suite 303',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514019614700285709'}],fotos:Array.from({length:45},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-${i+1}.jpeg`),orden:19},
+  {id:'304',nombre:'Suite 304',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514048031584694739'}],fotos:Array.from({length:26},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-${i+1}.jpeg`),orden:20},
+  {id:'305',nombre:'Suite 305',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514041309378007152'}],fotos:Array.from({length:35},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-${i+1}.jpeg`),orden:21},
+  {id:'306',nombre:'Suite 306',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1473355644071608347'}],fotos:[...Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-${i+2}.jpeg`),'https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-38.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-42.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-43.jpeg'],orden:22},
+  {id:'307',nombre:'Suite 307',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513302042328755768'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-${i+1}.jpeg`),orden:23},
+  {id:'308',nombre:'Suite 308',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513278151814640140'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-${i+1}.jpeg`),orden:24},
+  {id:'309',nombre:'Suite 309',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513304638239847600'}],fotos:Array.from({length:44},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-${i+1}.jpeg`),orden:25},
+  {id:'310',nombre:'Suite 310',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513968596376047421'}],fotos:Array.from({length:43},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-${i+1}.jpeg`),orden:26},
+];
+
+// Cargar datos del admin (localStorage) o usar seed
+function loadSuites() {
+  try {
+    const saved = localStorage.getItem('sj_suites');
+    return saved ? JSON.parse(saved) : SUITE_SEED;
+  } catch(e) { return SUITE_SEED; }
+}
+
+// WA SVG icon
+const WA_SVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+// Íconos por plataforma
+const PLATFORM_ICONS = {
+  airbnb: '🏠',
+  booking: '🏨',
+  expedia: '✈️',
+  vrbo: '🏡',
+  direct: '📅',
+  default: '🔗'
+};
+function getPlatformIcon(nombre) {
+  const n = nombre.toLowerCase();
+  if (n.includes('airbnb')) return PLATFORM_ICONS.airbnb;
+  if (n.includes('booking')) return PLATFORM_ICONS.booking;
+  if (n.includes('expedia')) return PLATFORM_ICONS.expedia;
+  if (n.includes('vrbo')) return PLATFORM_ICONS.vrbo;
+  if (n.includes('direct') || n.includes('directo')) return PLATFORM_ICONS.direct;
+  return PLATFORM_ICONS.default;
+}
+
+// Renderizar botón reservar (1 link = directo, 2+ = popup)
+function renderReservarBtn(suite) {
+  const links = suite.links || [];
+  if (links.length === 0) return '';
+  if (links.length === 1) {
+    return `<a class="btn-reservar" href="${links[0].url}" target="_blank" rel="noopener">Reservar</a>`;
+  }
+  return `<button class="btn-reservar" onclick="openPlatformPopup('${suite.id}')">Reservar</button>`;
+}
+
+// Popup de plataformas
+let _platformLinks = [];
+let _platformSuiteName = '';
+function openPlatformPopup(suiteId) {
+  const suites = loadSuites();
+  const suite = suites.find(s => s.id === suiteId);
+  if (!suite) return;
+  _platformLinks = suite.links || [];
+  _platformSuiteName = suite.nombre;
+  const body = document.getElementById('platformPopupBody');
+  body.innerHTML = _platformLinks.map(l => `
+    <a href="${l.url}" target="_blank" rel="noopener" class="platform-option" onclick="closePlatformPopup()">
+      <span class="platform-icon">${getPlatformIcon(l.nombre)}</span>
+      <span class="platform-name">${l.nombre}</span>
+      <span class="platform-arrow">→</span>
+    </a>
+  `).join('');
+  document.getElementById('platformPopupTitle').textContent = suite.nombre;
+  document.getElementById('platformPopup').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePlatformPopup() {
+  document.getElementById('platformPopup').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Generar card de suite
+function buildSuiteCard(s) {
+  const fotos = s.fotos || [];
+  const tags = s.tags || [];
+  const wa = s.whatsapp || '528135527990';
+  const tipo = s.tipo === 'king' ? 'King Size' : 'Matrimonial';
+  const pisoLabel = `Piso ${s.piso}`;
+  const waMsg = encodeURIComponent(`Hola! Me interesa la ${s.nombre} (${tipo}, ${pisoLabel}) de San Jerónimo Suites. ¿Está disponible? Check-in 3:00 pm, Check-out 11:00 am, máx. 2 personas.`);
+  const carId = `car-${s.id}`;
+  const totalFotos = fotos.length;
+
+  const photoGrid = totalFotos > 0 ? `
+    <div class="photo-grid" data-total="${totalFotos}" data-urls='${JSON.stringify(fotos)}' id="${carId}">
+      <div class="pg-main"><img src="${fotos[0]||''}" loading="eager" onclick="openLightbox('${carId}',0)" alt="${s.nombre}"></div>
+      <div class="pg-side"><img src="${fotos[1]||fotos[0]||''}" loading="eager" onclick="openLightbox('${carId}',1)" alt="${s.nombre}"></div>
+      <div class="pg-side"><img src="${fotos[2]||fotos[0]||''}" loading="eager" onclick="openLightbox('${carId}',2)" alt="${s.nombre}"></div>
+      <div class="pg-counter">1 / ${totalFotos}</div>
+      <button class="pg-expand" onclick="openLightbox('${carId}',0)">⤢</button>
+    </div>` : `<div style="height:200px;background:var(--cream);display:flex;align-items:center;justify-content:center;color:var(--gray);">Sin fotos</div>`;
+
+  return `
+<div class="suite-card" id="suite-${s.id}" data-piso="${s.piso}" data-tipo="${s.tipo}">
+  ${photoGrid}
+  <div class="suite-body">
+    <div class="suite-meta">
+      <span class="badge-tipo">${tipo}</span>
+      <span class="badge-piso">${pisoLabel}</span>
+    </div>
+    <h2 class="suite-name">${s.nombre}</h2>
+    <p class="suite-desc">${s.descripcion||''}</p>
+    <div class="suite-tags">${tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    <div class="suite-footer">
+      <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
+      <div class="btn-group">
+        <button class="btn-wa-card" onclick="handleContact('wa','${waMsg}','${wa}')" title="WhatsApp">${WA_SVG}</button>
+        ${renderReservarBtn(s)}
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+// Renderizar todas las suites en el grid
+function renderSuitesGrid() {
+  const suites = loadSuites();
+  const grid = document.getElementById('suitesGrid');
+  if (!grid) return;
+  grid.innerHTML = suites.map(buildSuiteCard).join('');
+  // Actualizar contador en filtro "Todas"
+  const filterAll = document.getElementById('filterAll');
+  if (filterAll) filterAll.textContent = `Todas (${suites.length})`;
+}
+
+// Llamar al cargar
+document.addEventListener('DOMContentLoaded', renderSuitesGrid);
+
+// ── PLATFORM POPUP STYLES (inyectadas dinámicamente) ──────────
+const ppStyle = document.createElement('style');
+ppStyle.textContent = `
+.platform-popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:800;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.platform-popup-overlay.open{display:flex;}
+.platform-popup{background:white;border-radius:20px;width:100%;max-width:380px;box-shadow:0 24px 60px rgba(0,0,0,.3);overflow:hidden;}
+.platform-popup-header{padding:20px 24px 16px;border-bottom:1px solid #e0e0e0;}
+.platform-popup-header h3{font-family:"Playfair Display",serif;font-size:18px;font-weight:400;margin-bottom:3px;}
+.platform-popup-header p{font-size:13px;color:#6b6b6b;}
+.platform-popup-header .pp-close{float:right;width:28px;height:28px;border-radius:50%;background:#f5f5f5;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:-4px;}
+.platform-popup-header .pp-close:hover{background:#0d0d0d;color:white;}
+.platform-popup-body{padding:12px;}
+.platform-option{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;text-decoration:none;color:#0d0d0d;transition:background .15s;cursor:pointer;}
+.platform-option:hover{background:#f5f5f5;}
+.platform-icon{font-size:22px;width:32px;text-align:center;}
+.platform-name{flex:1;font-size:15px;font-weight:500;}
+.platform-arrow{font-size:16px;color:#6b6b6b;}
+.platform-popup-footer{padding:12px 16px;border-top:1px solid #f0f0f0;text-align:center;font-size:12px;color:#6b6b6b;}
+`;
+document.head.appendChild(ppStyle);
+
+// ══════════════════════════════════════════════════════════════
+
 // ── BOOKING ENGINE ──────────────────────────────────────────
 const CHANNEL_CODE = 'TU_CHANNEL_CODE'; // ← Reemplaza con el channel code que te dé Christian
 const BOOKING_BASE = `https://direct-book.com/properties/${CHANNEL_CODE}`;
@@ -1317,6 +691,20 @@ document.getElementById('hoursPopup').addEventListener('click', function(e) {
 <a class="fab-wa" id="fabWa" href="#" onclick="return handleFabWa(event)" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+
+<!-- POPUP SELECCIÓN DE PLATAFORMA -->
+<div class="platform-popup-overlay" id="platformPopup" onclick="if(event.target===this)closePlatformPopup()">
+  <div class="platform-popup">
+    <div class="platform-popup-header">
+      <button class="pp-close" onclick="closePlatformPopup()">×</button>
+      <h3 id="platformPopupTitle">Reservar suite</h3>
+      <p>Elige tu plataforma preferida</p>
+    </div>
+    <div class="platform-popup-body" id="platformPopupBody"></div>
+    <div class="platform-popup-footer">Todos los precios incluyen impuestos</div>
+  </div>
+</div>
 
 </body>
 </html>
