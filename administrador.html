@@ -194,7 +194,12 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
   <div class="main">
     <div class="topbar">
       <div class="topbar-title">Suites</div>
-      <span class="topbar-tag" id="topTag">–</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="topbar-tag" id="topTag">–</span>
+        <button class="btn-sm" onclick="publishChanges()" id="btnPublish" style="background:#38a169;gap:6px;">
+          ✓ Publicar cambios
+        </button>
+      </div>
     </div>
     <div class="page">
       <div class="stats-row">
@@ -384,6 +389,12 @@ function init(){
 
 function saveLocal(){
   localStorage.setItem('sj_suites',JSON.stringify(suites));
+  // Marcar que hay cambios sin publicar
+  const btn = document.getElementById('btnPublish');
+  if(btn && !btn.innerHTML.includes('Publicado')) {
+    btn.innerHTML = '● Publicar cambios';
+    btn.style.background = '#38a169';
+  }
 }
 
 function nav(sec,el){
@@ -574,6 +585,20 @@ async function uploadFiles(files){
   }
   renderFotos();
   toast(`${files.length} foto(s) agregada(s)`,'ok');
+}
+
+
+// PUBLICAR — marca los datos como publicados y muestra confirmación
+function publishChanges(){
+  saveLocal(); // ya estaba guardado pero lo reforzamos
+  // Marcar timestamp de última publicación
+  localStorage.setItem('sj_published', new Date().toLocaleString('es-MX'));
+  const btn = document.getElementById('btnPublish');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '✓ ¡Publicado!';
+  btn.style.background = '#276749';
+  setTimeout(()=>{ btn.innerHTML = orig; btn.style.background = '#38a169'; }, 2500);
+  toast('Cambios publicados — reservas.html ya los muestra', 'ok');
 }
 
 // TOAST
