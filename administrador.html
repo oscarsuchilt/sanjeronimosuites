@@ -473,13 +473,13 @@ function renderTable(){
 async function moveUp(id){
   const i=suites.findIndex(s=>s.id===id);if(i<=0)return;
   [suites[i-1],suites[i]]=[suites[i],suites[i-1]];reIndex();renderTable();
-  try{await sbUpsert(suites.map(s=>({id:s.id,orden:s.orden})));}catch(e){}
+  try{ for(const s of suites){ await sbUpsert({id:s.id,orden:s.orden}); } }catch(e){}
   toast('Orden actualizado','ok');
 }
 async function moveDown(id){
   const i=suites.findIndex(s=>s.id===id);if(i>=suites.length-1)return;
   [suites[i],suites[i+1]]=[suites[i+1],suites[i]];reIndex();renderTable();
-  try{await sbUpsert(suites.map(s=>({id:s.id,orden:s.orden})));}catch(e){}
+  try{ for(const s of suites){ await sbUpsert({id:s.id,orden:s.orden}); } }catch(e){}
   toast('Orden actualizado','ok');
 }
 function reIndex(){suites.forEach((s,i)=>s.orden=i+1);}
@@ -663,7 +663,7 @@ async function publishChanges(){
   btn.innerHTML = 'Publicando...';
   btn.style.background = '#276749';
   try{
-    await sbUpsert(suites);
+    for(const s of suites){ await sbUpsert(s); }
     saveLocal();
     localStorage.setItem('sj_published', new Date().toLocaleString('es-MX'));
     btn.innerHTML = '✓ ¡Publicado!';
