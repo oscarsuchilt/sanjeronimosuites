@@ -339,12 +339,30 @@ const SUITE_SEED = [
   {id:'310',nombre:'Suite 310',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513968596376047421'}],fotos:Array.from({length:43},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-${i+1}.jpeg`),orden:26},
 ];
 
-// Cargar datos del admin (localStorage) o usar seed
-function loadSuites() {
+// Credenciales Supabase
+const _SB_URL = 'https://yblxilcrmzcnbdpowwpi.supabase.co';
+const _SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibHhpbGNybXpjbmJkcG93d3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0ODcyMTksImV4cCI6MjA5NTA2MzIxOX0.fZSmjaK67gU8X0scl9_VDDGk1Nc5DIv3qn8qaSqw7w8';
+
+// Cargar datos: Supabase → localStorage → seed
+async function loadSuitesFromSupabase() {
   try {
-    const saved = localStorage.getItem('sj_suites');
-    return saved ? JSON.parse(saved) : SUITE_SEED;
-  } catch(e) { return SUITE_SEED; }
+    const r = await fetch(`${_SB_URL}/rest/v1/suites?order=orden.asc,id.asc`, {
+      headers: {'apikey': _SB_KEY, 'Authorization': 'Bearer ' + _SB_KEY}
+    });
+    if(!r.ok) throw new Error('fetch failed');
+    const data = await r.json();
+    if(data && data.length > 0) {
+      localStorage.setItem('sj_suites', JSON.stringify(data));
+      return data;
+    }
+  } catch(e) { console.warn('Supabase unavailable, using localStorage'); }
+  const saved = localStorage.getItem('sj_suites');
+  return saved ? JSON.parse(saved) : SUITE_SEED;
+}
+
+function loadSuites() {
+  const saved = localStorage.getItem('sj_suites');
+  return saved ? JSON.parse(saved) : SUITE_SEED;
 }
 
 // WA SVG icon
@@ -448,14 +466,21 @@ function buildSuiteCard(s) {
 }
 
 // Renderizar todas las suites en el grid
-function renderSuitesGrid() {
-  const suites = loadSuites();
+async function renderSuitesGrid() {
   const grid = document.getElementById('suitesGrid');
   if (!grid) return;
+  // Mostrar skeleton mientras carga
+  grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:#999;font-size:14px;">Cargando suites...</div>';
+  const suites = await loadSuitesFromSupabase();
   grid.innerHTML = suites.map(buildSuiteCard).join('');
-  // Actualizar contador en filtro "Todas"
   const filterAll = document.getElementById('filterAll');
   if (filterAll) filterAll.textContent = `Todas (${suites.length})`;
+  // Re-aplicar filtro activo si hay uno
+  const activeChip = document.querySelector('.filter-btn.active');
+  if(activeChip) {
+    const txt = activeChip.textContent.toLowerCase();
+    if(txt.includes('piso')) filterSuites(txt.replace('piso ','piso'), activeChip);
+  }
 }
 
 // Llamar al cargar
