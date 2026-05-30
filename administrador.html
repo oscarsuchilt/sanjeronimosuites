@@ -219,6 +219,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
       </div>
     </div>
     <div class="page">
+      <div id="sec-suites">
       <div class="stats-row">
         <div class="stat"><div class="stat-n" id="s-total">–</div><div class="stat-l">Total suites</div></div>
         <div class="stat"><div class="stat-n" id="s-king">–</div><div class="stat-l">King Size</div></div>
@@ -246,6 +247,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
     </div>
   </div>
 </div>
+      </div><!-- /sec-suites -->
 
 <!-- INSTALACIONES SECTION -->
 <div id="sec-inst" style="display:none;">
@@ -770,69 +772,24 @@ function renderInstGrid(secId) {
   const sec = instData.find(s => s.id === secId);
   if(!sec) return;
   const grid = document.getElementById('igrid-' + secId);
-  const count = document.querySelector(`#isec-${secId} .inst-photo-count`);
+  const count = document.querySelector('#isec-' + secId + ' .inst-photo-count');
   if(count) count.textContent = (sec.fotos||[]).length + ' fotos';
-  grid.innerHTML = (sec.fotos||[]).map((url,i) => `
-    <div class="inst-foto-item" draggable="true"
-         ondragstart="instDragStart(event,'${secId}',$${i})" ondragover="event.preventDefault()" ondrop="instDropPhoto(event,'${secId}',$${i})">
-      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect fill=%22%23eee%22 width=%2240%22 height=%2240%22/></svg>'">
-      <div class="foto-actions">
-        <button class="inst-foto-act" onclick="instMovePhoto('${secId}',$${i},-1)">←</button>
-        <button class="inst-foto-act" onclick="instMovePhoto('${secId}',$${i},1)">→</button>
-        <button class="inst-foto-act" style="background:rgba(255,80,80,.9)" onclick="instDelPhoto('${secId}',$${i})">×</button>
-      </div>
-    </div>
-  `).join('');
+  let html = '';
+  (sec.fotos||[]).forEach(function(url, i) {
+    html += '<div class="inst-foto-item" draggable="true"' +
+      ' ondragstart="instDragStart(event,'' + secId + '',' + i + ')"' +
+      ' ondragover="event.preventDefault()"' +
+      ' ondrop="instDropPhoto(event,'' + secId + '',' + i + ')">' +
+      '<img src="' + url + '" loading="lazy">' +
+      '<div class="foto-actions">' +
+        '<button class="inst-foto-act" onclick="instMovePhoto('' + secId + '',' + i + ',-1)">←</button>' +
+        '<button class="inst-foto-act" onclick="instMovePhoto('' + secId + '',' + i + ',1)">→</button>' +
+        '<button class="inst-foto-act" style="background:rgba(255,80,80,.9)" onclick="instDelPhoto('' + secId + '',' + i + ')">×</button>' +
+      '</div></div>';
+  });
+  grid.innerHTML = html;
 }
 
-function instDragStart(e,secId,i){instDragIdx={secId,i};e.dataTransfer.effectAllowed='move';}
-function instDropPhoto(e,secId,ti){
-  e.preventDefault();
-  if(!instDragIdx||instDragIdx.secId!==secId||instDragIdx.i===ti)return;
-  const sec=instData.find(s=>s.id===secId);
-  const moved=sec.fotos.splice(instDragIdx.i,1)[0];
-  sec.fotos.splice(ti,0,moved);
-  renderInstGrid(secId);
-  instDragIdx=null;
-  instSave(secId);
-}
-function instMovePhoto(secId,i,d){
-  const sec=instData.find(s=>s.id===secId);
-  const ni=i+d;
-  if(ni<0||ni>=sec.fotos.length)return;
-  [sec.fotos[i],sec.fotos[ni]]=[sec.fotos[ni],sec.fotos[i]];
-  renderInstGrid(secId);
-  instSave(secId);
-}
-function instDelPhoto(secId,i){
-  const sec=instData.find(s=>s.id===secId);
-  sec.fotos.splice(i,1);
-  renderInstGrid(secId);
-  instSave(secId);
-}
-function instDragOver(e,secId){e.preventDefault();document.getElementById('idrop-'+secId).classList.add('drag');}
-function instDragLeave(secId){document.getElementById('idrop-'+secId).classList.remove('drag');}
-async function instFileDrop(e,secId){e.preventDefault();document.getElementById('idrop-'+secId).classList.remove('drag');await instUpload(secId,e.dataTransfer.files);}
-async function instFileSelect(e,secId){await instUpload(secId,e.target.files);}
-
-async function instUpload(secId, files){
-  const arr=Array.from(files);
-  if(!arr.length)return;
-  const sec=instData.find(s=>s.id===secId);
-  toast('Subiendo '+arr.length+' foto(s)...');
-  for(const file of arr){
-    try{
-      const path=`instalaciones/${secId}/${Date.now()}-${file.name.replace(/\s/g,'_')}`;
-      const r=await fetch(`${SB_URL}/storage/v1/object/fotos/${path}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},body:file});
-      if(!r.ok)throw new Error(await r.text());
-      const url=`${SB_URL}/storage/v1/object/public/fotos/${path}`;
-      sec.fotos.push(url);
-      renderInstGrid(secId);
-    }catch(e){toast('Error: '+e.message,'err');}
-  }
-  await instSave(secId);
-  toast('Fotos guardadas','ok');
-}
 
 async function instSave(secId){
   const sec=instData.find(s=>s.id===secId);
