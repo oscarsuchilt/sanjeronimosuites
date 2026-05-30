@@ -11,7 +11,7 @@
   --black:#0d0d0d;--white:#fff;--cream:#f5f5f5;--gray:#6b6b6b;
   --border:#e0e0e0;--danger:#e53e3e;--success:#38a169;
   --font-serif:"Playfair Display",serif;--font-sans:"DM Sans",sans-serif;
-  --sidebar:240px;
+  --sidebar:0px;
 }
 body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-font-smoothing:antialiased;}
 
@@ -33,7 +33,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 
 /* APP */
 #app{display:none;}
-.sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar);background:var(--black);z-index:100;display:flex;flex-direction:column;overflow-y:auto;}
+.sidebar{display:none;}
 .sb-logo{padding:22px 18px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
 .sb-logo-box{width:32px;height:32px;background:rgba(255,255,255,.1);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:11px;font-weight:700;color:white;margin-right:8px;vertical-align:middle;}
 .sb-brand{font-size:13px;font-weight:500;color:white;vertical-align:middle;}
@@ -46,8 +46,8 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .btn-logout{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:7px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.35);background:none;border:none;font-family:var(--font-sans);width:100%;transition:all .15s;}
 .btn-logout:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
 
-.main{margin-left:var(--sidebar);min-height:100vh;}
-.topbar{background:white;border-bottom:1px solid var(--border);height:60px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.main{margin-left:0;min-height:100vh;}
+.topbar{background:white;border-bottom:1px solid var(--border);height:60px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
 .topbar-title{font-family:var(--font-serif);font-size:18px;font-weight:400;}
 .topbar-tag{font-size:12px;color:var(--gray);background:var(--cream);padding:3px 10px;border-radius:16px;}
 .page{padding:24px 28px;}
@@ -195,17 +195,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 
 <!-- APP -->
 <div id="app">
-  <aside class="sidebar">
-    <div class="sb-logo">
-      <div><div class="sb-logo-box" style="display:inline-flex;">SJ</div><span class="sb-brand">San Jerónimo</span></div>
-      <div class="sb-sub">Panel Administrativo</div>
-    </div>
-    <div class="sb-label">Gestión</div>
-    <div class="sb-item active" id="nav-suites" onclick="nav('suites',this)"><span>🏠</span> Suites</div>
-    <div class="sb-bottom">
-      <button class="btn-logout" onclick="doLogout()"><span>↩</span> Cerrar sesión</button>
-    </div>
-  </aside>
+  
 
   <div class="main">
     <div class="topbar">
