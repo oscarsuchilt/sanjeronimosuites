@@ -144,6 +144,22 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .m-divider{height:1px;background:var(--border);margin:18px 0;}
 .m-section-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
 
+/* INSTALACIONES */
+.inst-section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.inst-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.inst-section-title{font-family:var(--font-serif);font-size:18px;font-weight:400;}
+.inst-photo-count{font-size:12px;color:var(--gray);background:var(--cream);padding:3px 10px;border-radius:12px;}
+.inst-fotos-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px;}
+.inst-foto-item{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);cursor:grab;}
+.inst-foto-item img{width:100%;height:100%;object-fit:cover;}
+.inst-foto-item .foto-actions{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
+.inst-foto-item:hover .foto-actions{background:rgba(0,0,0,.5);}
+.inst-foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.inst-foto-item:hover .inst-foto-act{opacity:1;}
+.inst-drop{border:2px dashed var(--border);border-radius:9px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
+.inst-drop:hover,.inst-drop.drag{border-color:var(--black);background:#f0eeec;}
+.inst-drop p{font-size:12px;color:var(--gray);margin-top:4px;}
+
 /* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--black);color:white;padding:10px 18px;border-radius:9px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:all .25s;pointer-events:none;}
 .toast.show{transform:translateY(0);opacity:1;}
@@ -186,6 +202,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
     </div>
     <div class="sb-label">Gestión</div>
     <div class="sb-item active" id="nav-suites" onclick="nav('suites',this)"><span>🏠</span> Suites</div>
+    <div class="sb-item" id="nav-inst" onclick="nav('inst',this)"><span>🖼️</span> Instalaciones</div>
     <div class="sb-bottom">
       <button class="btn-logout" onclick="doLogout()"><span>↩</span> Cerrar sesión</button>
     </div>
@@ -228,6 +245,15 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
       </div>
     </div>
   </div>
+</div>
+
+<!-- INSTALACIONES SECTION -->
+<div id="sec-inst" style="display:none;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <h2 class="section-h">Fotos de Instalaciones</h2>
+    <span style="font-size:13px;color:var(--gray);">Cambios se guardan automáticamente en Supabase</span>
+  </div>
+  <div id="instSections"></div>
 </div>
 
 <!-- MODAL EDITOR -->
@@ -674,6 +700,135 @@ async function publishChanges(){
     btn.style.background = '#38a169';
     toast('Error al publicar: '+e.message,'err');
   }
+}
+
+// ══════════════════ INSTALACIONES ══════════════════
+const INST_SEED = [{"id": "exteriores", "nombre": "Exteriores", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg"], "orden": 1}, {"id": "planta-baja", "nombre": "Planta baja, pasillos y elevador", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-3.jpeg"], "orden": 2}, {"id": "lavanderia", "nombre": "Lavander\u00eda", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-9.jpeg"], "orden": 3}];
+
+let instData = [];  // array of {id, nombre, fotos, orden}
+let instDragIdx = null;
+
+async function loadInst() {
+  document.getElementById('instSections').innerHTML = '<div class="empty" style="padding:40px;text-align:center;">Cargando...</div>';
+  try {
+    const r = await fetch(`${SB_URL}/rest/v1/instalaciones?order=orden.asc`, {headers: {'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY}});
+    if(!r.ok) throw new Error('read');
+    instData = await r.json();
+    if(!instData.length) {
+      await sbUpsertInst(INST_SEED);
+      instData = INST_SEED;
+    }
+  } catch(e) {
+    instData = INST_SEED;
+    toast('Usando datos locales (Supabase no disponible)');
+  }
+  renderInstSections();
+}
+
+async function sbUpsertInst(data) {
+  const arr = Array.isArray(data) ? data : [data];
+  for(const item of arr) {
+    await fetch(`${SB_URL}/rest/v1/instalaciones`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Prefer': 'resolution=merge-duplicates'},
+      body: JSON.stringify(item)
+    });
+  }
+}
+
+function renderInstSections() {
+  const container = document.getElementById('instSections');
+  container.innerHTML = instData.map(sec => `
+    <div class="inst-section" id="isec-${sec.id}">
+      <div class="inst-section-header">
+        <div class="inst-section-title">${sec.nombre}</div>
+        <span class="inst-photo-count">${(sec.fotos||[]).length} fotos</span>
+      </div>
+      <div class="inst-fotos-grid" id="igrid-${sec.id}"></div>
+      <div class="inst-drop" id="idrop-${sec.id}"
+           onclick="document.getElementById('ifile-${sec.id}').click()"
+           ondragover="instDragOver(event,'${sec.id}')" ondragleave="instDragLeave('${sec.id}')" ondrop="instFileDrop(event,'${sec.id}')">
+        <div style="font-size:22px;">📷</div>
+        <p><strong>Subir fotos</strong> — arrastra o clic</p>
+      </div>
+      <input type="file" id="ifile-${sec.id}" accept="image/*" multiple style="display:none" onchange="instFileSelect(event,'${sec.id}')">
+    </div>
+  `).join('');
+  instData.forEach(sec => renderInstGrid(sec.id));
+}
+
+function renderInstGrid(secId) {
+  const sec = instData.find(s => s.id === secId);
+  if(!sec) return;
+  const grid = document.getElementById('igrid-' + secId);
+  const count = document.querySelector(`#isec-${secId} .inst-photo-count`);
+  if(count) count.textContent = (sec.fotos||[]).length + ' fotos';
+  grid.innerHTML = (sec.fotos||[]).map((url,i) => `
+    <div class="inst-foto-item" draggable="true"
+         ondragstart="instDragStart(event,'${secId}',$${i})" ondragover="event.preventDefault()" ondrop="instDropPhoto(event,'${secId}',$${i})">
+      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect fill=%22%23eee%22 width=%2240%22 height=%2240%22/></svg>'">
+      <div class="foto-actions">
+        <button class="inst-foto-act" onclick="instMovePhoto('${secId}',$${i},-1)">←</button>
+        <button class="inst-foto-act" onclick="instMovePhoto('${secId}',$${i},1)">→</button>
+        <button class="inst-foto-act" style="background:rgba(255,80,80,.9)" onclick="instDelPhoto('${secId}',$${i})">×</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function instDragStart(e,secId,i){instDragIdx={secId,i};e.dataTransfer.effectAllowed='move';}
+function instDropPhoto(e,secId,ti){
+  e.preventDefault();
+  if(!instDragIdx||instDragIdx.secId!==secId||instDragIdx.i===ti)return;
+  const sec=instData.find(s=>s.id===secId);
+  const moved=sec.fotos.splice(instDragIdx.i,1)[0];
+  sec.fotos.splice(ti,0,moved);
+  renderInstGrid(secId);
+  instDragIdx=null;
+  instSave(secId);
+}
+function instMovePhoto(secId,i,d){
+  const sec=instData.find(s=>s.id===secId);
+  const ni=i+d;
+  if(ni<0||ni>=sec.fotos.length)return;
+  [sec.fotos[i],sec.fotos[ni]]=[sec.fotos[ni],sec.fotos[i]];
+  renderInstGrid(secId);
+  instSave(secId);
+}
+function instDelPhoto(secId,i){
+  const sec=instData.find(s=>s.id===secId);
+  sec.fotos.splice(i,1);
+  renderInstGrid(secId);
+  instSave(secId);
+}
+function instDragOver(e,secId){e.preventDefault();document.getElementById('idrop-'+secId).classList.add('drag');}
+function instDragLeave(secId){document.getElementById('idrop-'+secId).classList.remove('drag');}
+async function instFileDrop(e,secId){e.preventDefault();document.getElementById('idrop-'+secId).classList.remove('drag');await instUpload(secId,e.dataTransfer.files);}
+async function instFileSelect(e,secId){await instUpload(secId,e.target.files);}
+
+async function instUpload(secId, files){
+  const arr=Array.from(files);
+  if(!arr.length)return;
+  const sec=instData.find(s=>s.id===secId);
+  toast('Subiendo '+arr.length+' foto(s)...');
+  for(const file of arr){
+    try{
+      const path=`instalaciones/${secId}/${Date.now()}-${file.name.replace(/\s/g,'_')}`;
+      const r=await fetch(`${SB_URL}/storage/v1/object/fotos/${path}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},body:file});
+      if(!r.ok)throw new Error(await r.text());
+      const url=`${SB_URL}/storage/v1/object/public/fotos/${path}`;
+      sec.fotos.push(url);
+      renderInstGrid(secId);
+    }catch(e){toast('Error: '+e.message,'err');}
+  }
+  await instSave(secId);
+  toast('Fotos guardadas','ok');
+}
+
+async function instSave(secId){
+  const sec=instData.find(s=>s.id===secId);
+  if(!sec)return;
+  try{await sbUpsertInst(sec);}catch(e){console.warn('instSave error',e);}
 }
 
 // TOAST
