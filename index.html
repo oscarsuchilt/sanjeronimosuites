@@ -183,7 +183,7 @@ section{padding:80px 0;}
 /* REVIEWS */
 .reviews-section{background:var(--white);}
 
-.reviews-section .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.reviews-section .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
 .reviews-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;}
 .reviews-score{text-align:right;}
 .score-big{font-family:var(--font-serif);font-size:64px;font-weight:400;line-height:1;color:var(--black);}
@@ -193,11 +193,11 @@ section{padding:80px 0;}
 .score-cat-name{font-size:13px;color:var(--gray);}
 .score-cat-num{font-family:var(--font-serif);font-size:20px;font-weight:400;}
 .score-cat-num.perfect{color:var(--black);font-weight:700;}
-.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.review-card{background:var(--cream);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
+.review-card{background:var(--cream);border-radius:12px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;height:100%;min-height:180px;}
 .review-stars{color:#f5a623;font-size:14px;letter-spacing:2px;}
-.review-text{font-size:14px;color:var(--black);line-height:1.6;font-style:italic;flex:1;}
-.review-author{font-size:13px;font-weight:600;color:var(--gray);}
+.review-text{font-size:14px;color:var(--black);line-height:1.6;font-style:italic;flex:1;margin:4px 0;}
+.review-author{font-size:13px;font-weight:600;color:var(--gray);margin-top:auto;padding-top:12px;border-top:1px solid var(--border);}
 .superhost-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--black);color:white;border-radius:8px;font-size:13px;font-weight:500;margin-bottom:16px;}
 
 /* FAQ */
@@ -585,7 +585,7 @@ footer{background:#080808;color:white;padding:60px 0 32px;}
  </div>
  </div>
  </div>
- <div class="reviews-grid">
+ <div style="padding:0 48px;"><div class="reviews-grid">
  <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Excelente recomendación para quedarse en San Jerónimo."</p><p class="review-author">Romeo</p></div>
  <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Muy amables y muy bonito el lugar. Tuvimos un pequeño inconveniente pero el host fue muy rápido en responder y resolverlo."</p><p class="review-author">Romeo</p></div>
  <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Lugar perfecto para descanso, trabajo."</p><p class="review-author">Fernando</p></div>
