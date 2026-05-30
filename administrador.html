@@ -625,7 +625,7 @@ function renderInst(){
     html += '<span class="inst-count" id="icount-'+sec.id+'">'+(sec.fotos||[]).length+' fotos</span>';
     html += '</div>';
     html += '<div class="inst-grid" id="igrid-'+sec.id+'"></div>';
-    html += '<div class="drop-zone" onclick="document.getElementById(\'ifile-\'+sec.id+\'\').click()" ondragover="event.preventDefault()" ondrop="instDrop(event,\''+sec.id+'\')">';
+    html += '<div class="drop-zone" onclick="instTriggerFile(\''+sec.id+'\')" ondragover="event.preventDefault()" ondrop="instDrop(event,\''+sec.id+'\')">';
     html += '<div style="font-size:20px;">📷</div><p><strong>Subir fotos</strong> — arrastra o clic</p>';
     html += '</div>';
     html += '<input type="file" id="ifile-'+sec.id+'" accept="image/*" multiple style="display:none" onchange="instFileSelect(event,\''+sec.id+'\')">';
@@ -678,6 +678,7 @@ function renderInstGrid(secId){
   });
 }
 
+function instTriggerFile(secId){ var el = document.getElementById('ifile-'+secId); if(el) el.click(); }
 function instDrop(e,secId){ e.preventDefault(); instUpload(secId,e.dataTransfer.files); }
 function instFileSelect(e,secId){ instUpload(secId,e.target.files); }
 async function instUpload(secId,files){
