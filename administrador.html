@@ -11,7 +11,6 @@
   --black:#0d0d0d;--white:#fff;--cream:#f5f5f5;--gray:#6b6b6b;
   --border:#e0e0e0;--danger:#e53e3e;--success:#38a169;
   --font-serif:"Playfair Display",serif;--font-sans:"DM Sans",sans-serif;
-  --sidebar:0px;
 }
 body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-font-smoothing:antialiased;}
 
@@ -24,7 +23,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .login-sub{font-size:13px;color:var(--gray);margin-bottom:24px;}
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
-.field input,.field select,.field textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-size:14px;font-family:var(--font-sans);outline:none;transition:border-color .2s;background:white;color:var(--black);}
+.field input,.field select,.field textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-size:14px;font-family:var(--font-sans);outline:none;transition:border-color .2s;}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--black);}
 .field textarea{resize:vertical;min-height:72px;line-height:1.5;}
 .btn-black{width:100%;padding:12px;background:var(--black);color:white;border:none;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-sans);}
@@ -32,25 +31,24 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .login-err{color:var(--danger);font-size:13px;margin-top:8px;display:none;}
 
 /* APP */
-#app{display:none;}
-.sidebar{display:none;}
-.sb-logo{padding:22px 18px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
-.sb-logo-box{width:32px;height:32px;background:rgba(255,255,255,.1);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:11px;font-weight:700;color:white;margin-right:8px;vertical-align:middle;}
-.sb-brand{font-size:13px;font-weight:500;color:white;vertical-align:middle;}
-.sb-sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:4px;padding-left:40px;}
-.sb-label{padding:12px 14px 4px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);}
-.sb-item{display:flex;align-items:center;gap:8px;padding:8px 12px;margin:1px 6px;border-radius:7px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.55);transition:all .15s;}
-.sb-item:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.85);}
-.sb-item.active{background:rgba(255,255,255,.12);color:white;}
-.sb-bottom{margin-top:auto;padding:14px 8px;}
-.btn-logout{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:7px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.35);background:none;border:none;font-family:var(--font-sans);width:100%;transition:all .15s;}
-.btn-logout:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
+#app{display:none;flex-direction:column;min-height:100vh;}
 
-.main{}
-.topbar{background:white;border-bottom:1px solid var(--border);height:60px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-.topbar-title{font-family:var(--font-serif);font-size:18px;font-weight:400;}
+/* TOPBAR */
+.topbar{background:white;border-bottom:1px solid var(--border);height:60px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.topbar-left{display:flex;align-items:center;gap:20px;}
+.topbar-logo{display:flex;align-items:center;gap:8px;}
+.topbar-logo-box{width:32px;height:32px;background:var(--black);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:11px;font-weight:700;color:white;}
+.topbar-brand{font-size:14px;font-weight:600;}
+.topbar-pills{display:flex;gap:6px;}
+.pill{padding:7px 18px;border-radius:20px;border:1px solid var(--border);background:white;color:var(--black);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.pill.active{background:var(--black);color:white;border-color:var(--black);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
 .topbar-tag{font-size:12px;color:var(--gray);background:var(--cream);padding:3px 10px;border-radius:16px;}
-.page{padding:24px 28px;min-height:calc(100vh - 60px);}
+.btn-logout-top{padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:white;font-size:12px;color:var(--gray);cursor:pointer;font-family:var(--font-sans);}
+.btn-logout-top:hover{background:var(--cream);}
+
+/* PAGE */
+.page{padding:28px 32px;flex:1;}
 
 /* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
@@ -59,25 +57,25 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .stat-l{font-size:11px;color:var(--gray);margin-top:3px;}
 
 /* TOOLBAR */
-.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;}
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
 .section-h{font-family:var(--font-serif);font-size:20px;font-weight:400;}
 .chips{display:flex;gap:6px;flex-wrap:wrap;}
 .chip{padding:5px 13px;border:1px solid var(--border);border-radius:20px;background:white;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .15s;}
 .chip:hover,.chip.on{background:var(--black);color:white;border-color:var(--black);}
-.btn-sm{padding:8px 16px;background:var(--black);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:5px;transition:background .2s;}
+.btn-sm{padding:8px 16px;background:var(--black);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:background .2s;}
 .btn-sm:hover{background:#333;}
 .btn-sec{background:white;color:var(--black);border:1px solid var(--border);}
 .btn-sec:hover{background:var(--cream);}
 
 /* TABLE */
 .table-wrap{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
-.t-head{display:grid;grid-template-columns:52px 1fr 100px 60px 60px 120px;align-items:center;padding:0 18px;height:38px;gap:10px;background:var(--cream);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border);}
-.t-row{display:grid;grid-template-columns:52px 1fr 100px 60px 60px 120px;align-items:center;padding:0 18px;min-height:64px;gap:10px;border-bottom:1px solid var(--border);transition:background .1s;}
+.t-head{display:grid;grid-template-columns:52px 1fr 110px 60px 60px 120px;align-items:center;padding:0 18px;height:38px;gap:10px;background:var(--cream);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border);}
+.t-row{display:grid;grid-template-columns:52px 1fr 110px 60px 60px 120px;align-items:center;padding:0 18px;min-height:64px;gap:10px;border-bottom:1px solid var(--border);}
 .t-row:last-child{border-bottom:none;}
 .t-row:hover{background:#fafafa;}
-.thumb{width:42px;height:42px;border-radius:7px;object-fit:cover;background:var(--cream);display:block;}
+.thumb{width:42px;height:42px;border-radius:7px;object-fit:cover;display:block;background:var(--cream);}
 .thumb-ph{width:42px;height:42px;border-radius:7px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:16px;}
-.cell-name{font-size:13px;font-weight:500;line-height:1.3;}
+.cell-name{font-size:13px;font-weight:500;}
 .cell-name span{display:block;font-size:11px;color:var(--gray);font-weight:400;margin-top:2px;}
 .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}
 .b-king{background:var(--black);color:white;}
@@ -88,7 +86,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .ic-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .15s;}
 .ic-btn:hover{background:var(--cream);}
 .ic-btn.del:hover{background:#fff0f0;border-color:#fca5a5;}
-.empty{text-align:center;padding:40px;color:var(--gray);font-size:13px;}
+.empty-state{text-align:center;padding:48px;color:var(--gray);font-size:13px;}
 
 /* MODAL */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:600;align-items:flex-start;justify-content:center;padding:28px 16px;overflow-y:auto;backdrop-filter:blur(3px);}
@@ -96,81 +94,64 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 .modal{background:white;border-radius:18px;width:100%;max-width:700px;margin:auto;box-shadow:0 24px 64px rgba(0,0,0,.25);}
 .m-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);}
 .m-title{font-family:var(--font-serif);font-size:19px;font-weight:400;}
-.m-close{width:30px;height:30px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .15s;}
+.m-close{width:30px;height:30px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;color:var(--gray);}
 .m-close:hover{background:var(--black);color:white;}
 .m-body{padding:24px;}
 .m-foot{padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.m-divider{height:1px;background:var(--border);margin:18px 0;}
+.m-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
 
-/* BOOKING LINKS */
-.links-section{margin-bottom:14px;}
-.links-section label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
-.link-item{display:grid;grid-template-columns:140px 1fr 32px;gap:8px;margin-bottom:8px;align-items:center;}
-.link-item input{padding:8px 11px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:var(--font-sans);outline:none;transition:border-color .2s;}
+/* LINKS */
+.link-item{display:grid;grid-template-columns:130px 1fr 32px;gap:8px;margin-bottom:8px;align-items:center;}
+.link-item input{padding:8px 11px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:var(--font-sans);outline:none;}
 .link-item input:focus{border-color:var(--black);}
-.link-item .del-link{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:all .15s;}
-.link-item .del-link:hover{background:#fff0f0;border-color:#fca5a5;}
-.btn-add-link{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border:1px dashed var(--border);border-radius:8px;background:var(--cream);font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);color:var(--gray);transition:all .15s;}
+.del-link{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:white;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.del-link:hover{background:#fff0f0;border-color:#fca5a5;}
+.btn-add-link{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border:1px dashed var(--border);border-radius:8px;background:var(--cream);font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font-sans);color:var(--gray);}
 .btn-add-link:hover{border-color:var(--black);color:var(--black);}
-.platform-hint{font-size:10px;color:var(--gray);margin-top:4px;}
 
 /* FOTOS */
 .fotos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px;}
-.foto-item{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);cursor:grab;}
+.foto-item{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);}
 .foto-item img{width:100%;height:100%;object-fit:cover;}
 .portada-badge{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.75);color:white;font-size:8px;font-weight:700;padding:2px 5px;border-radius:6px;}
-.foto-actions{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
-.foto-item:hover .foto-actions{background:rgba(0,0,0,.5);}
-.foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.foto-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
+.foto-item:hover .foto-overlay{background:rgba(0,0,0,.5);}
+.foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;font-size:11px;}
 .foto-item:hover .foto-act{opacity:1;}
-.drop-zone{border:2px dashed var(--border);border-radius:9px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
-.drop-zone:hover,.drop-zone.drag{border-color:var(--black);background:#f0eeec;}
+.drop-zone{border:2px dashed var(--border);border-radius:9px;padding:20px;text-align:center;cursor:pointer;background:var(--cream);}
+.drop-zone:hover{border-color:var(--black);}
 .drop-zone p{font-size:12px;color:var(--gray);margin-top:5px;}
-.drop-zone strong{color:var(--black);}
 .prog{display:none;margin-top:8px;}
 .prog-bar{height:3px;background:var(--border);border-radius:2px;margin-top:5px;overflow:hidden;}
 .prog-fill{height:100%;background:var(--black);border-radius:2px;transition:width .3s;}
-.prog p{font-size:11px;color:var(--gray);}
 
 /* TAGS */
-.tags-wrap{display:flex;flex-wrap:wrap;gap:5px;padding:7px 10px;border:1px solid var(--border);border-radius:9px;min-height:42px;cursor:text;transition:border-color .2s;}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:5px;padding:7px 10px;border:1px solid var(--border);border-radius:9px;min-height:42px;cursor:text;}
 .tags-wrap:focus-within{border-color:var(--black);}
 .tag-pill{background:var(--black);color:white;padding:2px 8px;border-radius:10px;font-size:11px;display:flex;align-items:center;gap:3px;}
 .tag-pill button{background:none;border:none;color:rgba(255,255,255,.65);cursor:pointer;font-size:13px;line-height:1;padding:0;}
-.tag-pill button:hover{color:white;}
 .tag-input{border:none;outline:none;font-size:12px;font-family:var(--font-sans);flex:1;min-width:80px;background:transparent;}
 
-/* DIVIDER */
-.m-divider{height:1px;background:var(--border);margin:18px 0;}
-.m-section-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
-
 /* INSTALACIONES */
-.inst-section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
-.inst-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.inst-section-title{font-family:var(--font-serif);font-size:18px;font-weight:400;}
-.inst-photo-count{font-size:12px;color:var(--gray);background:var(--cream);padding:3px 10px;border-radius:12px;}
-.inst-fotos-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px;}
-.inst-foto-item{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);cursor:grab;}
-.inst-foto-item img{width:100%;height:100%;object-fit:cover;}
-.inst-foto-item .foto-actions{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
-.inst-foto-item:hover .foto-actions{background:rgba(0,0,0,.5);}
-.inst-foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;}
-.inst-foto-item:hover .inst-foto-act{opacity:1;}
-.inst-drop{border:2px dashed var(--border);border-radius:9px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
-.inst-drop:hover,.inst-drop.drag{border-color:var(--black);background:#f0eeec;}
-.inst-drop p{font-size:12px;color:var(--gray);margin-top:4px;}
+.inst-card{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.inst-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.inst-card-title{font-family:var(--font-serif);font-size:18px;font-weight:400;}
+.inst-count{font-size:12px;color:var(--gray);background:var(--cream);padding:3px 10px;border-radius:12px;}
+.inst-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px;}
+.inst-foto{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;border:1px solid var(--border);background:var(--cream);cursor:grab;}
+.inst-foto img{width:100%;height:100%;object-fit:cover;}
+.inst-foto .foto-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;gap:3px;transition:background .2s;}
+.inst-foto:hover .foto-overlay{background:rgba(0,0,0,.5);}
+.inst-foto .foto-act{opacity:0;transition:opacity .15s;background:rgba(255,255,255,.9);border:none;border-radius:5px;width:24px;height:24px;cursor:pointer;font-size:11px;}
+.inst-foto:hover .foto-act{opacity:1;}
 
 /* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--black);color:white;padding:10px 18px;border-radius:9px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:all .25s;pointer-events:none;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.ok{background:var(--success);}
 .toast.err{background:var(--danger);}
-
-@media(max-width:860px){
-  :root{--sidebar:0px;}
-  .sidebar{display:none;}
-  .stats-row{grid-template-columns:1fr 1fr;}
-}
 </style>
 </head>
 <body>
@@ -194,26 +175,31 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 </div>
 
 <!-- APP -->
-<div id="app">
-  
+<div id="app" style="display:none;flex-direction:column;min-height:100vh;">
 
-  <div class="main">
-    <div class="topbar">
-      <div class="topbar-title" id="topTitle">Suites</div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <button onclick="nav('suites',this)" id="pill-suites"
-          style="padding:7px 18px;border-radius:20px;border:1px solid var(--black);background:var(--black);color:white;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all .2s;">
-          🏠 Suites
-        </button>
-        <button onclick="nav('inst',this)" id="pill-inst"
-          style="padding:7px 18px;border-radius:20px;border:1px solid var(--border);background:white;color:var(--black);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all .2s;">
-          🖼️ Instalaciones
-        </button>
-        <span class="topbar-tag" id="topTag">–</span>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-logo">
+        <div class="topbar-logo-box">SJ</div>
+        <span class="topbar-brand">San Jerónimo</span>
+      </div>
+      <div class="topbar-pills">
+        <button class="pill active" id="pill-suites" onclick="showSection('suites')">🏠 Suites</button>
+        <button class="pill" id="pill-inst" onclick="showSection('inst')">🖼️ Instalaciones</button>
       </div>
     </div>
-    <div class="page">
-      <div id="sec-suites">
+    <div class="topbar-right">
+      <span class="topbar-tag" id="topTag">–</span>
+      <button class="btn-logout-top" onclick="doLogout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <!-- SUITES -->
+    <div id="sec-suites">
       <div class="stats-row">
         <div class="stat"><div class="stat-n" id="s-total">–</div><div class="stat-l">Total suites</div></div>
         <div class="stat"><div class="stat-n" id="s-king">–</div><div class="stat-l">King Size</div></div>
@@ -221,7 +207,7 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
         <div class="stat"><div class="stat-n" id="s-fotos">–</div><div class="stat-l">Fotos totales</div></div>
       </div>
       <div class="toolbar">
-        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
           <h2 class="section-h">Todas las suites</h2>
           <div class="chips">
             <button class="chip on" onclick="setFilter('all',this)">Todas</button>
@@ -239,18 +225,20 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
         <div id="tbody"></div>
       </div>
     </div>
+
+    <!-- INSTALACIONES -->
+    <div id="sec-inst" style="display:none;">
+      <div class="toolbar">
+        <h2 class="section-h">Fotos de Instalaciones</h2>
+        <span style="font-size:13px;color:var(--gray);">Los cambios se guardan automáticamente</span>
+      </div>
+      <div id="instContainer"></div>
+    </div>
+
   </div>
 </div>
-      </div><!-- /sec-suites -->
-      <div id="sec-inst" style="display:none;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
-          <h2 class="section-h">Fotos de Instalaciones</h2>
-          <span style="font-size:13px;color:var(--gray);">Cambios se guardan automáticamente</span>
-        </div>
-        <div id="instSections"></div>
-      </div>
 
-<!-- MODAL EDITOR -->
+<!-- MODAL SUITE -->
 <div class="overlay" id="overlay">
   <div class="modal">
     <div class="m-head">
@@ -258,85 +246,41 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
       <button class="m-close" onclick="closeModal()">×</button>
     </div>
     <div class="m-body">
-
-      <!-- INFO BÁSICA -->
-      <div class="m-section-label">Información básica</div>
+      <div class="m-label">Información básica</div>
       <div class="grid2" style="margin-bottom:14px;">
-        <div class="field">
-          <label>Número de suite</label>
-          <input type="text" id="fId" placeholder="101">
-        </div>
-        <div class="field">
-          <label>Título</label>
-          <input type="text" id="fNombre" placeholder="Suite 101">
-        </div>
+        <div class="field"><label>Número</label><input type="text" id="fId"></div>
+        <div class="field"><label>Título</label><input type="text" id="fNombre"></div>
+        <div class="field"><label>Tipo</label><select id="fTipo"><option value="matrimonial">Matrimonial</option><option value="king">King Size</option></select></div>
+        <div class="field"><label>Piso</label><select id="fPiso"><option value="1">Piso 1</option><option value="2">Piso 2</option><option value="3">Piso 3</option></select></div>
       </div>
-      <div class="grid2" style="margin-bottom:14px;">
-        <div class="field">
-          <label>Tipo de cama</label>
-          <select id="fTipo">
-            <option value="matrimonial">Matrimonial</option>
-            <option value="king">King Size</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Piso</label>
-          <select id="fPiso">
-            <option value="1">Piso 1</option>
-            <option value="2">Piso 2</option>
-            <option value="3">Piso 3</option>
-          </select>
-        </div>
-      </div>
-      <div class="field" style="margin-bottom:14px;">
-        <label>Descripción</label>
-        <textarea id="fDesc" rows="3"></textarea>
-      </div>
-      <div class="field" style="margin-bottom:0;">
-        <label>Tags / amenidades <span style="font-weight:400;text-transform:none;letter-spacing:0;">(Enter para agregar)</span></label>
+      <div class="field" style="margin-bottom:14px;"><label>Descripción</label><textarea id="fDesc" rows="3"></textarea></div>
+      <div class="field" style="margin-bottom:0;"><label>Tags <span style="font-weight:400;text-transform:none;letter-spacing:0;">(Enter para agregar)</span></label>
         <div class="tags-wrap" id="tagsWrap" onclick="document.getElementById('tagIn').focus()">
           <input type="text" class="tag-input" id="tagIn" placeholder="Ej: Smart TV...">
         </div>
       </div>
-
       <div class="m-divider"></div>
-
-      <!-- CONTACTO & RESERVA -->
-      <div class="m-section-label">Contacto y reserva</div>
-      <div class="field" style="margin-bottom:14px;">
-        <label>Número de WhatsApp</label>
-        <input type="text" id="fWa" placeholder="528135527990" style="max-width:260px;">
-      </div>
-
-      <div class="links-section">
-        <label>Links de reserva <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— si hay más de uno aparece un popup al reservar</span></label>
-        <div id="linksContainer"></div>
+      <div class="m-label">Contacto y reserva</div>
+      <div class="field" style="margin-bottom:14px;"><label>WhatsApp</label><input type="text" id="fWa" style="max-width:240px;"></div>
+      <div class="field" style="margin-bottom:0;">
+        <label>Links de reserva <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— si hay 2+ aparece popup al reservar</span></label>
+        <div id="linksContainer" style="margin-bottom:8px;"></div>
         <button class="btn-add-link" onclick="addLink()">+ Agregar plataforma</button>
-        <p class="platform-hint">Ejemplos de nombre: Airbnb, Booking, Expedia, Direct, VRBO…</p>
       </div>
-
       <div class="m-divider"></div>
-
-      <!-- FOTOS -->
-      <div class="m-section-label">Fotos <span id="fotoCount" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">(0)</span></div>
-      <div style="font-size:10px;color:var(--gray);margin-bottom:8px;">Arrastra para reordenar · ← → para mover · × para eliminar · La 1ª foto es la portada</div>
+      <div class="m-label">Fotos <span id="fotoCount" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">(0)</span></div>
+      <div style="font-size:10px;color:var(--gray);margin-bottom:8px;">← → para mover · × para eliminar · La 1ª es portada</div>
       <div class="fotos-grid" id="fotosGrid"></div>
-      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileIn').click()"
-           ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
-        <div style="font-size:24px;">📷</div>
-        <p><strong>Subir fotos</strong> — arrastra o haz clic</p>
-        <p>JPG, PNG, WebP</p>
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileIn').click()" ondragover="event.preventDefault()" ondrop="onDrop(event)">
+        <div style="font-size:22px;">📷</div>
+        <p><strong>Subir fotos</strong> — arrastra o clic · JPG, PNG, WebP</p>
       </div>
       <input type="file" id="fileIn" accept="image/*" multiple style="display:none" onchange="onFileSelect(event)">
-      <div class="prog" id="progWrap">
-        <p id="progMsg">Subiendo...</p>
-        <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
-      </div>
-
+      <div class="prog" id="progWrap"><p id="progMsg">Subiendo...</p><div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
     </div>
     <div class="m-foot">
       <button class="btn-sm btn-sec" onclick="closeModal()">Cancelar</button>
-      <button class="btn-sm" onclick="saveSuite()" id="btnSave">Guardar cambios</button>
+      <button class="btn-sm" onclick="saveSuite()" id="btnSave">Guardar</button>
     </div>
   </div>
 </div>
@@ -344,494 +288,422 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
 <div class="toast" id="toast"></div>
 
 <script>
-const DEFAULT_PWD = 'pepegarza2722';
 const SB_URL = 'https://yblxilcrmzcnbdpowwpi.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibHhpbGNybXpjbmJkcG93d3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0ODcyMTksImV4cCI6MjA5NTA2MzIxOX0.fZSmjaK67gU8X0scl9_VDDGk1Nc5DIv3qn8qaSqw7w8';
-let suites = [];
-let editId = null;
-let curTags = [];
-let curFotos = [];
-let curLinks = []; // [{nombre:'Airbnb', url:'https://...'}]
-let filterVal = 'all';
-let dragIdx = null;
+const DEFAULT_PWD = 'pepegarza2722';
 
-const SEED = [
-  {id:'101',nombre:'Suite 101',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516959718028619169'}],fotos:Array.from({length:31},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/101-suite101-${i+1}.jpeg`),orden:1},
-  {id:'102',nombre:'Suite 102',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/102-suite102-${i+1}.jpeg`),orden:2},
-  {id:'103',nombre:'Suite 103',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516964044456776332'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/103-suite103-${i+1}.jpeg`),orden:3},
-  {id:'104',nombre:'Suite 104',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516965553320233755'}],fotos:Array.from({length:38},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/104-suite104-${i+1}.jpeg`),orden:4},
-  {id:'105',nombre:'Suite 105',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516967560226327727'}],fotos:Array.from({length:33},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/105-suite105-${i+1}.jpeg`),orden:5},
-  {id:'106',nombre:'Suite 106',tipo:'matrimonial',piso:1,descripcion:'Suite privada en piso 1. Cama matrimonial, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama Matrimonial','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516969034730757916'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/100/106-suite106-${i+1}.jpeg`),orden:6},
-  {id:'201',nombre:'Suite 201',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516956038704698234'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/201-suite201-${i+1}.jpeg`),orden:7},
-  {id:'202',nombre:'Suite 202',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516957745515565025'}],fotos:Array.from({length:19},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/202-suite202-${i+1}.jpeg`),orden:8},
-  {id:'203',nombre:'Suite 203',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514050932069160111'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/203-suite203-${i+1}.jpeg`),orden:9},
-  {id:'204',nombre:'Suite 204',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514054007042958159'}],fotos:Array.from({length:39},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/204-suite204-${i+1}.jpeg`),orden:10},
-  {id:'205',nombre:'Suite 205',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514057147328029521'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/205-suite205-${i+1}.jpeg`),orden:11},
-  {id:'206',nombre:'Suite 206',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514061887907363968'}],fotos:Array.from({length:42},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/206-suite206-${i+1}.jpeg`),orden:12},
-  {id:'207',nombre:'Suite 207',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514060174239567382'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/207-suite207-${i+1}.jpeg`),orden:13},
-  {id:'208',nombre:'Suite 208',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514064591496230383'}],fotos:Array.from({length:27},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/208-suite208-${i+1}.jpeg`),orden:14},
-  {id:'209',nombre:'Suite 209',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514067242684304328'}],fotos:Array.from({length:22},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/209-suite209-${i+1}.jpeg`),orden:15},
-  {id:'210',nombre:'Suite 210',tipo:'king',piso:2,descripcion:'Suite privada en piso 2. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514069284076493193'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/200/210-suite210-${i+1}.jpeg`),orden:16},
-  {id:'301',nombre:'Suite 301',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516949847923186204'}],fotos:Array.from({length:25},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/301-suite301-${i+1}.jpeg`),orden:17},
-  {id:'302',nombre:'Suite 302',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1516953512877403406'}],fotos:Array.from({length:28},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/302-suite302-${i+1}.jpeg`),orden:18},
-  {id:'303',nombre:'Suite 303',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514019614700285709'}],fotos:Array.from({length:45},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/303-suite303-${i+1}.jpeg`),orden:19},
-  {id:'304',nombre:'Suite 304',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514048031584694739'}],fotos:Array.from({length:26},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/304-suite304-${i+1}.jpeg`),orden:20},
-  {id:'305',nombre:'Suite 305',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1514041309378007152'}],fotos:Array.from({length:35},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/305-suite305-${i+1}.jpeg`),orden:21},
-  {id:'306',nombre:'Suite 306',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1473355644071608347'}],fotos:[...Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-${i+2}.jpeg`),'https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-38.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-42.jpeg','https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/306-suite306-43.jpeg'],orden:22},
-  {id:'307',nombre:'Suite 307',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513302042328755768'}],fotos:Array.from({length:23},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/307-suite307-${i+1}.jpeg`),orden:23},
-  {id:'308',nombre:'Suite 308',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513278151814640140'}],fotos:Array.from({length:29},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/308-suite308-${i+1}.jpeg`),orden:24},
-  {id:'309',nombre:'Suite 309',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513304638239847600'}],fotos:Array.from({length:44},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/309-suite309-${i+1}.jpeg`),orden:25},
-  {id:'310',nombre:'Suite 310',tipo:'king',piso:3,descripcion:'Suite privada en piso 3. Cama king size, baño completo, Smart TV, A/C, frigobar, microondas, home office, chapa digital, cafetera en recepción y pequeña parrilla eléctrica (algunas suites).',tags:['Cama King Size','Baño privado','Smart TV','Aire acondicionado','Frigobar','Home office','Chapa digital','Cafetera en recepción','Pequeña parrilla (algunas)'],whatsapp:'528135527990',links:[{nombre:'Airbnb',url:'https://www.airbnb.mx/rooms/1513968596376047421'}],fotos:Array.from({length:43},(_,i)=>`https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/300/310-suite310-${i+1}.jpeg`),orden:26},
-];
+let suites = [], instData = [];
+let editId = null, curTags = [], curFotos = [], curLinks = [];
+let filterVal = 'all', dragIdx = null, instDragIdx = null;
 
-// LOGIN
+// ── SUPABASE ──────────────────────────────────────────────────
+function sbH(){ return {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}; }
+async function sbGet(table, q=''){
+  const r = await fetch(SB_URL+'/rest/v1/'+table+'?'+q, {headers:sbH()});
+  if(!r.ok) throw new Error('read');
+  return r.json();
+}
+async function sbUpsert(table, data){
+  const body = Array.isArray(data) ? data : [data];
+  const r = await fetch(SB_URL+'/rest/v1/'+table, {
+    method:'POST', headers:{...sbH(),'Prefer':'resolution=merge-duplicates'},
+    body: JSON.stringify(body)
+  });
+  if(!r.ok) throw new Error(await r.text());
+}
+async function sbDel(table, id){
+  const r = await fetch(SB_URL+'/rest/v1/'+table+'?id=eq.'+id, {method:'DELETE', headers:sbH()});
+  if(!r.ok) throw new Error('del');
+}
+async function sbUpload(path, file){
+  const r = await fetch(SB_URL+'/storage/v1/object/fotos/'+path, {
+    method:'POST',
+    headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},
+    body:file
+  });
+  if(!r.ok) throw new Error(await r.text());
+  return SB_URL+'/storage/v1/object/public/fotos/'+path;
+}
+
+// ── LOGIN ─────────────────────────────────────────────────────
 function doLogin(){
-  const pwd=localStorage.getItem('sj_pwd')||DEFAULT_PWD;
-  if(document.getElementById('pwdIn').value===pwd){
-    document.getElementById('loginScreen').style.display='none';
-    document.getElementById('app').style.display='block';
+  const pwd = localStorage.getItem('sj_pwd') || DEFAULT_PWD;
+  if(document.getElementById('pwdIn').value === pwd){
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
     init();
   } else {
-    document.getElementById('loginErr').style.display='block';
+    document.getElementById('loginErr').style.display = 'block';
   }
 }
 function doLogout(){
-  document.getElementById('app').style.display='none';
-  document.getElementById('loginScreen').style.display='flex';
-  document.getElementById('pwdIn').value='';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('pwdIn').value = '';
 }
-document.getElementById('pwdIn').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+document.getElementById('pwdIn').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
 
-// SUPABASE HELPERS
-async function sbGet(){
-  const r=await fetch(`${SB_URL}/rest/v1/suites?order=orden.asc,id.asc`,{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
-  if(!r.ok) throw new Error('read failed');
-  return r.json();
-}
-async function sbUpsert(data){
-  const r=await fetch(`${SB_URL}/rest/v1/suites`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(data)});
-  if(!r.ok){const e=await r.text();throw new Error(e);}
-}
-async function sbDelete(id){
-  const r=await fetch(`${SB_URL}/rest/v1/suites?id=eq.${id}`,{method:'DELETE',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
-  if(!r.ok) throw new Error('delete failed');
-}
-
-// INIT
+// ── INIT ─────────────────────────────────────────────────────
 async function init(){
-  try{
-    suites=await sbGet();
-    if(!suites.length){
-      // Primer uso: guardar seed en Supabase
-      await sbUpsert(SEED);
-      suites=SEED;
-    }
-  }catch(e){
-    console.warn('Supabase error, usando localStorage:', e);
-    const saved=localStorage.getItem('sj_suites');
-    suites=saved?JSON.parse(saved):SEED;
-  }
-  renderTable();updateStats();
+  try {
+    suites = await sbGet('suites', 'order=orden.asc,id.asc');
+    if(!suites.length){ await seedSuites(); }
+  } catch(e){ suites = localStorage.getItem('sj_suites') ? JSON.parse(localStorage.getItem('sj_suites')) : []; }
+  renderTable(); updateStats();
 }
 
-function saveLocal(){
-  localStorage.setItem('sj_suites',JSON.stringify(suites));
+async function seedSuites(){
+  // Seed from localStorage or skip
+  const saved = localStorage.getItem('sj_suites');
+  if(saved){ suites = JSON.parse(saved); await sbUpsert('suites', suites); }
 }
 
-function nav(sec,el){
-  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
-  // Hide all sections
-  ['suites','inst'].forEach(s=>{
-    const sec2 = document.getElementById('sec-'+s);
-    if(sec2) sec2.style.display = s===sec ? 'block' : 'none';
-  });
-  // Update pill styles
-  var ps = document.getElementById('pill-suites');
-  var pi = document.getElementById('pill-inst');
-  if(ps && pi) {
-    if(sec==='suites') {
-      ps.style.background='var(--black)'; ps.style.color='white'; ps.style.borderColor='var(--black)';
-      pi.style.background='white'; pi.style.color='var(--black)'; pi.style.borderColor='var(--border)';
-    } else {
-      pi.style.background='var(--black)'; pi.style.color='white'; pi.style.borderColor='var(--black)';
-      ps.style.background='white'; ps.style.color='var(--black)'; ps.style.borderColor='var(--border)';
-    }
-  }
-  document.getElementById('topTitle').textContent = sec==='suites' ? 'Suites' : 'Instalaciones';
-  document.getElementById('topTag').textContent = sec==='suites' ? suites.length+' suites' : '';
+// ── SECTIONS ──────────────────────────────────────────────────
+function showSection(sec){
+  document.getElementById('sec-suites').style.display = sec==='suites' ? 'block' : 'none';
+  document.getElementById('sec-inst').style.display = sec==='inst' ? 'block' : 'none';
+  document.getElementById('pill-suites').className = 'pill' + (sec==='suites' ? ' active' : '');
+  document.getElementById('pill-inst').className = 'pill' + (sec==='inst' ? ' active' : '');
+  document.getElementById('topTag').textContent = sec==='suites' ? suites.length+' suites' : instData.length+' secciones';
   if(sec==='inst' && !instData.length) loadInst();
 }
 
-// STATS
+// ── STATS ────────────────────────────────────────────────────
 function updateStats(){
-  document.getElementById('s-total').textContent=suites.length;
-  document.getElementById('s-king').textContent=suites.filter(s=>s.tipo==='king').length;
-  document.getElementById('s-mat').textContent=suites.filter(s=>s.tipo==='matrimonial').length;
-  document.getElementById('s-fotos').textContent=suites.reduce((a,s)=>a+(s.fotos||[]).length,0);
-  document.getElementById('topTag').textContent=suites.length+' suites';
+  document.getElementById('s-total').textContent = suites.length;
+  document.getElementById('s-king').textContent = suites.filter(s=>s.tipo==='king').length;
+  document.getElementById('s-mat').textContent = suites.filter(s=>s.tipo==='matrimonial').length;
+  document.getElementById('s-fotos').textContent = suites.reduce(function(a,s){ return a+(s.fotos||[]).length; },0);
+  document.getElementById('topTag').textContent = suites.length+' suites';
 }
 
-// FILTER
-function setFilter(v,btn){
-  filterVal=v;
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+// ── FILTER & TABLE ────────────────────────────────────────────
+function setFilter(v, btn){
+  filterVal = v;
+  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
   btn.classList.add('on');
   renderTable();
 }
 
-// TABLE
 function renderTable(){
-  let list=suites;
-  if(filterVal==='1') list=suites.filter(s=>String(s.piso)==='1');
-  else if(filterVal==='2') list=suites.filter(s=>String(s.piso)==='2');
-  else if(filterVal==='3') list=suites.filter(s=>String(s.piso)==='3');
-  else if(filterVal==='king') list=suites.filter(s=>s.tipo==='king');
-  else if(filterVal==='matrimonial') list=suites.filter(s=>s.tipo==='matrimonial');
+  var list = suites;
+  if(filterVal==='1') list = suites.filter(function(s){ return String(s.piso)==='1'; });
+  else if(filterVal==='2') list = suites.filter(function(s){ return String(s.piso)==='2'; });
+  else if(filterVal==='3') list = suites.filter(function(s){ return String(s.piso)==='3'; });
+  else if(filterVal==='king') list = suites.filter(function(s){ return s.tipo==='king'; });
+  else if(filterVal==='matrimonial') list = suites.filter(function(s){ return s.tipo==='matrimonial'; });
 
-  const tbody=document.getElementById('tbody');
-  if(!list.length){tbody.innerHTML='<div class="empty">Sin suites</div>';return;}
-  tbody.innerHTML=list.map(s=>{
-    const linkNames=(s.links||[]).map(l=>l.nombre).join(', ')||'Sin links';
-    return`<div class="t-row">
-      <div>${s.fotos&&s.fotos[0]?`<img class="thumb" src="${s.fotos[0]}" onerror="this.style.display='none'">`:'<div class="thumb-ph">🏠</div>'}</div>
-      <div><div class="cell-name">${s.nombre}<span>WA: ${s.whatsapp||'–'} · 🔗 ${linkNames}</span></div></div>
-      <div><span class="badge ${s.tipo==='king'?'b-king':'b-mat'}">${s.tipo==='king'?'King':'Matrimonial'}</span></div>
-      <div><span class="badge b-piso">P${s.piso}</span></div>
-      <div class="n-fotos">${(s.fotos||[]).length}</div>
-      <div class="row-btns">
-        <button class="ic-btn" onclick="openModal('${s.id}')">✏️</button>
-        <button class="ic-btn" onclick="moveUp('${s.id}')">↑</button>
-        <button class="ic-btn" onclick="moveDown('${s.id}')">↓</button>
-        <button class="ic-btn del" onclick="deleteSuite('${s.id}')">🗑</button>
-      </div>
-    </div>`;
-  }).join('');
+  var tbody = document.getElementById('tbody');
+  if(!list.length){ tbody.innerHTML = '<div class="empty-state">Sin suites</div>'; return; }
+
+  var html = '';
+  list.forEach(function(s){
+    var thumb = (s.fotos && s.fotos[0])
+      ? '<img class="thumb" src="'+s.fotos[0]+'" onerror="this.style.display=\'none\'">'
+      : '<div class="thumb-ph">🏠</div>';
+    var links = (s.links||[]).map(function(l){ return l.nombre; }).join(', ') || '–';
+    var tipoBadge = s.tipo==='king'
+      ? '<span class="badge b-king">King</span>'
+      : '<span class="badge b-mat">Matrimonial</span>';
+    html += '<div class="t-row">';
+    html += '<div>'+thumb+'</div>';
+    html += '<div><div class="cell-name">'+s.nombre+'<span>WA: '+(s.whatsapp||'–')+' · '+links+'</span></div></div>';
+    html += '<div>'+tipoBadge+'</div>';
+    html += '<div><span class="badge b-piso">P'+s.piso+'</span></div>';
+    html += '<div class="n-fotos">'+((s.fotos||[]).length)+'</div>';
+    html += '<div class="row-btns">';
+    html += '<button class="ic-btn" onclick="openModal(\''+s.id+'\')">✏️</button>';
+    html += '<button class="ic-btn" onclick="moveUp(\''+s.id+'\')">↑</button>';
+    html += '<button class="ic-btn" onclick="moveDown(\''+s.id+'\')">↓</button>';
+    html += '<button class="ic-btn del" onclick="delSuite(\''+s.id+'\')">🗑</button>';
+    html += '</div></div>';
+  });
+  tbody.innerHTML = html;
 }
 
-// ORDER
+// ── ORDER ────────────────────────────────────────────────────
 async function moveUp(id){
-  const i=suites.findIndex(s=>s.id===id);if(i<=0)return;
-  [suites[i-1],suites[i]]=[suites[i],suites[i-1]];reIndex();renderTable();
-  try{ for(const s of suites){ await sbUpsert({id:s.id,orden:s.orden}); } }catch(e){}
-  toast('Orden actualizado','ok');
+  var i = suites.findIndex(function(s){ return s.id===id; });
+  if(i<=0) return;
+  var tmp = suites[i-1]; suites[i-1] = suites[i]; suites[i] = tmp;
+  reIndex(); renderTable(); saveLocal();
+  try{ await sbUpsert('suites', suites.map(function(s){ return {id:s.id,orden:s.orden}; })); }catch(e){}
+  toast('Orden guardado','ok');
 }
 async function moveDown(id){
-  const i=suites.findIndex(s=>s.id===id);if(i>=suites.length-1)return;
-  [suites[i],suites[i+1]]=[suites[i+1],suites[i]];reIndex();renderTable();
-  try{ for(const s of suites){ await sbUpsert({id:s.id,orden:s.orden}); } }catch(e){}
-  toast('Orden actualizado','ok');
+  var i = suites.findIndex(function(s){ return s.id===id; });
+  if(i>=suites.length-1) return;
+  var tmp = suites[i+1]; suites[i+1] = suites[i]; suites[i] = tmp;
+  reIndex(); renderTable(); saveLocal();
+  try{ await sbUpsert('suites', suites.map(function(s){ return {id:s.id,orden:s.orden}; })); }catch(e){}
+  toast('Orden guardado','ok');
 }
-function reIndex(){suites.forEach((s,i)=>s.orden=i+1);}
+function reIndex(){ suites.forEach(function(s,i){ s.orden = i+1; }); }
+function saveLocal(){ localStorage.setItem('sj_suites', JSON.stringify(suites)); }
 
-// DELETE
-async function deleteSuite(id){
-  if(!confirm(`¿Eliminar Suite ${id}?`))return;
-  try{await sbDelete(id);}catch(e){toast('Error al eliminar','err');return;}
-  suites=suites.filter(s=>s.id!==id);
-  saveLocal();renderTable();updateStats();toast('Suite eliminada');
+// ── DELETE ───────────────────────────────────────────────────
+async function delSuite(id){
+  if(!confirm('¿Eliminar Suite '+id+'?')) return;
+  try{ await sbDel('suites', id); }catch(e){ toast('Error al eliminar','err'); return; }
+  suites = suites.filter(function(s){ return s.id!==id; });
+  saveLocal(); renderTable(); updateStats(); toast('Suite eliminada');
 }
 
-// MODAL
+// ── MODAL ────────────────────────────────────────────────────
 function openModal(id){
-  editId=id;curTags=[];curFotos=[];curLinks=[];
-  document.getElementById('mTitle').textContent=id?'Editar suite':'Nueva suite';
-  document.getElementById('btnSave').textContent=id?'Guardar cambios':'Crear suite';
+  editId = id; curTags = []; curFotos = []; curLinks = [];
+  document.getElementById('mTitle').textContent = id ? 'Editar suite' : 'Nueva suite';
+  document.getElementById('btnSave').textContent = id ? 'Guardar' : 'Crear';
   if(id){
-    const s=suites.find(x=>x.id===id);
-    document.getElementById('fId').value=s.id;
-    document.getElementById('fId').disabled=true;
-    document.getElementById('fNombre').value=s.nombre||'';
-    document.getElementById('fTipo').value=s.tipo||'matrimonial';
-    document.getElementById('fPiso').value=String(s.piso||1);
-    document.getElementById('fDesc').value=s.descripcion||'';
-    document.getElementById('fWa').value=s.whatsapp||'';
-    curTags=[...(s.tags||[])];
-    curFotos=[...(s.fotos||[])];
-    curLinks=[...(s.links||[])];
+    var s = suites.find(function(x){ return x.id===id; });
+    document.getElementById('fId').value = s.id;
+    document.getElementById('fId').disabled = true;
+    document.getElementById('fNombre').value = s.nombre||'';
+    document.getElementById('fTipo').value = s.tipo||'matrimonial';
+    document.getElementById('fPiso').value = String(s.piso||1);
+    document.getElementById('fDesc').value = s.descripcion||'';
+    document.getElementById('fWa').value = s.whatsapp||'';
+    curTags = (s.tags||[]).slice();
+    curFotos = (s.fotos||[]).slice();
+    curLinks = (s.links||[]).map(function(l){ return {nombre:l.nombre,url:l.url}; });
   } else {
-    document.getElementById('fId').value='';
-    document.getElementById('fId').disabled=false;
-    ['fNombre','fDesc','fWa'].forEach(f=>document.getElementById(f).value='');
-    document.getElementById('fTipo').value='matrimonial';
-    document.getElementById('fPiso').value='1';
+    document.getElementById('fId').value = '';
+    document.getElementById('fId').disabled = false;
+    ['fNombre','fDesc','fWa'].forEach(function(f){ document.getElementById(f).value = ''; });
+    document.getElementById('fTipo').value = 'matrimonial';
+    document.getElementById('fPiso').value = '1';
   }
-  renderTags();renderFotos();renderLinks();
+  renderTags(); renderFotos(); renderLinks();
   document.getElementById('overlay').classList.add('on');
 }
-function closeModal(){document.getElementById('overlay').classList.remove('on');}
+function closeModal(){ document.getElementById('overlay').classList.remove('on'); }
 
 async function saveSuite(){
-  const id=document.getElementById('fId').value.trim();
-  if(!id){toast('Ingresa el número de suite','err');return;}
-  const data={
-    id,
-    nombre:document.getElementById('fNombre').value,
-    tipo:document.getElementById('fTipo').value,
-    piso:parseInt(document.getElementById('fPiso').value),
-    descripcion:document.getElementById('fDesc').value,
-    tags:curTags,
-    whatsapp:document.getElementById('fWa').value.replace(/\D/g,''),
-    links:curLinks,
-    fotos:curFotos,
-    orden:editId?suites.find(s=>s.id===editId)?.orden||99:suites.length+1,
-    activa:true
+  var id = document.getElementById('fId').value.trim();
+  if(!id){ toast('Ingresa el número de suite','err'); return; }
+  var data = {
+    id: id,
+    nombre: document.getElementById('fNombre').value,
+    tipo: document.getElementById('fTipo').value,
+    piso: parseInt(document.getElementById('fPiso').value),
+    descripcion: document.getElementById('fDesc').value,
+    tags: curTags,
+    whatsapp: document.getElementById('fWa').value.replace(/\D/g,''),
+    links: curLinks,
+    fotos: curFotos,
+    orden: editId ? (suites.find(function(s){ return s.id===editId; })||{}).orden||99 : suites.length+1,
+    activa: true
   };
-  const idx=suites.findIndex(s=>s.id===id);
-  if(idx>=0)suites[idx]=data;else suites.push(data);
-  saveLocal();
-  try{
-    document.getElementById('btnSave').textContent='Guardando...';
-    await sbUpsert(data);
-    renderTable();updateStats();
-    closeModal();toast('Suite guardada','ok');
-  }catch(e){
-    renderTable();updateStats();
-    closeModal();toast('Guardado local (sin conexión a Supabase)');
-  }
+  document.getElementById('btnSave').textContent = 'Guardando...';
+  try{ await sbUpsert('suites', data); }catch(e){ toast('Error: '+e.message,'err'); document.getElementById('btnSave').textContent='Guardar'; return; }
+  var idx = suites.findIndex(function(s){ return s.id===id; });
+  if(idx>=0) suites[idx] = data; else suites.push(data);
+  saveLocal(); renderTable(); updateStats(); closeModal(); toast('Suite guardada','ok');
 }
 
-// TAGS
+// ── TAGS ─────────────────────────────────────────────────────
 function renderTags(){
-  const wrap=document.getElementById('tagsWrap');
-  const inp=document.getElementById('tagIn');
-  wrap.querySelectorAll('.tag-pill').forEach(t=>t.remove());
-  curTags.forEach(tag=>{
-    const p=document.createElement('div');p.className='tag-pill';
-    p.innerHTML=`${tag}<button type="button" onclick="removeTag(this,'${tag.replace(/'/g,"\\'")}')">×</button>`;
-    wrap.insertBefore(p,inp);
+  var wrap = document.getElementById('tagsWrap');
+  var inp = document.getElementById('tagIn');
+  wrap.querySelectorAll('.tag-pill').forEach(function(t){ t.remove(); });
+  curTags.forEach(function(tag){
+    var p = document.createElement('div'); p.className = 'tag-pill';
+    p.innerHTML = tag + '<button type="button" onclick="removeTag(this)">×</button>';
+    p.querySelector('button').dataset.tag = tag;
+    wrap.insertBefore(p, inp);
   });
 }
-function removeTag(btn,t){curTags=curTags.filter(x=>x!==t);renderTags();}
-document.getElementById('tagIn').addEventListener('keydown',e=>{
+function removeTag(btn){ curTags = curTags.filter(function(t){ return t!==btn.dataset.tag; }); renderTags(); }
+document.getElementById('tagIn').addEventListener('keydown', function(e){
   if(e.key==='Enter'||e.key===','){
     e.preventDefault();
-    const v=e.target.value.trim().replace(/,$/,'');
-    if(v&&!curTags.includes(v)){curTags.push(v);renderTags();}
-    e.target.value='';
+    var v = e.target.value.trim().replace(/,$/,'');
+    if(v && !curTags.includes(v)){ curTags.push(v); renderTags(); }
+    e.target.value = '';
   }
-  if(e.key==='Backspace'&&!e.target.value&&curTags.length){curTags.pop();renderTags();}
+  if(e.key==='Backspace' && !e.target.value && curTags.length){ curTags.pop(); renderTags(); }
 });
 
-// BOOKING LINKS
+// ── LINKS ────────────────────────────────────────────────────
 function renderLinks(){
-  const c=document.getElementById('linksContainer');
-  c.innerHTML=curLinks.map((l,i)=>`
-    <div class="link-item">
-      <input type="text" value="${l.nombre||''}" placeholder="Airbnb" onchange="curLinks[${i}].nombre=this.value">
-      <input type="text" value="${l.url||''}" placeholder="https://..." onchange="curLinks[${i}].url=this.value">
-      <button class="del-link" onclick="removeLink(${i})">×</button>
-    </div>
-  `).join('');
-}
-function addLink(){
-  curLinks.push({nombre:'',url:''});
-  renderLinks();
-  // focus primer input del nuevo link
-  const inputs=document.querySelectorAll('.link-item input');
-  if(inputs.length) inputs[inputs.length-2].focus();
-}
-function removeLink(i){curLinks.splice(i,1);renderLinks();}
-
-// FOTOS
-function renderFotos(){
-  const grid=document.getElementById('fotosGrid');
-  document.getElementById('fotoCount').textContent=`(${curFotos.length})`;
-  grid.innerHTML=curFotos.map((url,i)=>`
-    <div class="foto-item" draggable="true" ondragstart="dragStart(event,${i})" ondragover="dragOver(event)" ondrop="dropFoto(event,${i})">
-      <img src="${url}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect fill=%22%23eee%22 width=%2240%22 height=%2240%22/></svg>'">
-      ${i===0?'<div class="portada-badge">PORTADA</div>':''}
-      <div class="foto-actions">
-        <button class="foto-act" onclick="moveFoto(${i},-1)">←</button>
-        <button class="foto-act" onclick="moveFoto(${i},1)">→</button>
-        <button class="foto-act" style="background:rgba(255,80,80,.9)" onclick="delFoto(${i})">×</button>
-      </div>
-    </div>`).join('');
-}
-function delFoto(i){curFotos.splice(i,1);renderFotos();}
-function moveFoto(i,d){const ni=i+d;if(ni<0||ni>=curFotos.length)return;[curFotos[i],curFotos[ni]]=[curFotos[ni],curFotos[i]];renderFotos();}
-function dragStart(e,i){dragIdx=i;e.dataTransfer.effectAllowed='move';}
-function dragOver(e){e.preventDefault();}
-function dropFoto(e,ti){e.preventDefault();if(dragIdx===null||dragIdx===ti)return;const m=curFotos.splice(dragIdx,1)[0];curFotos.splice(ti,0,m);renderFotos();dragIdx=null;}
-function onDragOver(e){e.preventDefault();document.getElementById('dropZone').classList.add('drag');}
-function onDragLeave(){document.getElementById('dropZone').classList.remove('drag');}
-async function onDrop(e){e.preventDefault();document.getElementById('dropZone').classList.remove('drag');await uploadFiles(e.dataTransfer.files);}
-async function onFileSelect(e){await uploadFiles(e.target.files);}
-async function uploadFiles(files){
-  const arr = Array.from(files);
-  if(!arr.length) return;
-  const suiteId = document.getElementById('fId').value || 'temp';
-  const prog = document.getElementById('progWrap');
-  const fill = document.getElementById('progFill');
-  const msg = document.getElementById('progMsg');
-  prog.style.display = 'block';
-
-  for(let i = 0; i < arr.length; i++){
-    const file = arr[i];
-    msg.textContent = `Subiendo ${i+1}/${arr.length}: ${file.name}`;
-    fill.style.width = `${Math.round((i/arr.length)*100)}%`;
-    try {
-      const path = `suites/${suiteId}/${Date.now()}-${file.name.replace(/\s/g,'_')}`;
-      const r = await fetch(`${SB_URL}/storage/v1/object/fotos/${path}`, {
-        method: 'POST',
-        headers: {
-          'apikey': SB_KEY,
-          'Authorization': 'Bearer ' + SB_KEY,
-          'Content-Type': file.type,
-          'x-upsert': 'true'
-        },
-        body: file
-      });
-      if(!r.ok) throw new Error(await r.text());
-      const url = `${SB_URL}/storage/v1/object/public/fotos/${path}`;
-      curFotos.push(url);
-      renderFotos();
-    } catch(e) {
-      console.error(e);
-      toast('Error subiendo ' + file.name + ': ' + e.message, 'err');
-    }
-  }
-  fill.style.width = '100%';
-  msg.textContent = '¡Listo!';
-  setTimeout(()=>{ prog.style.display='none'; fill.style.width='0%'; }, 1500);
-}
-
-
-// PUBLICAR — marca los datos como publicados y muestra confirmación
-async function publishChanges(){
-  const btn = document.getElementById('btnPublish');
-  btn.innerHTML = 'Publicando...';
-  btn.style.background = '#276749';
-  try{
-    for(const s of suites){ await sbUpsert(s); }
-    saveLocal();
-    localStorage.setItem('sj_published', new Date().toLocaleString('es-MX'));
-    btn.innerHTML = '✓ ¡Publicado!';
-    setTimeout(()=>{ btn.innerHTML = '✓ Publicar cambios'; btn.style.background = '#38a169'; }, 2500);
-    toast('¡Cambios en vivo! Ya se ven en reservas.html desde cualquier dispositivo', 'ok');
-  }catch(e){
-    btn.innerHTML = '✓ Publicar cambios';
-    btn.style.background = '#38a169';
-    toast('Error al publicar: '+e.message,'err');
-  }
-}
-
-// ══════════════════ INSTALACIONES ══════════════════
-const INST_SEED = [{"id": "exteriores", "nombre": "Exteriores", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg"], "orden": 1}, {"id": "planta-baja", "nombre": "Planta baja, pasillos y elevador", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-3.jpeg"], "orden": 2}, {"id": "lavanderia", "nombre": "Lavander\u00eda", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-9.jpeg"], "orden": 3}];
-
-let instData = [];  // array of {id, nombre, fotos, orden}
-let instDragIdx = null;
-
-async function loadInst() {
-  document.getElementById('instSections').innerHTML = '<div class="empty" style="padding:40px;text-align:center;">Cargando...</div>';
-  try {
-    const r = await fetch(`${SB_URL}/rest/v1/instalaciones?order=orden.asc`, {headers: {'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY}});
-    if(!r.ok) throw new Error('read');
-    instData = await r.json();
-    if(!instData.length) {
-      await sbUpsertInst(INST_SEED);
-      instData = INST_SEED;
-    }
-  } catch(e) {
-    instData = INST_SEED;
-    toast('Usando datos locales (Supabase no disponible)');
-  }
-  renderInstSections();
-}
-
-async function sbUpsertInst(data) {
-  const arr = Array.isArray(data) ? data : [data];
-  for(const item of arr) {
-    await fetch(`${SB_URL}/rest/v1/instalaciones`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Prefer': 'resolution=merge-duplicates'},
-      body: JSON.stringify(item)
-    });
-  }
-}
-
-function renderInstSections() {
-  const container = document.getElementById('instSections');
-  container.innerHTML = instData.map(sec => `
-    <div class="inst-section" id="isec-${sec.id}">
-      <div class="inst-section-header">
-        <div class="inst-section-title">${sec.nombre}</div>
-        <span class="inst-photo-count">${(sec.fotos||[]).length} fotos</span>
-      </div>
-      <div class="inst-fotos-grid" id="igrid-${sec.id}"></div>
-      <div class="inst-drop" id="idrop-${sec.id}"
-           onclick="document.getElementById('ifile-${sec.id}').click()"
-           ondragover="instDragOver(event,'${sec.id}')" ondragleave="instDragLeave('${sec.id}')" ondrop="instFileDrop(event,'${sec.id}')">
-        <div style="font-size:22px;">📷</div>
-        <p><strong>Subir fotos</strong> — arrastra o clic</p>
-      </div>
-      <input type="file" id="ifile-${sec.id}" accept="image/*" multiple style="display:none" onchange="instFileSelect(event,'${sec.id}')">
-    </div>
-  `).join('');
-  instData.forEach(sec => renderInstGrid(sec.id));
-}
-
-function renderInstGrid(secId) {
-  var sec = instData.find(function(s){ return s.id === secId; });
-  if(!sec) return;
-  var grid = document.getElementById('igrid-' + secId);
-  var count = document.querySelector('#isec-' + secId + ' .inst-photo-count');
-  if(count) count.textContent = (sec.fotos||[]).length + ' fotos';
+  var c = document.getElementById('linksContainer');
   var html = '';
-  var fotos = sec.fotos || [];
-  for(var i = 0; i < fotos.length; i++) {
-    html += '<div class="inst-foto-item" data-sec="' + secId + '" data-idx="' + i + '" draggable="true">';
-    html += '<img src="' + fotos[i] + '" loading="lazy">';
-    html += '<div class="foto-actions">';
-    html += '<button class="inst-foto-act" data-action="left" data-sec="' + secId + '" data-idx="' + i + '">←</button>';
-    html += '<button class="inst-foto-act" data-action="right" data-sec="' + secId + '" data-idx="' + i + '">→</button>';
-    html += '<button class="inst-foto-act" data-action="del" data-sec="' + secId + '" data-idx="' + i + '" style="background:rgba(255,80,80,.9)">×</button>';
+  curLinks.forEach(function(l, i){
+    html += '<div class="link-item">';
+    html += '<input type="text" value="'+l.nombre+'" placeholder="Airbnb" data-i="'+i+'" data-field="nombre" onchange="linkChange(this)">';
+    html += '<input type="text" value="'+l.url+'" placeholder="https://..." data-i="'+i+'" data-field="url" onchange="linkChange(this)">';
+    html += '<button class="del-link" onclick="delLink('+i+')">×</button>';
+    html += '</div>';
+  });
+  c.innerHTML = html;
+}
+function linkChange(inp){ curLinks[parseInt(inp.dataset.i)][inp.dataset.field] = inp.value; }
+function addLink(){ curLinks.push({nombre:'',url:''}); renderLinks(); }
+function delLink(i){ curLinks.splice(i,1); renderLinks(); }
+
+// ── FOTOS ────────────────────────────────────────────────────
+function renderFotos(){
+  var grid = document.getElementById('fotosGrid');
+  document.getElementById('fotoCount').textContent = '('+curFotos.length+')';
+  var html = '';
+  curFotos.forEach(function(url, i){
+    html += '<div class="foto-item" draggable="true" data-i="'+i+'">';
+    html += '<img src="'+url+'" loading="lazy">';
+    if(i===0) html += '<div class="portada-badge">PORTADA</div>';
+    html += '<div class="foto-overlay">';
+    html += '<button class="foto-act" data-i="'+i+'" data-a="L">←</button>';
+    html += '<button class="foto-act" data-i="'+i+'" data-a="R">→</button>';
+    html += '<button class="foto-act" data-i="'+i+'" data-a="D" style="background:rgba(255,80,80,.9)">×</button>';
     html += '</div></div>';
-  }
+  });
   grid.innerHTML = html;
-  // Attach events
-  grid.querySelectorAll('.inst-foto-act').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var s = this.dataset.sec;
-      var idx = parseInt(this.dataset.idx);
-      var action = this.dataset.action;
-      if(action === 'left') instMovePhoto(s, idx, -1);
-      else if(action === 'right') instMovePhoto(s, idx, 1);
-      else if(action === 'del') instDelPhoto(s, idx);
+  grid.querySelectorAll('.foto-act').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var idx2 = parseInt(this.dataset.i);
+      var a = this.dataset.a;
+      if(a==='L' && idx2>0){ var t=curFotos[idx2-1]; curFotos[idx2-1]=curFotos[idx2]; curFotos[idx2]=t; }
+      else if(a==='R' && idx2<curFotos.length-1){ var t=curFotos[idx2+1]; curFotos[idx2+1]=curFotos[idx2]; curFotos[idx2]=t; }
+      else if(a==='D'){ curFotos.splice(idx2,1); }
+      renderFotos();
     });
   });
-  grid.querySelectorAll('.inst-foto-item').forEach(function(item) {
-    item.addEventListener('dragstart', function(e) {
-      instDragIdx = {secId: item.dataset.sec, i: parseInt(item.dataset.idx)};
-      e.dataTransfer.effectAllowed = 'move';
-    });
-    item.addEventListener('dragover', function(e) { e.preventDefault(); });
-    item.addEventListener('drop', function(e) {
+  grid.querySelectorAll('.foto-item').forEach(function(item){
+    item.addEventListener('dragstart', function(e){ dragIdx=parseInt(item.dataset.i); e.dataTransfer.effectAllowed='move'; });
+    item.addEventListener('dragover', function(e){ e.preventDefault(); });
+    item.addEventListener('drop', function(e){
       e.preventDefault();
-      var ti = parseInt(item.dataset.idx);
-      if(!instDragIdx || instDragIdx.secId !== item.dataset.sec || instDragIdx.i === ti) return;
-      var sec2 = instData.find(function(s){ return s.id === item.dataset.sec; });
-      var moved = sec2.fotos.splice(instDragIdx.i, 1)[0];
-      sec2.fotos.splice(ti, 0, moved);
-      renderInstGrid(item.dataset.sec);
-      instDragIdx = null;
-      instSave(item.dataset.sec);
+      var ti = parseInt(item.dataset.i);
+      if(dragIdx===null||dragIdx===ti) return;
+      var m = curFotos.splice(dragIdx,1)[0]; curFotos.splice(ti,0,m);
+      renderFotos(); dragIdx=null;
+    });
+  });
+}
+function onDrop(e){ e.preventDefault(); uploadFiles(e.dataTransfer.files); }
+function onFileSelect(e){ uploadFiles(e.target.files); }
+async function uploadFiles(files){
+  var arr = Array.from(files);
+  if(!arr.length) return;
+  var sid = document.getElementById('fId').value || 'temp';
+  var prog = document.getElementById('progWrap');
+  var fill = document.getElementById('progFill');
+  var msg = document.getElementById('progMsg');
+  prog.style.display = 'block';
+  for(var i=0; i<arr.length; i++){
+    msg.textContent = 'Subiendo '+(i+1)+'/'+arr.length+'...';
+    fill.style.width = Math.round((i/arr.length)*100)+'%';
+    try{
+      var path = 'suites/'+sid+'/'+Date.now()+'-'+arr[i].name.replace(/\s/g,'_');
+      var url = await sbUpload(path, arr[i]);
+      curFotos.push(url); renderFotos();
+    }catch(e){ toast('Error: '+e.message,'err'); }
+  }
+  fill.style.width = '100%'; msg.textContent = '¡Listo!';
+  setTimeout(function(){ prog.style.display='none'; fill.style.width='0%'; }, 1500);
+}
+
+// ── INSTALACIONES ─────────────────────────────────────────────
+
+var INST_SEED = [{"id": "exteriores", "nombre": "Exteriores", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/exteriores/exteriores-9.jpeg"], "orden": 1}, {"id": "planta-baja", "nombre": "Planta baja, pasillos y elevador", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/elevador-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/escaleras-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/extintores-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/llaves-de-emergencia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-2-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/pasillo-piso-3-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-17.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-18.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-19.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-20.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-21.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-22.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-23.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-24.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-25.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/planta-baja-exterior-9.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-6.46.00-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.17-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.05.18-pm.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.43.22-pm-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.16-pm-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/planta-baja-amenidades-pasillos-y-elevador/whatsapp-image-2025-10-11-at-7.48.17-pm-3.jpeg"], "orden": 2}, {"id": "lavanderia", "nombre": "Lavander\u00eda", "fotos": ["https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-1.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-10.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-11.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-12.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-13.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-14.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-15.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-16.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-2.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-3.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-4.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-5.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-6.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-7.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-8.jpeg", "https://yblxilcrmzcnbdpowwpi.supabase.co/storage/v1/object/public/fotos/lavanderia/lavanderia-9.jpeg"], "orden": 3}];
+
+async function loadInst(){
+  document.getElementById('instContainer').innerHTML = '<div class="empty-state">Cargando...</div>';
+  try{
+    instData = await sbGet('instalaciones','order=orden.asc');
+    if(!instData.length){ await sbUpsert('instalaciones', INST_SEED); instData = INST_SEED; }
+  }catch(e){ instData = INST_SEED; toast('Modo offline',''); }
+  renderInst();
+}
+
+function renderInst(){
+  document.getElementById('topTag').textContent = instData.length+' secciones';
+  var html = '';
+  instData.forEach(function(sec){
+    html += '<div class="inst-card" id="icard-'+sec.id+'">';
+    html += '<div class="inst-card-header">';
+    html += '<div class="inst-card-title">'+sec.nombre+'</div>';
+    html += '<span class="inst-count" id="icount-'+sec.id+'">'+(sec.fotos||[]).length+' fotos</span>';
+    html += '</div>';
+    html += '<div class="inst-grid" id="igrid-'+sec.id+'"></div>';
+    html += '<div class="drop-zone" onclick="document.getElementById('ifile-'+sec.id+'').click()" ondragover="event.preventDefault()" ondrop="instDrop(event,''+sec.id+'')">';
+    html += '<div style="font-size:20px;">📷</div><p><strong>Subir fotos</strong> — arrastra o clic</p>';
+    html += '</div>';
+    html += '<input type="file" id="ifile-'+sec.id+'" accept="image/*" multiple style="display:none" onchange="instFileSelect(event,''+sec.id+'')">';
+    html += '</div>';
+  });
+  document.getElementById('instContainer').innerHTML = html;
+  instData.forEach(function(sec){ renderInstGrid(sec.id); });
+}
+
+function renderInstGrid(secId){
+  var sec = instData.find(function(s){ return s.id===secId; });
+  if(!sec) return;
+  var grid = document.getElementById('igrid-'+secId);
+  var count = document.getElementById('icount-'+secId);
+  if(count) count.textContent = (sec.fotos||[]).length+' fotos';
+  var html = '';
+  (sec.fotos||[]).forEach(function(url, i){
+    html += '<div class="inst-foto" data-sec="'+secId+'" data-i="'+i+'" draggable="true">';
+    html += '<img src="'+url+'" loading="lazy">';
+    html += '<div class="foto-overlay">';
+    html += '<button class="foto-act" data-sec="'+secId+'" data-i="'+i+'" data-a="L">←</button>';
+    html += '<button class="foto-act" data-sec="'+secId+'" data-i="'+i+'" data-a="R">→</button>';
+    html += '<button class="foto-act" data-sec="'+secId+'" data-i="'+i+'" data-a="D" style="background:rgba(255,80,80,.9)">×</button>';
+    html += '</div></div>';
+  });
+  grid.innerHTML = html;
+  grid.querySelectorAll('.foto-act').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var s = this.dataset.sec, idx2 = parseInt(this.dataset.i), a = this.dataset.a;
+      var sec2 = instData.find(function(x){ return x.id===s; });
+      if(a==='L' && idx2>0){ var t=sec2.fotos[idx2-1]; sec2.fotos[idx2-1]=sec2.fotos[idx2]; sec2.fotos[idx2]=t; }
+      else if(a==='R' && idx2<sec2.fotos.length-1){ var t=sec2.fotos[idx2+1]; sec2.fotos[idx2+1]=sec2.fotos[idx2]; sec2.fotos[idx2]=t; }
+      else if(a==='D'){ sec2.fotos.splice(idx2,1); }
+      renderInstGrid(s); instSave(s);
+    });
+  });
+  grid.querySelectorAll('.inst-foto').forEach(function(item){
+    item.addEventListener('dragstart', function(e){ instDragIdx={sec:item.dataset.sec,i:parseInt(item.dataset.i)}; e.dataTransfer.effectAllowed='move'; });
+    item.addEventListener('dragover', function(e){ e.preventDefault(); });
+    item.addEventListener('drop', function(e){
+      e.preventDefault();
+      if(!instDragIdx||instDragIdx.sec!==item.dataset.sec) return;
+      var ti = parseInt(item.dataset.i);
+      if(instDragIdx.i===ti) return;
+      var sec2 = instData.find(function(x){ return x.id===item.dataset.sec; });
+      var m = sec2.fotos.splice(instDragIdx.i,1)[0]; sec2.fotos.splice(ti,0,m);
+      renderInstGrid(item.dataset.sec); instDragIdx=null; instSave(item.dataset.sec);
     });
   });
 }
 
-
+function instDrop(e,secId){ e.preventDefault(); instUpload(secId,e.dataTransfer.files); }
+function instFileSelect(e,secId){ instUpload(secId,e.target.files); }
+async function instUpload(secId,files){
+  var arr = Array.from(files); if(!arr.length) return;
+  var sec = instData.find(function(s){ return s.id===secId; });
+  toast('Subiendo '+arr.length+' foto(s)...');
+  for(var i=0;i<arr.length;i++){
+    try{
+      var path = 'instalaciones/'+secId+'/'+Date.now()+'-'+arr[i].name.replace(/\s/g,'_');
+      var url = await sbUpload(path,arr[i]);
+      sec.fotos.push(url); renderInstGrid(secId);
+    }catch(e){ toast('Error: '+e.message,'err'); }
+  }
+  await instSave(secId); toast('Fotos guardadas','ok');
+}
 async function instSave(secId){
-  const sec=instData.find(s=>s.id===secId);
-  if(!sec)return;
-  try{await sbUpsertInst(sec);}catch(e){console.warn('instSave error',e);}
+  var sec = instData.find(function(s){ return s.id===secId; });
+  if(!sec) return;
+  try{ await sbUpsert('instalaciones',sec); }catch(e){ console.warn(e); }
 }
 
-// TOAST
-function toast(msg,type=''){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast show '+(type||'');
-  setTimeout(()=>t.className='toast',3000);
+// ── TOAST ────────────────────────────────────────────────────
+function toast(msg,type){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show '+(type||'');
+  setTimeout(function(){ t.className='toast'; }, 3000);
 }
 </script>
 </body>
