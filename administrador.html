@@ -262,8 +262,12 @@ body{font-family:var(--font-sans);background:#f8f8f7;color:var(--black);-webkit-
       <div class="m-divider"></div>
       <div class="m-label">Contacto y reserva</div>
       <div class="field" style="margin-bottom:14px;"><label>WhatsApp</label><input type="text" id="fWa" style="max-width:240px;"></div>
+      <div class="field" style="margin-bottom:14px;">
+        <label>Link de reserva principal <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— activa el botón negro "Reservar ahora"</span></label>
+        <input type="text" id="fBookingUrl" placeholder="https://direct-book.com/...">
+      </div>
       <div class="field" style="margin-bottom:0;">
-        <label>Links de reserva <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— si hay 2+ aparece popup al reservar</span></label>
+        <label>Plataformas adicionales <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray);">— Airbnb, WhatsApp, Google Maps, etc.</span></label>
         <div id="linksContainer" style="margin-bottom:8px;"></div>
         <button class="btn-add-link" onclick="addLink()">+ Agregar plataforma</button>
       </div>
@@ -401,13 +405,14 @@ function renderTable(){
     var thumb = (s.fotos && s.fotos[0])
       ? '<img class="thumb" src="'+s.fotos[0]+'" onerror="this.style.display=\'none\'">'
       : '<div class="thumb-ph">🏠</div>';
-    var links = (s.links||[]).map(function(l){ return l.nombre; }).join(', ') || '–';
+    var extraLinks = (s.links||[]).map(function(l){ return l.nombre; }).join(', ') || '–';
+    var bookingLabel = s.booking_url ? '✓ Reserva' : 'Sin link';
     var tipoBadge = s.tipo==='king'
       ? '<span class="badge b-king">King</span>'
       : '<span class="badge b-mat">Matrimonial</span>';
     html += '<div class="t-row">';
     html += '<div>'+thumb+'</div>';
-    html += '<div><div class="cell-name">'+s.nombre+'<span>WA: '+(s.whatsapp||'–')+' · '+links+'</span></div></div>';
+    html += '<div><div class="cell-name">'+s.nombre+'<span>'+bookingLabel+' · Extras: '+extraLinks+'</span></div></div>';
     html += '<div>'+tipoBadge+'</div>';
     html += '<div><span class="badge b-piso">P'+s.piso+'</span></div>';
     html += '<div class="n-fotos">'+((s.fotos||[]).length)+'</div>';
@@ -463,13 +468,14 @@ function openModal(id){
     document.getElementById('fPiso').value = String(s.piso||1);
     document.getElementById('fDesc').value = s.descripcion||'';
     document.getElementById('fWa').value = s.whatsapp||'';
+    document.getElementById('fBookingUrl').value = s.booking_url||'';
     curTags = (s.tags||[]).slice();
     curFotos = (s.fotos||[]).slice();
     curLinks = (s.links||[]).map(function(l){ return {nombre:l.nombre,url:l.url}; });
   } else {
     document.getElementById('fId').value = '';
     document.getElementById('fId').disabled = false;
-    ['fNombre','fDesc','fWa'].forEach(function(f){ document.getElementById(f).value = ''; });
+    ['fNombre','fDesc','fWa','fBookingUrl'].forEach(function(f){ document.getElementById(f).value = ''; });
     document.getElementById('fTipo').value = 'matrimonial';
     document.getElementById('fPiso').value = '1';
   }
@@ -489,6 +495,7 @@ async function saveSuite(){
     descripcion: document.getElementById('fDesc').value,
     tags: curTags,
     whatsapp: document.getElementById('fWa').value.replace(/\D/g,''),
+    booking_url: document.getElementById('fBookingUrl').value.trim(),
     links: curLinks,
     fotos: curFotos,
     orden: editId ? (suites.find(function(s){ return s.id===editId; })||{}).orden||99 : suites.length+1,
