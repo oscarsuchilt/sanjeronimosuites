@@ -85,15 +85,13 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .suite-info strong{color:var(--black);font-weight:600;font-size:13px;display:block;}
 .btn-reservar{padding:11px 20px;background:var(--black);color:white;border:none;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);text-decoration:none;transition:all .2s;white-space:nowrap;flex-shrink:0;}
 .btn-reservar:hover{background:#333;transform:translateY(-1px);}
-.btn-platform{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;transition:all .2s;cursor:pointer;}
-.btn-platform-airbnb{background:#FF5A5F;color:white;border-color:#FF5A5F;}
-.btn-platform-airbnb:hover{background:#e5484d;transform:translateY(-1px);}
-.btn-platform-wa2{background:#25D366;color:white;border-color:#25D366;}
-.btn-platform-wa2:hover{background:#1ebe59;transform:translateY(-1px);}
-.btn-platform-maps{background:white;color:var(--black);}
-.btn-platform-maps:hover{background:var(--cream);transform:translateY(-1px);}
-.btn-platform-text{padding:0 12px;width:auto;font-size:12px;font-weight:600;font-family:var(--font-sans);background:white;color:var(--black);}
-.btn-platform-text:hover{background:var(--cream);transform:translateY(-1px);}
+.btn-platform{padding:9px 14px;border-radius:10px;border:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;flex-shrink:0;transition:all .2s;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font-sans);white-space:nowrap;}
+.btn-platform:hover{transform:translateY(-1px);filter:brightness(.88);}
+.btn-platform-airbnb{background:#FF385C;color:white;}
+.btn-platform-wa2{background:#25D366;color:white;}
+.btn-platform-maps{background:#3d3d3d;color:white;}
+.btn-platform-booking{background:#003580;color:white;}
+.btn-platform-other{background:#6b6b6b;color:white;}
 
 /* AREAS */
 .areas-wrap{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
@@ -378,11 +376,10 @@ function loadSuites() {
 // WA SVG icon
 const WA_SVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
 
-// SVG icons for booking platforms
-const AIRBNB_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.99 17.527c-.19.42-.558.66-.986.66-.27 0-.514-.09-.72-.27-1.064-.934-2.195-1.563-3.094-1.89-.55-.206-1.048-.298-1.47-.284-.42-.014-.92.078-1.47.284-.9.327-2.03.956-3.093 1.89-.207.18-.45.27-.72.27-.43 0-.796-.24-.987-.66-.144-.33-.107-.68.122-.964.314-.39.796-.902 1.422-1.445 1.362-1.178 2.97-1.952 3.654-1.952.13 0 .254.024.36.077.106-.053.23-.077.36-.077.684 0 2.292.774 3.654 1.952.626.543 1.108 1.055 1.422 1.445.23.283.266.634.122.964zM12 9.832a2.11 2.11 0 110-4.22 2.11 2.11 0 010 4.22zm6.443 5.09c-.395.617-.918 1.27-1.578 1.926-1.36 1.344-3.13 2.57-4.865 3.348-.384.173-.8.173-1.184 0-1.735-.777-3.504-2.004-4.864-3.348-.66-.656-1.184-1.31-1.579-1.926-.94-1.474-.994-3.127-.14-4.508C5.31 8.782 8.397 6.624 12 6.624c3.603 0 6.69 2.158 7.767 3.79.854 1.38.8 3.034-.14 4.508h-.184z"/></svg>`;
 const MAPS_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`;
 
 // Renderizar botón principal + íconos de plataformas adicionales
+// Orden fijo: "Reservar ahora" → Airbnb → WhatsApp → Maps → Booking → resto
 function renderBookingButtons(suite) {
   const bookingUrl = suite.booking_url || '';
   const links = suite.links || [];
@@ -390,16 +387,29 @@ function renderBookingButtons(suite) {
   if (bookingUrl) {
     html += `<a class="btn-reservar" href="${bookingUrl}" target="_blank" rel="noopener">Reservar ahora</a>`;
   }
-  links.forEach(function(l) {
+  const isAirbnb  = l => l.nombre.toLowerCase().includes('airbnb');
+  const isWa      = l => l.nombre.toLowerCase().includes('whatsapp');
+  const isMaps    = l => { const n = l.nombre.toLowerCase(); return n.includes('maps') || n.includes('ubicaci'); };
+  const isBooking = l => l.nombre.toLowerCase().includes('booking');
+  const orderedLinks = [
+    ...links.filter(isAirbnb),
+    ...links.filter(isWa),
+    ...links.filter(isMaps),
+    ...links.filter(isBooking),
+    ...links.filter(l => !isAirbnb(l) && !isWa(l) && !isMaps(l) && !isBooking(l))
+  ];
+  orderedLinks.forEach(function(l) {
     const n = l.nombre.toLowerCase();
     if (n.includes('airbnb')) {
-      html += `<a class="btn-platform btn-platform-airbnb" href="${l.url}" target="_blank" rel="noopener" title="${l.nombre}">${AIRBNB_SVG}</a>`;
+      html += `<a class="btn-platform btn-platform-airbnb" href="${l.url}" target="_blank" rel="noopener">Airbnb</a>`;
     } else if (n.includes('whatsapp')) {
-      html += `<a class="btn-platform btn-platform-wa2" href="${l.url}" target="_blank" rel="noopener" title="${l.nombre}">${WA_SVG}</a>`;
-    } else if (n.includes('maps') || n.includes('ubicaci') || n.includes('google maps')) {
-      html += `<a class="btn-platform btn-platform-maps" href="${l.url}" target="_blank" rel="noopener" title="${l.nombre}">${MAPS_SVG}</a>`;
+      html += `<a class="btn-platform btn-platform-wa2" href="${l.url}" target="_blank" rel="noopener">${WA_SVG}</a>`;
+    } else if (n.includes('maps') || n.includes('ubicaci')) {
+      html += `<a class="btn-platform btn-platform-maps" href="${l.url}" target="_blank" rel="noopener">${MAPS_SVG}</a>`;
+    } else if (n.includes('booking')) {
+      html += `<a class="btn-platform btn-platform-booking" href="${l.url}" target="_blank" rel="noopener">Booking</a>`;
     } else {
-      html += `<a class="btn-platform btn-platform-text" href="${l.url}" target="_blank" rel="noopener" title="${l.nombre}">${l.nombre}</a>`;
+      html += `<a class="btn-platform btn-platform-other" href="${l.url}" target="_blank" rel="noopener">${l.nombre}</a>`;
     }
   });
   return html;
