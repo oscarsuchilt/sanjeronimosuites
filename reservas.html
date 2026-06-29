@@ -425,7 +425,7 @@ function closePlatformPopup() {
 function buildSuiteCard(s) {
   const fotos = s.fotos || [];
   const tags = s.tags || [];
-  const wa = s.whatsapp || '528135527990';
+  const wa = (s.whatsapp && String(s.whatsapp).trim()) ? String(s.whatsapp).trim() : '';
   const tipo = s.tipo === 'king' ? 'King Size' : 'Matrimonial';
   const pisoLabel = `Piso ${s.piso}`;
   const waMsg = encodeURIComponent(`Hola! Me interesa la ${s.nombre} (${tipo}, ${pisoLabel}) de San Jerónimo Suites. ¿Está disponible? Check-in 3:00 pm, Check-out 11:00 am, máx. 2 personas.`);
@@ -455,7 +455,7 @@ function buildSuiteCard(s) {
     <div class="suite-footer">
       <div class="suite-info"><strong>Máx. 2 personas</strong>Check-in 3:00 pm · Check-out 11:00 am</div>
       <div class="btn-group">
-        <button class="btn-wa-card" onclick="handleContact('wa','${waMsg}','${wa}')" title="WhatsApp">${WA_SVG}</button>
+        ${wa ? `<button class="btn-wa-card" onclick="handleContact('wa','${waMsg}','${wa}')" title="WhatsApp">${WA_SVG}</button>` : ''}
         ${renderBookingButtons(s)}
       </div>
     </div>
